@@ -16,10 +16,20 @@ using namespace state;
 
 int main(int argc,char* argv[]) 
 {
-    Exemple exemple;
-    exemple.setX(53);
-
-    cout << "It works !" << endl;
+    if (argc < 2 ){
+        cout << "Usage: ";
+        return 2;
+    }//nombre argument ici bin/client represente un argument et hello un autre par exemple
+    
+    string mode =argv[1];
+    if (mode=="hello"){
+        cout <<"Bonjour le monde" <<endl; //endl pour passer à la ligne.
+    }
+    else if (mode == "state"){
+       
+    }
+       
+    //cout << "It works !" << endl;
 
     return 0;
 }

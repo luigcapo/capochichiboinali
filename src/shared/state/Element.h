@@ -12,7 +12,7 @@ namespace state {
     // Associations
     // Attributes
   protected:
-    int  x;
+    int x;
     int y;
     // Operations
   public:
@@ -21,8 +21,8 @@ namespace state {
     virtual TypeId const getTypeId () = 0;
     virtual bool const isStatic () = 0;
     // Setters and Getters
-    const int & getX() const;
-    void setX(const int & x);
+    int getX() const;
+    void setX(int x);
     int getY() const;
     void setY(int y);
   };

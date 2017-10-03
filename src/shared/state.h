@@ -4,7 +4,7 @@
 
 #include "state/TypeId.h"
 #include "state/Element.h"
-#include "state/DIrection.h"
+#include "state/Direction.h"
 #include "state/Mobile.h"
 #include "state/Static.h"
 #include "state/MillTypeId.h"

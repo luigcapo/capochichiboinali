@@ -8,7 +8,7 @@ namespace state {
 }
 
 #include "Element.h"
-#include "DIrection.h"
+#include "Direction.h"
 
 namespace state {
 
@@ -17,14 +17,14 @@ namespace state {
     // Associations
     // Attributes
   protected:
-    int  point_mouvement;
+    int point_mouvement;
     int cout;
     // Operations
   public:
     Mobile ();
     // Setters and Getters
-    const int & getPoint_mouvement() const;
-    void setPoint_mouvement(const int & point_mouvement);
+    int getPoint_mouvement() const;
+    void setPoint_mouvement(int point_mouvement);
     int getCout() const;
     void setCout(int cout);
   };

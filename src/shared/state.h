@@ -11,8 +11,6 @@
 #include "state/Millitary.h"
 #include "state/Catapult.h"
 #include "state/PlateauTypeId.h"
-#include "state/SpaceTypeId.h"
-#include "state/Space.h"
 #include "state/Plateau.h"
 #include "state/RessourceTypeId.h"
 #include "state/Ressource.h"

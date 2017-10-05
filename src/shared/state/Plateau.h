@@ -4,22 +4,22 @@
 
 
 namespace state {
-  class Space;
+  class Static;
 }
 
 #include "PlateauTypeId.h"
-#include "Space.h"
+#include "Static.h"
 
 namespace state {
 
   /// class Plateau - 
-  class Plateau : public state::Space {
+  class Plateau : public state::Static {
     // Associations
     state::PlateauTypeId plateautypeId;
     // Operations
   public:
     Plateau (PlateauTypeId id);
-    SpaceTypeId const getSpaceTypeId ();
+    TypeId const getTypeId ();
     // Setters and Getters
     PlateauTypeId getPlateautypeId() const;
     void setPlateautypeId(PlateauTypeId plateautypeId);

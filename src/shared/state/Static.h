@@ -16,7 +16,6 @@ namespace state {
     // Operations
   public:
     bool const isStatic ();
-    virtual bool const isSpace () = 0;
     // Setters and Getters
   };
 

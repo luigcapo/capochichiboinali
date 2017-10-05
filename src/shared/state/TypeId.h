@@ -6,11 +6,13 @@
 namespace state {
 
   enum TypeId {
-    Catapult     = 1,
-    Space     = 2,
-    Wall     = 3,
-    Colon     = 4,
-    Millitary     = 5
+    Colon     = 1,
+    Millitary     = 2,
+    Catapult     = 3,
+    Wall     = 4,
+    Plateau     = 5,
+    Ressource     = 6,
+    Colonie     = 7
   };
 
 };

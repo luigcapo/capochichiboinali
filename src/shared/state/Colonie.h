@@ -4,24 +4,24 @@
 
 
 namespace state {
-  class Space;
+  class Static;
   class Batiment;
 }
 
-#include "Space.h"
+#include "Static.h"
 #include "Batiment.h"
 
 namespace state {
 
   /// class Colonie - 
-  class Colonie : public state::Space {
+  class Colonie : public state::Static {
     // Attributes
   protected:
     int cout;
     // Operations
   public:
     Colonie ();
-    SpaceTypeId const getSpaceTypeId ( );
+    TypeId const getTypeId ();
     // Setters and Getters
     int getCout() const;
     void setCout(int cout);

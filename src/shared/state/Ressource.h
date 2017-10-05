@@ -4,22 +4,22 @@
 
 
 namespace state {
-  class Space;
+  class Static;
 }
 
 #include "RessourceTypeId.h"
-#include "Space.h"
+#include "Static.h"
 
 namespace state {
 
   /// class Ressource - 
-  class Ressource : public state::Space {
+  class Ressource : public state::Static {
     // Associations
     state::RessourceTypeId ressourceTypeId;
     // Operations
   public:
     Ressource (RessourceTypeId id);
-    SpaceTypeId const getSpaceTypeId ();
+    TypeId const getTypeId ();
     // Setters and Getters
     RessourceTypeId getRessourceTypeId() const;
     void setRessourceTypeId(RessourceTypeId ressourceTypeId);

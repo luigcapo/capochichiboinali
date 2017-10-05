@@ -16,6 +16,7 @@ namespace state {
     // Operations
   public:
     Colon ();
+    TypeId const getTypeId ();
     // Setters and Getters
   };
 

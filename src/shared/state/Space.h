@@ -15,6 +15,7 @@ namespace state {
   /// class Space - 
   class Space : public state::Static {
     // Associations
+    state::SpaceTypeId spacetypeId;
     // Operations
   public:
     Space (SpaceTypeId id);
@@ -22,6 +23,8 @@ namespace state {
     bool const isSpace ();
     virtual SpaceTypeId const getSpaceTypeId () = 0;
     // Setters and Getters
+    SpaceTypeId getSpacetypeId() const;
+    void setSpacetypeId(SpaceTypeId spacetypeId);
   };
 
 };

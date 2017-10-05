@@ -15,11 +15,14 @@ namespace state {
   /// class Plateau - 
   class Plateau : public state::Space {
     // Associations
+    state::PlateauTypeId plateautypeId;
     // Operations
   public:
     Plateau (PlateauTypeId id);
     SpaceTypeId const getSpaceTypeId ();
     // Setters and Getters
+    PlateauTypeId getPlateautypeId() const;
+    void setPlateautypeId(PlateauTypeId plateautypeId);
   };
 
 };

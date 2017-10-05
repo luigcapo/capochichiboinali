@@ -2,7 +2,6 @@
 #ifndef STATE__BATIMENT__H
 #define STATE__BATIMENT__H
 
-#include <string>
 
 #include "BatimentTypeId.h"
 
@@ -14,7 +13,6 @@ namespace state {
     state::BatimentTypeId batimentTypeId;
     // Attributes
   protected:
-    std::string name;
     int pv;
     int  cout;
     // Operations
@@ -23,8 +21,6 @@ namespace state {
     BatimentTypeId const getBatimentTypeId ();
     // Setters and Getters
     void setBatimentTypeId(BatimentTypeId batimentTypeId);
-    const std::string& getName() const;
-    void setName(const std::string& name);
     int getPv() const;
     void setPv(int pv);
     const int & getCout() const;

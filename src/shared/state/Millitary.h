@@ -7,8 +7,8 @@ namespace state {
   class Mobile;
 }
 
-#include "Mobile.h"
 #include "MillTypeId.h"
+#include "Mobile.h"
 
 namespace state {
 
@@ -22,9 +22,8 @@ namespace state {
     int pv     = 100;
     // Operations
   public:
-    Millitary ();
+    Millitary (MillTypeId id);
     TypeId const getTypeId ();
-    MillTypeId const getMillTypeId ();
     // Setters and Getters
     MillTypeId getMillTypeID() const;
     void setMillTypeID(MillTypeId millTypeID);

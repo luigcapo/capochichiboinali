@@ -24,8 +24,8 @@ namespace state {
   public:
     Ressource (RessourceTypeId id);
     SpaceTypeId const getSpaceTypeId ();
-    RessourceTypeId const getRessourceTypeId ();
     // Setters and Getters
+    RessourceTypeId getRessourceTypeId() const;
     void setRessourceTypeId(RessourceTypeId ressourceTypeId);
     const std::string& getName() const;
     void setName(const std::string& name);

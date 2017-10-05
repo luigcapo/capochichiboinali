@@ -28,10 +28,10 @@ namespace state {
   public:
     Wall (WallTypeId id);
     TypeId const getTypeId ();
-    WallTypeId const getWallTypeId ();
     bool const isStatic ();
     bool const isSpace ();
     // Setters and Getters
+    WallTypeId getWallTypeId() const;
     void setWallTypeId(WallTypeId wallTypeId);
     int getPv() const;
     void setPv(int pv);

@@ -19,7 +19,6 @@ namespace state {
   public:
     Plateau (PlateauTypeId id);
     SpaceTypeId const getSpaceTypeId ();
-    PlateauTypeId const getPlateauTypeId ();
     // Setters and Getters
   };
 

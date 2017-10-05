@@ -9,8 +9,8 @@
 namespace state{
 
     Element::Element() {
-        int x=0;
-        int y=0;
+        x=0;
+        y=0;
     }
     
     Element::~Element() {}

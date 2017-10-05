@@ -2,7 +2,6 @@
 #ifndef STATE__RESSOURCE__H
 #define STATE__RESSOURCE__H
 
-#include <string>
 
 namespace state {
   class Space;
@@ -17,9 +16,6 @@ namespace state {
   class Ressource : public state::Space {
     // Associations
     state::RessourceTypeId ressourceTypeId;
-    // Attributes
-  protected:
-    std::string name;
     // Operations
   public:
     Ressource (RessourceTypeId id);
@@ -27,8 +23,6 @@ namespace state {
     // Setters and Getters
     RessourceTypeId getRessourceTypeId() const;
     void setRessourceTypeId(RessourceTypeId ressourceTypeId);
-    const std::string& getName() const;
-    void setName(const std::string& name);
   };
 
 };

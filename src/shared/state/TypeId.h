@@ -7,13 +7,12 @@ namespace state {
 
   enum TypeId {
     Ressource     = 1,
-    Techno     = 2,
+    Catapult     = 2,
     Plateau     = 3,
     Colonies     = 4,
     Wall     = 5,
     Colon     = 6,
-    Millitary     = 7,
-    Catapult     = 8
+    Millitary     = 7
   };
 
 };

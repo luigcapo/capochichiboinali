@@ -2,7 +2,6 @@
 #ifndef STATE__WALL__H
 #define STATE__WALL__H
 
-#include <string>
 
 namespace state {
   class Static;
@@ -18,8 +17,6 @@ namespace state {
     // Associations
     state::WallTypeId wallTypeId;
     // Attributes
-  public:
-    std::string name;
   protected:
     int pv;
     int def;

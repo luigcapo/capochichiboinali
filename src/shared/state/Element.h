@@ -10,6 +10,7 @@ namespace state {
   /// class Element - 
   class Element {
     // Associations
+    state::TypeId typeId;
     // Attributes
   protected:
     int x;
@@ -21,6 +22,7 @@ namespace state {
     virtual TypeId const getTypeId () = 0;
     virtual bool const isStatic () = 0;
     // Setters and Getters
+    void setTypeId(TypeId typeId);
     int getX() const;
     void setX(int x);
     int getY() const;

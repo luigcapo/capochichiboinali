@@ -16,6 +16,7 @@ using namespace state;
 
 int main(int argc,char* argv[]) 
 {
+    
     if (argc < 2 ){
         cout << "Usage: ";
         return 2;
@@ -26,7 +27,11 @@ int main(int argc,char* argv[])
         cout <<"Bonjour le monde" <<endl; //endl pour passer à la ligne.
     }
     else if (mode == "state"){
+        Millitary m;
+        m = new Millitary(epeiste);
        
+        cout<< m->getTypeId() <<endl;
+        delete m;
     }
        
     //cout << "It works !" << endl;

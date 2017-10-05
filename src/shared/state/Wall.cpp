@@ -32,10 +32,6 @@ namespace state{
         return wallTypeId;
     }
 
-    const bool Wall::isStatic() {
-        return true;
-    }
-
     void Wall::setCout(int cout) {
         this->cout=cout;
     }

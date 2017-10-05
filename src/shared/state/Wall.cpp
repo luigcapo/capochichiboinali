@@ -13,54 +13,48 @@ namespace state{
     }
 
     int Wall::getCout() const {
-        
+        return cout;
     }
 
     int Wall::getDef() const {
-
+        return def;
     }
 
     int Wall::getPv() const {
-
+        return pv;
     }
 
     const TypeId Wall::getTypeId() {
-
+        return TypeId::Wall;
     }
 
     WallTypeId Wall::getWallTypeId() const {
-
+        return wallTypeId;
     }
 
     const bool Wall::isSpace() {
-
+        return false;
     }
 
     const bool Wall::isStatic() {
-
+        return true;
     }
 
     void Wall::setCout(int cout) {
-
+        this->cout=cout;
     }
 
     void Wall::setDef(int def) {
-
+        this->def=def;
     }
 
     void Wall::setPv(int pv) {
-
+        this->pv=pv;
     }
 
     void Wall::setWallTypeId(WallTypeId wallTypeId) {
-
+        this->wallTypeId=wallTypeId;
     }
-
-
-
-
-
-
 
 
 

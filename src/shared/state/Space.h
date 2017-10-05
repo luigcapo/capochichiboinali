@@ -7,8 +7,8 @@ namespace state {
   class Static;
 }
 
-#include "SpaceTypeId.h"
 #include "Static.h"
+#include "SpaceTypeId.h"
 
 namespace state {
 
@@ -18,7 +18,6 @@ namespace state {
     state::SpaceTypeId spacetypeId;
     // Operations
   public:
-    Space (SpaceTypeId id);
     TypeId const getTypeId ();
     bool const isSpace ();
     virtual SpaceTypeId const getSpaceTypeId () = 0;

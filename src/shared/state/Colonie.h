@@ -21,7 +21,7 @@ namespace state {
     // Operations
   public:
     Colonie ();
-    SpaceTypeId const getSpaceTypeId ();
+    SpaceTypeId const getSpaceTypeId ( );
     // Setters and Getters
     int getCout() const;
     void setCout(int cout);

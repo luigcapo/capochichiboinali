@@ -14,10 +14,6 @@ namespace state{
         return cout;
     }
 
-    const SpaceTypeId Colonie::getSpaceTypeId() {
-        return SpaceTypeId::Colonie;
-    }
-
     void Colonie::setCout(int cout) {
         this->cout=cout;
     }

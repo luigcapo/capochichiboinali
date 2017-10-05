@@ -32,10 +32,6 @@ namespace state{
         return wallTypeId;
     }
 
-    const bool Wall::isSpace() {
-        return false;
-    }
-
     const bool Wall::isStatic() {
         return true;
     }

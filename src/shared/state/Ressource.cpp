@@ -10,16 +10,9 @@ namespace state{
         this->ressourceTypeId = id;
     }
 
-    
-
     RessourceTypeId Ressource::getRessourceTypeId() const {
         return ressourceTypeId;
     }
-
-    const SpaceTypeId Ressource::getSpaceTypeId() {
-        return SpaceTypeId::Ressource;
-    }
-
 
     void Ressource::setRessourceTypeId(RessourceTypeId ressourceTypeId) {
         this->ressourceTypeId = ressourceTypeId;

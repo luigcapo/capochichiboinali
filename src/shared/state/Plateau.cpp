@@ -15,10 +15,6 @@ namespace state{
         return plateautypeId;
     }
 
-    const SpaceTypeId Plateau::getSpaceTypeId() {
-        return SpaceTypeId::Plateau;
-    }
-
     void Plateau::setPlateautypeId(PlateauTypeId plateautypeId) {
         this->plateautypeId = plateautypeId;
     }

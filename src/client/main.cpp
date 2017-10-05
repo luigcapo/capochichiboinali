@@ -24,11 +24,11 @@ int main(int argc,char* argv[])
     
     string mode =argv[1];
     if (mode=="hello"){
-        cout <<"Bonjour le monde" <<endl; //endl pour passer à la ligne.
+        cout <<"Hello world !" <<endl; //endl pour passer à la ligne.
     }
     else if (mode == "state"){
         Millitary m;
-        m = new Millitary(epeiste);
+        m = new Millitary(1);
        
         cout<< m->getTypeId() <<endl;
         delete m;

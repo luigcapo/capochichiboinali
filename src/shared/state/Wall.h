@@ -27,7 +27,7 @@ namespace state {
     // Operations
   public:
     Wall (WallTypeId id);
-    TypeId const getType ();
+    TypeId const getTypeId ();
     WallTypeId const getWallTypeId ();
     // Setters and Getters
     void setWallTypeId(WallTypeId wallTypeId);

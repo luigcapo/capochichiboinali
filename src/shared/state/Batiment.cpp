@@ -7,12 +7,34 @@
 #include "Batiment.h"
 
 namespace state {
-    
-        Batiment::Batiment(BatimentTypeId id) {
-            
-    }
-        
-        
 
-    
+    Batiment::Batiment(BatimentTypeId id) {
+        this->batimentTypeId = id;
+    }
+
+    const BatimentTypeId Batiment::getBatimentTypeId() {
+        return batimentTypeId;
+    }
+
+
+    void Batiment::setBatimentTypeId(BatimentTypeId batimentTypeId) {
+
+    }
+
+    int Batiment::getCout() const {
+
+    }
+
+    int Batiment::getPv() const {
+
+    }
+
+    void Batiment::setCout(int cout) {
+
+    }
+
+    void Batiment::setPv(int pv) {
+
+    }
+
 }

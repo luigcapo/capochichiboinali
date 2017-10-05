@@ -14,7 +14,7 @@ namespace state {
     // Attributes
   protected:
     int pv;
-    int  cout;
+    int cout;
     // Operations
   public:
     Batiment (BatimentTypeId id);
@@ -23,8 +23,8 @@ namespace state {
     void setBatimentTypeId(BatimentTypeId batimentTypeId);
     int getPv() const;
     void setPv(int pv);
-    const int & getCout() const;
-    void setCout(const int & cout);
+    int getCout() const;
+    void setCout(int cout);
   };
 
 };

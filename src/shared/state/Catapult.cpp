@@ -9,32 +9,28 @@ namespace state{
 
     Catapult::Catapult() {
         combat = 0;
+        pv=100;
+        
     }
 
     int Catapult::getCombat() const {
         return combat;
     }
+    
+    void Catapult::setCombat(int combat) {
+        this->combat=combat;
+    }
 
     int Catapult::getPv() const {
         return pv;
+    }
+    
+    void Catapult::setPv(int pv) {
+        this->pv=pv;
     }
 
     const TypeId Catapult::getTypeId() {
         return TypeId::Catapult;
     }
 
-    void Catapult::setCombat(int combat) {
-        this->combat=combat;
-    }
-
-    void Catapult::setPv(int pv) {
-    }
-
-
-
-
-
 }
-
-
-

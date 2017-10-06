@@ -10,5 +10,9 @@ namespace state{
     Colon::Colon() {
         
     }
+    
+    const TypeId Colon::getTypeId() {
+        return TypeId::Colon;
+    }
 
 }

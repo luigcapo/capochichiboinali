@@ -18,7 +18,6 @@ namespace state {
         return batimentTypeId;
     }
 
-
     void Batiment::setBatimentTypeId(BatimentTypeId batimentTypeId) {
         this->batimentTypeId =  batimentTypeId ;
     }

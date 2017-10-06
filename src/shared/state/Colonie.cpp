@@ -17,5 +17,9 @@ namespace state{
     void Colonie::setCout(int cout) {
         this->cout=cout;
     }
+    
+    const TypeId Colonie::getTypeId() {
+        return TypeId::Colonie;
+    }
 
 }

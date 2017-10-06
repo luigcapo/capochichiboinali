@@ -13,6 +13,24 @@ namespace state{
         y=0;
     }
     
-    Element::~Element() {}
+    Element::~Element() {
+    
+    }
+    
+        int Element::getX() const {
+        return x; 
+    }
+    
+    void Element::setX(int x) {
+        this->x = x;
+    }
+    
+    int Element::getY() const {
+        return y;
+    }
+    
+    void Element::setY(int y) {
+        this->y = y;
+    }
     
 }

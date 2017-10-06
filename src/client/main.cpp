@@ -27,11 +27,12 @@ int main(int argc,char* argv[])
         cout <<"Hello world !" <<endl; //endl pour passer à la ligne.
     }
     else if (mode == "state"){
-        Millitary m;
-        m = new Millitary(1);
-       
-        cout<< m->getTypeId() <<endl;
-        delete m;
+        cout << "Test implantation des états..." << endl;  
+        cout << "Création d'un épéiste !" << endl;
+        Millitary m(1);
+        cout << "Vérifie si c'est bien un militaire: ";
+        if(m.getTypeId()==1) cout << "OK" << endl;
+        else cout << "Erreur" << endl;
     }
        
     //cout << "It works !" << endl;

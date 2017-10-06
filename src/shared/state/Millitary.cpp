@@ -10,36 +10,35 @@ namespace state{
     Millitary::Millitary(MillTypeId id) {
         combat=0;
         millTypeID=id;
+        pv=100;
     }
-
+    
+    const TypeId Millitary::getTypeId() {
+        return TypeId::Millitary;
+    }
 
     int Millitary::getCombat() const {
         return combat;
+    }
+    
+    void Millitary::setCombat(int combat) {
+        this->combat=combat;
     }
 
     MillTypeId Millitary::getMillTypeID() const {
         return millTypeID;
     }
 
-
+    void Millitary::setMillTypeID(MillTypeId millTypeID) {
+        this->millTypeID=millTypeID;
+    }
+    
     int Millitary::getPv() const {
         return pv;
     }
 
-    const TypeId Millitary::getTypeId() {
-        return TypeId::Millitary;
-    }
-
-    void Millitary::setCombat(int combat) {
-        this->combat=combat;
-    }
-
-    void Millitary::setMillTypeID(MillTypeId millTypeID) {
-    
-    }
-
     void Millitary::setPv(int pv) {
-
+        this->pv=pv;
     }
 
 }

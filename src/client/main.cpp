@@ -28,10 +28,10 @@ int main(int argc,char* argv[])
     }
     else if (mode == "state"){
         cout << "Test implantation des états..." << endl;  
-        cout << "Création d'un épéiste !" << endl;
-        Millitary m(1);
-        cout << "Vérifie si c'est bien un militaire: ";
-        if(m.getTypeId()==1) cout << "OK" << endl;
+        cout << "Création d'une colonie..." << endl;
+        Colonie c;
+        cout << "Vérifie si c'est bien statique: ";
+        if(c.isStatic()==true) cout << "OK" << endl;
         else cout << "Erreur" << endl;
     }
        

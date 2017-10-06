@@ -9,8 +9,8 @@ namespace state{
 
     Millitary::Millitary(MillTypeId id) {
         combat=0;
-        millTypeID=id;
         pv=100;
+        millTypeID=id;
     }
     
     const TypeId Millitary::getTypeId() {

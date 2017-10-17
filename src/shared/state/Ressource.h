@@ -8,6 +8,7 @@ namespace state {
 }
 
 #include "RessourceTypeId.h"
+#include "TypeId.h"
 #include "Static.h"
 
 namespace state {
@@ -19,7 +20,7 @@ namespace state {
     // Operations
   public:
     Ressource (RessourceTypeId id);
-    TypeId const getTypeId ();
+    TypeId getTypeId () const;
     // Setters and Getters
     RessourceTypeId getRessourceTypeId() const;
     void setRessourceTypeId(RessourceTypeId ressourceTypeId);

@@ -7,6 +7,7 @@ namespace state {
   class Mobile;
 }
 
+#include "TypeId.h"
 #include "Mobile.h"
 
 namespace state {
@@ -20,7 +21,7 @@ namespace state {
     // Operations
   public:
     Catapult ();
-    TypeId const getTypeId ();
+    TypeId getTypeId () const;
     // Setters and Getters
     int getCombat() const;
     void setCombat(int combat);

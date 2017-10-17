@@ -3,6 +3,7 @@
 #define __STATE__H
 
 #include "state/TypeId.h"
+#include "state/ElementTab.h"
 #include "state/Element.h"
 #include "state/Direction.h"
 #include "state/Mobile.h"

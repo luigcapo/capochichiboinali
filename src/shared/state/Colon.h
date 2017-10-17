@@ -7,6 +7,7 @@ namespace state {
   class Mobile;
 }
 
+#include "TypeId.h"
 #include "Mobile.h"
 
 namespace state {
@@ -16,7 +17,7 @@ namespace state {
     // Operations
   public:
     Colon ();
-    TypeId const getTypeId ();
+    TypeId getTypeId () const;
     // Setters and Getters
   };
 

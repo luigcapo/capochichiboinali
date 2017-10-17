@@ -11,7 +11,7 @@ namespace state{
         
     }
     
-    const TypeId Colon::getTypeId() {
+    TypeId Colon::getTypeId() const{
         return TypeId::Colon;
     }
 

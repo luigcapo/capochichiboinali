@@ -10,7 +10,6 @@ namespace state {
 
     Mobile::Mobile() {
         point_mouvement=0;
-        speed=0;
         cout=0;
     }
 
@@ -21,12 +20,8 @@ namespace state {
     int Mobile::getPoint_mouvement() const {
         return point_mouvement;
     }
-
-    int Mobile::getSpeed() const {
-        return speed;
-    }
-
-    const bool Mobile::isStatic() {
+    
+    bool Mobile::isStatic() const{
         return false;
     }
 
@@ -36,10 +31,6 @@ namespace state {
 
     void Mobile::setPoint_mouvement(int point_mouvement) {
         this->point_mouvement=point_mouvement;
-    }
-
-    void Mobile::setSpeed(int speed) {
-        this->speed=speed;
     }
 
 }

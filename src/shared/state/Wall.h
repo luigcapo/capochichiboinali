@@ -8,6 +8,7 @@ namespace state {
 }
 
 #include "WallTypeId.h"
+#include "TypeId.h"
 #include "Static.h"
 
 namespace state {
@@ -24,7 +25,7 @@ namespace state {
     // Operations
   public:
     Wall (WallTypeId id);
-    TypeId const getTypeId ();
+    TypeId getTypeId () const;
     // Setters and Getters
     WallTypeId getWallTypeId() const;
     void setWallTypeId(WallTypeId wallTypeId);

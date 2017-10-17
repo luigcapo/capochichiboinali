@@ -7,14 +7,14 @@
 #include "Batiment.h"
 
 namespace state {
-
+    
     Batiment::Batiment(BatimentTypeId id) {
         cout = 0;
         pv=0;
         this->batimentTypeId = id;
     }
 
-    const BatimentTypeId Batiment::getBatimentTypeId() {
+    BatimentTypeId Batiment::getBatimentTypeId() const{
         return batimentTypeId;
     }
 

@@ -13,7 +13,7 @@ namespace state{
         millTypeID=id;
     }
     
-    const TypeId Millitary::getTypeId() {
+    TypeId Millitary::getTypeId() const{
         return TypeId::Millitary;
     }
 

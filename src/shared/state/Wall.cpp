@@ -13,7 +13,7 @@ namespace state{
         cout=0;
         
     }
-
+    
     int Wall::getCout() const {
         return cout;
     }
@@ -37,8 +37,8 @@ namespace state{
     void Wall::setPv(int pv) {
         this->pv=pv;
     }
-
-    const TypeId Wall::getTypeId() {
+    
+    TypeId Wall::getTypeId() const {
         return TypeId::Wall;
     }
 

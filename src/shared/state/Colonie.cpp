@@ -13,12 +13,12 @@ namespace state{
     int Colonie::getCout() const {
         return cout;
     }
-
+        
     void Colonie::setCout(int cout) {
         this->cout=cout;
     }
     
-    const TypeId Colonie::getTypeId() {
+    TypeId Colonie::getTypeId() const{
         return TypeId::Colonie;
     }
 

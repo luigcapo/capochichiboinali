@@ -8,7 +8,7 @@
 
 namespace state{
 
-   const bool Static::isStatic() {
+    bool Static::isStatic() const {
         return true;
     }
 

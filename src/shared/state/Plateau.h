@@ -8,6 +8,7 @@ namespace state {
 }
 
 #include "PlateauTypeId.h"
+#include "TypeId.h"
 #include "Static.h"
 
 namespace state {
@@ -19,7 +20,7 @@ namespace state {
     // Operations
   public:
     Plateau (PlateauTypeId id);
-    TypeId const getTypeId ();
+    TypeId getTypeId () const;
     // Setters and Getters
     PlateauTypeId getPlateautypeId() const;
     void setPlateautypeId(PlateauTypeId plateautypeId);

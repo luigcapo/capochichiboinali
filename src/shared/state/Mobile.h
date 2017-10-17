@@ -18,17 +18,14 @@ namespace state {
     // Attributes
   protected:
     int point_mouvement;
-    int speed;
     int cout;
     // Operations
   public:
     Mobile ();
-    bool const isStatic ();
+    bool isStatic () const;
     // Setters and Getters
     int getPoint_mouvement() const;
     void setPoint_mouvement(int point_mouvement);
-    int getSpeed() const;
-    void setSpeed(int speed);
     int getCout() const;
     void setCout(int cout);
   };

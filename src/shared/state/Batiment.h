@@ -18,7 +18,7 @@ namespace state {
     // Operations
   public:
     Batiment (BatimentTypeId id);
-    BatimentTypeId const getBatimentTypeId ();
+    BatimentTypeId getBatimentTypeId () const;
     // Setters and Getters
     void setBatimentTypeId(BatimentTypeId batimentTypeId);
     int getPv() const;

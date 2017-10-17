@@ -29,7 +29,7 @@ namespace state{
         this->pv=pv;
     }
 
-    const TypeId Catapult::getTypeId() {
+    TypeId Catapult::getTypeId() const{
         return TypeId::Catapult;
     }
 

@@ -8,6 +8,7 @@ namespace state {
   class Batiment;
 }
 
+#include "TypeId.h"
 #include "Static.h"
 #include "Batiment.h"
 
@@ -15,13 +16,14 @@ namespace state {
 
   /// class Colonie - 
   class Colonie : public state::Static {
+    // Associations
     // Attributes
   protected:
     int cout;
     // Operations
   public:
     Colonie ();
-    TypeId const getTypeId ();
+    TypeId getTypeId () const;
     // Setters and Getters
     int getCout() const;
     void setCout(int cout);

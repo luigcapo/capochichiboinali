@@ -21,4 +21,5 @@
 #include "state/Colon.h"
 #include "state/WallTypeId.h"
 #include "state/Wall.h"
+#include "state/State.h"
 #endif

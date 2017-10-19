@@ -25,6 +25,8 @@ namespace state {
     size_t add (Element* e);
     void resize (size_t width, size_t height);
     Element* get (int i, int j = 0) const;
+    size_t getWidth () const;
+    size_t getHeight () const;
     // Setters and Getters
   };
 

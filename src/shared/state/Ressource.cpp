@@ -17,5 +17,8 @@ namespace state{
     void Ressource::setRessourceTypeId(RessourceTypeId ressourceTypeId) {
         this->ressourceTypeId = ressourceTypeId;
     }
-
+    
+    TypeId Ressource::getTypeId() const{
+        return TypeId::Ressource;
+    }
 }

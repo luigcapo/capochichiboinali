@@ -18,5 +18,8 @@ namespace state{
     void Plateau::setPlateautypeId(PlateauTypeId plateautypeId) {
         this->plateautypeId = plateautypeId;
     }
-
+    
+    TypeId Plateau::getTypeId() const{
+        return TypeId::Plateau;
+    }
 }

@@ -10,10 +10,13 @@ namespace state {
   class Element;
 }
 
+#include "Element.h"
+
 namespace state {
 
   /// class ElementTab - 
   class ElementTab {
+    // Associations
     // Attributes
   private:
     size_t width;
@@ -22,11 +25,11 @@ namespace state {
     // Operations
   public:
     ElementTab (size_t width = 0, size_t height = 1);
-    size_t add (Element* e);
-    void resize (size_t width, size_t height);
+    void add (Element* e);
     Element* get (int i, int j = 0) const;
     size_t getWidth () const;
     size_t getHeight () const;
+    void set (int i, int j, Element * e);
     // Setters and Getters
   };
 

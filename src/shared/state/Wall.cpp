@@ -49,5 +49,19 @@ namespace state{
     void Wall::setWallTypeId(WallTypeId wallTypeId) {
         this->wallTypeId=wallTypeId;
     }
+    bool Plateau::isColonie() const {
+        return false;
+    }
 
+    bool Plateau::isPlateau() const {
+        return false;
+    }
+
+    bool Plateau::isRessource() const {
+        return false;
+    }
+
+    bool Plateau::isWall() const {
+        return true;
+    }
 }

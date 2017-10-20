@@ -22,6 +22,9 @@ namespace state {
   public:
     Catapult ();
     TypeId getTypeId () const;
+    bool isColon () const;
+    bool isCatapult () const;
+    bool isMillitary () const;
     // Setters and Getters
     int getCombat() const;
     void setCombat(int combat);

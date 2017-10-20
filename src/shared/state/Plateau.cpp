@@ -22,4 +22,22 @@ namespace state{
     TypeId Plateau::getTypeId() const{
         return TypeId::Plateau;
     }
+
+    bool Plateau::isColonie() const {
+        return false;
+    }
+
+    bool Plateau::isPlateau() const {
+        return true;
+    }
+
+    bool Plateau::isRessource() const {
+        return false;
+    }
+
+    bool Plateau::isWall() const {
+        return false;
+    }
+
+
 }

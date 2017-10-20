@@ -12,7 +12,8 @@ namespace state {
 namespace state {
 
   /// class State - 
-  class State : public state::ElementTab {
+  class State {
+    // Associations
     // Attributes
   public:
     ElementTab grid;

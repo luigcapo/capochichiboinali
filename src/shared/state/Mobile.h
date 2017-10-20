@@ -23,6 +23,9 @@ namespace state {
   public:
     Mobile ();
     bool isStatic () const;
+    virtual bool isColon () const = 0;
+    virtual bool isCatapult () const = 0;
+    virtual bool isMillitary () const = 0;
     // Setters and Getters
     int getPoint_mouvement() const;
     void setPoint_mouvement(int point_mouvement);

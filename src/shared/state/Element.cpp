@@ -14,7 +14,6 @@ namespace state{
     }
     
     Element::~Element() {
-    
     }
     
         int Element::getX() const {

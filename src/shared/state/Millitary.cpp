@@ -40,5 +40,16 @@ namespace state{
     void Millitary::setPv(int pv) {
         this->pv=pv;
     }
+    bool Catapult::isCatapult() const {
+        return false;
+    }
+
+    bool Catapult::isColon() const {
+        return false;
+    }
+
+    bool Catapult::isMillitary() const {
+        return true;
+    }
 
 }

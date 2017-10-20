@@ -14,5 +14,15 @@ namespace state{
     TypeId Colon::getTypeId() const{
         return TypeId::Colon;
     }
+    bool Catapult::isCatapult() const {
+        return false;
+    }
 
+    bool Catapult::isColon() const {
+        return true;
+    }
+
+    bool Catapult::isMillitary() const {
+        return false;
+    }
 }

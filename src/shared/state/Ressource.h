@@ -21,6 +21,10 @@ namespace state {
   public:
     Ressource (RessourceTypeId id);
     TypeId getTypeId () const;
+    bool isColonie () const;
+    bool isPlateau () const;
+    bool isWall () const;
+    bool isRessource () const;
     // Setters and Getters
     RessourceTypeId getRessourceTypeId() const;
     void setRessourceTypeId(RessourceTypeId ressourceTypeId);

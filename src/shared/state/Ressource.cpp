@@ -21,19 +21,19 @@ namespace state{
     TypeId Ressource::getTypeId() const{
         return TypeId::Ressource;
     }
-    bool Plateau::isColonie() const {
+    bool Ressource::isColonie() const {
         return false;
     }
 
-    bool Plateau::isPlateau() const {
+    bool Ressource::isPlateau() const {
         return false;
     }
 
-    bool Plateau::isRessource() const {
+    bool Ressource::isRessource() const {
         return true;
     }
 
-    bool Plateau::isWall() const {
+    bool Ressource::isWall() const {
         return false;
     }
 }

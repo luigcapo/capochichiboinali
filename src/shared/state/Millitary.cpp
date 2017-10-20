@@ -40,15 +40,15 @@ namespace state{
     void Millitary::setPv(int pv) {
         this->pv=pv;
     }
-    bool Catapult::isCatapult() const {
+    bool Millitary::isCatapult() const {
         return false;
     }
 
-    bool Catapult::isColon() const {
+    bool Millitary::isColon() const {
         return false;
     }
 
-    bool Catapult::isMillitary() const {
+    bool Millitary::isMillitary() const {
         return true;
     }
 

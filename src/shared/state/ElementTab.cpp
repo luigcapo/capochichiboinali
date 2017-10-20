@@ -18,7 +18,7 @@ namespace state{
     }
     
     Element* ElementTab::get(int i, int j) const {
-        return ElementTab[i,j];
+        return list[i,j];
     }
 
     size_t ElementTab::getHeight() const {
@@ -30,7 +30,7 @@ namespace state{
     }
 
     void ElementTab::set(int i, int j, Element* e) {
-
+        
     }
 
 

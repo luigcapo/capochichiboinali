@@ -15,6 +15,7 @@ namespace state {
   /// class Mobile - 
   class Mobile : public state::Element {
     // Associations
+    state::Direction direction;
     // Attributes
   protected:
     int point_mouvement;
@@ -22,11 +23,13 @@ namespace state {
     // Operations
   public:
     Mobile ();
-    bool isStatic () const;
     virtual bool isColon () const = 0;
     virtual bool isCatapult () const = 0;
     virtual bool isMillitary () const = 0;
+    bool isStatic () const;
     // Setters and Getters
+    Direction getDirection() const;
+    void setDirection(Direction direction);
     int getPoint_mouvement() const;
     void setPoint_mouvement(int point_mouvement);
     int getCout() const;

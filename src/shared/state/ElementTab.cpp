@@ -8,33 +8,29 @@
 
 namespace state{
 
-    ElementTab::ElementTab(size_t width, size_t height) {
+    ElementTab::ElementTab (int width, int height) {
         this->width = width;
         this->height = height;
     }
-
-    void ElementTab::add(Element* e) {
-        list.push_back(&e);
+    
+    int ElementTab::getWidth () const {
+        return this->width;
     }
     
-    Element* ElementTab::get(int i, int j) const {
-        return list[i,j];
+    int ElementTab::getHeight () const {
+        return this->height;
     }
 
-    size_t ElementTab::getHeight() const {
-        return height;
+    void ElementTab::add (Element* e) {
+        list.push_back(std::unique_ptr<state::Element>(e));
+    }
+    
+    Element* ElementTab::get (int i, int j) const {
+        return ElementTab::list[i,j];
     }
 
-    size_t ElementTab::getWidth() const {
-        return width;
+    void ElementTab::set (int i, int j, Element* e) {
+        //list[i,j] = e;
     }
-
-    void ElementTab::set(int i, int j, Element* e) {
-        
-    }
-
-
-
-
 
 }

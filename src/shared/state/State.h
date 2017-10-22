@@ -15,12 +15,11 @@ namespace state {
   class State {
     // Associations
     // Attributes
-  public:
+  private:
     ElementTab grid;
     // Operations
   public:
     ElementTab& getGrid ();
-    const ElementTab& getGrid () const;
     // Setters and Getters
   };
 

@@ -36,48 +36,10 @@ int main(int argc,char* argv[])
     }//nombre argument ici bin/client represente un argument et hello un autre par exemple
     
     string mode = argv[1];
-    if (mode == "hello"){
+    if (mode == "hello")
         cout << "Hello world !" << endl; //endl pour passer à la ligne.
-    }
-    else if (mode == "state"){
-        cout << "Test de l'implantation des états..." << endl; 
-        cout << "Fabrique un état..." << endl;
-        
-        cout << "Tests sur la liste des personnages..." << endl;
-        cout << "Ajout d'un colon..." << endl;
-        cout << "Vérifie que la largeur est 1:    ";
-        cout << "Vérifie que le premier élément est non nul:    ";
-        cout << "Vérifie que le premier élément est bien un colon:    ";
-        cout << "Vérifie que le premier élément est statique:    ";
-        cout << "Ajout d'un militaire de type épéiste..." << endl;
-        cout << "Vérifie que la largeur est 2:    ";
-        cout << "Vérifie que le deuxième élément est non nul:    ";
-        cout << "Vérifie que le deuxième élément est bien un militaire:    ";
-        cout << "Vérifie que le militaire est du bon type:    ";
-        cout << "Ajout d'un militaire de type mousquetaire..." << endl;
-        cout << "Vérifie que la largeur est 3:    ";
-        cout << "Vérifie que le troisième élément est non nul:    ";
-        cout << "Vérifie que le troisième élément est bien un militaire:    ";
-        cout << "Vérifie que le militaire est du bon type:    ";
-        cout << "Ajout d'une catapulte..." << endl;
-        cout << "Vérifie que la largeur est 4:    ";
-        cout << "Vérifie que le quatrième élément est non nul:    ";
-        cout << "Vérifie que le quatrième élément est bien une catapulte:    ";
-        
-        cout << "Tests sur la grille..." << endl;
-        cout << "Cree une grille de taille 11 par 10..." << endl;
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la hauteur est correte:    ";
-        cout<<
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la largeur est correte:    ";
-        cout << "Vérifie que la largeur est correte:    ";
-    }
+    else if (mode == "state")
+        testState();
     
     return 0;
 }

@@ -12,17 +12,16 @@ namespace state{
     void testState(){
         cout << "Test de l'implantation des états..." << endl;
         cout << "Fabrique un état..." << endl;
-        
-        /*Element e = new ElementTab(15, 12);
-        
+        /*State st;
+        ElementTab et(15, 12);
         
         //Tests sur la liste des personnages
         cout << "Tests sur la liste des personnages..." << endl;
         cout << "Ajoute un colon..." << endl;
-        Colon *c = new Colon();
-        e.add(c);
+        /*Colon c;
+        st.getChars().add(c);
         
-        cout << "Vérifie que la largeur est 1:    ";
+        /*cout << "Vérifie que la largeur est 1:    ";
         if(e.size() == 1)
             cout << "OK" << endl;
         else
@@ -210,6 +209,5 @@ namespace state{
             cout << "Error" << endl;*/
         
         //Tests classe Batiment
-        //delete e;
     }
 }

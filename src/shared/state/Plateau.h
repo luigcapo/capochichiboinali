@@ -21,10 +21,6 @@ namespace state {
   public:
     Plateau (PlateauTypeId id);
     TypeId getTypeId () const;
-    bool isPlateau () const;
-    bool isRessource () const;
-    bool isWall () const;
-    bool isColonie () const;
     // Setters and Getters
     PlateauTypeId getPlateautypeId() const;
     void setPlateautypeId(PlateauTypeId plateautypeId);

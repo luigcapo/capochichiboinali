@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include "Colon.h"
+
+#include "State.h"
 
 namespace state{
-
-    Colon::Colon() {
         
+    ElementTab& State::getChars() {
+        return this->chars;
     }
     
-    TypeId Colon::getTypeId() const{
-        return TypeId::Colon;
-    }
+    ElementTab& State::getGrid() {
+        return this->grid;
+    } 
 }

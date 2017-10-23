@@ -17,9 +17,11 @@ namespace state {
     // Attributes
   private:
     ElementTab grid;
+    ElementTab chars;
     // Operations
   public:
     ElementTab& getGrid ();
+    ElementTab& getChars ();
     // Setters and Getters
   };
 

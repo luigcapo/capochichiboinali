@@ -23,9 +23,6 @@ namespace state {
     // Operations
   public:
     Mobile ();
-    virtual bool isColon () const = 0;
-    virtual bool isCatapult () const = 0;
-    virtual bool isMillitary () const = 0;
     bool isStatic () const;
     // Setters and Getters
     Direction getDirection() const;

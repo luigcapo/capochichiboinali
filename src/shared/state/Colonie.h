@@ -24,10 +24,6 @@ namespace state {
   public:
     Colonie ();
     TypeId getTypeId () const;
-    bool isColonie () const;
-    bool isWall () const;
-    bool isPlateau () const;
-    bool isRessource () const;
     // Setters and Getters
     int getCout() const;
     void setCout(int cout);

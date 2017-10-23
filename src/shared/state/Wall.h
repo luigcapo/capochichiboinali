@@ -26,10 +26,6 @@ namespace state {
   public:
     Wall (WallTypeId id);
     TypeId getTypeId () const;
-    bool isColonie () const;
-    bool isRessource () const;
-    bool isWall () const;
-    bool isPlateau () const;
     // Setters and Getters
     WallTypeId getWallTypeId() const;
     void setWallTypeId(WallTypeId wallTypeId);

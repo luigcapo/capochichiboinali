@@ -18,9 +18,6 @@ namespace state {
   public:
     Colon ();
     TypeId getTypeId () const;
-    bool isColon () const;
-    bool isMillitary () const;
-    bool isCatapult () const;
     // Setters and Getters
   };
 

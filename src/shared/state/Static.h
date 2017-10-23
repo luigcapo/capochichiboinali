@@ -15,10 +15,6 @@ namespace state {
   class Static : public state::Element {
     // Operations
   public:
-    virtual bool isColonie () const = 0;
-    virtual bool isWall () const = 0;
-    virtual bool isRessource () const = 0;
-    virtual bool isPlateau () const = 0;
     bool isStatic () const;
     // Setters and Getters
   };

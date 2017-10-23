@@ -32,18 +32,4 @@ namespace state{
     TypeId Catapult::getTypeId() const{
         return TypeId::Catapult;
     }
-
-    bool Catapult::isCatapult() const {
-        return true;
-    }
-
-    bool Catapult::isColon() const {
-        return false;
-    }
-
-    bool Catapult::isMillitary() const {
-        return false;
-    }
-
-
 }

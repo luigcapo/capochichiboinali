@@ -25,9 +25,6 @@ namespace state {
   public:
     Millitary (MillTypeId id);
     TypeId getTypeId () const;
-    bool isColon () const;
-    bool isMillitary () const;
-    bool isCatapult () const;
     // Setters and Getters
     MillTypeId getMillTypeID() const;
     void setMillTypeID(MillTypeId millTypeID);

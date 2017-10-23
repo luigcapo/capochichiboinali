@@ -39,7 +39,7 @@ int main(int argc,char* argv[])
     if (mode == "hello")
         cout << "Hello world !" << endl; //endl pour passer à la ligne.
     else if (mode == "state")
-        testState();
+        //testState();
     
     return 0;
 }

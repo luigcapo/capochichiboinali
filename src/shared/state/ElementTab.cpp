@@ -26,7 +26,7 @@ namespace state{
     }
     
     Element* ElementTab::get (int i, int j) const {
-        return ElementTab::list[i,j];
+        return list[i+j*width].get();
     }
 
     void ElementTab::set (int i, int j, Element* e) {

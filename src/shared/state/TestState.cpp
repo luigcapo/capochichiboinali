@@ -5,9 +5,10 @@
  */
 
 #include "TestState.h"
+using namespace std;
 
 namespace state{
-
+    
     void testState(){
         cout << "Test de l'implantation des états..." << endl;
         cout << "Fabrique un état..." << endl;

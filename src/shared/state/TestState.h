@@ -16,7 +16,6 @@
 
 #include "state.h"
 #include <iostream>
-using namespace std;
 
 namespace state{
     void testState();

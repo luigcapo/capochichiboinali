@@ -5,23 +5,22 @@
  */
 
 #include "TestState.h"
-using namespace std;
 
 namespace state{
     
     void testState(){
-        cout << "Test de l'implantation des états..." << endl;
+        cout << "Tests état..." << endl;
         cout << "Fabrique un état..." << endl;
-        State st;
-        //ElementTab et(15, 12);
+        /*State st;
+        
         
         //Tests sur la liste des personnages
         cout << "Tests sur la liste des personnages..." << endl;
         cout << "Ajoute un colon..." << endl;
-        /*Colon c;
+        Colon c;
         st.getChars().add(c);
         
-        /*cout << "Vérifie que la largeur est 1:    ";
+        cout << "Vérifie que la largeur est 1:    ";
         if(e.size() == 1)
             cout << "OK" << endl;
         else
@@ -39,7 +38,7 @@ namespace state{
         else
             cout << "Error" << endl;
         
-        /*cout << "Vérifie que le premier élément est statique:    ";
+        cout << "Vérifie que le premier élément est statique:    ";
         delete c;
         if()
             cout << "OK" << endl;
@@ -117,7 +116,7 @@ namespace state{
         }
         
         //Tests sur la grille
-        /*cout << "Tests sur la grille..." << endl;
+        cout << "Tests sur la grille..." << endl;
         cout << "Cree une grille de taille 15 par 12..." << endl;
         cout << "Vérifie que la largeur est correte:    ";
         if()

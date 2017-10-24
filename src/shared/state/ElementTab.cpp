@@ -7,11 +7,6 @@
 #include "ElementTab.h"
 
 namespace state{
-
-    ElementTab::ElementTab (int width, int height) {
-        this->width = width;
-        this->height = height;
-    }
     
     int ElementTab::getWidth () const {
         return this->width;

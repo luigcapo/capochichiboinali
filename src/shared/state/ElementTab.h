@@ -23,10 +23,11 @@ namespace state {
     std::vector<std::unique_ptr<Element>> list;
     // Operations
   public:
-    ElementTab (int width, int height);
+    ElementTab (int width = 0, int height = 1);
     int getWidth () const;
     int getHeight () const;
     void add (Element* e);
+    void resize (int width, int height);
     Element* get (int i, int j) const;
     void set (int i, int j, Element* e);
     // Setters and Getters

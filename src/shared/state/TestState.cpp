@@ -11,55 +11,64 @@ namespace state{
     void testState(){
         cout << "Tests état..." << endl;
         cout << "Fabrique un état..." << endl;
-        /*State st;
-        
+        State etat;
+        //etat.getChars().resize(6,1);
         
         //Tests sur la liste des personnages
         cout << "Tests sur la liste des personnages..." << endl;
+        cout << "Vérifie que la largeur est nulle:    ";
+        if(etat.getChars().getWidth() == 0)
+            cout << "OK" << endl;
+        else
+            cout << "Error" << endl;
+        
         cout << "Ajoute un colon..." << endl;
         Colon c;
-        st.getChars().add(c);
+        etat.getChars().add(c);
         
         cout << "Vérifie que la largeur est 1:    ";
-        if(e.size() == 1)
+        if(etat.getChars().getWidth() == 1)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le premier élément est non nul:    ";
-        if(e.get(0,0) != 0)
+        if(etat.getChars().get(1,1) != 0)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le premier élément est bien un colon:    ";
-        if(e.get(0,0).getTypeId() == Colon)
+        if(etat.getChars().get(1,1)->getTypeId() == 1)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le premier élément est statique:    ";
-        delete c;
-        if()
+        if(etat.getChars().get(1,1)->isStatic() == true)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
+        
+        
+        
+        
         cout << "Ajout d'un militaire de type épéiste..." << endl;
         cout << "Vérifie que la largeur est 2:    ";
-        if(e.size() == 2)
+        if(etat.getChars().getWidth() == 2)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
        
         cout << "Vérifie que le deuxième élément est non nul:    ";
-        if()
+        if(etat.getChars().get(2,1) != 0)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le deuxième élément est bien un militaire:    ";
-        if()
+        if(etat.getChars().get(1,1)->getTypeId() == 2)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
@@ -72,13 +81,13 @@ namespace state{
         
         cout << "Ajout d'un militaire de type mousquetaire..." << endl;
         cout << "Vérifie que la largeur est 3:    ";
-        if(e.size() == 3)
+        if(etat.getChars().getWidth() == 3)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le troisième élément est non nul:    ";
-        if()
+        if(etat.getChars().get(3,1) != 0)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
@@ -97,13 +106,13 @@ namespace state{
         
         cout << "Ajout d'une catapulte..." << endl;
         cout << "Vérifie que la largeur est 4:    ";
-        if(e.size() == 4)
+        if(etat.getChars().getWidth() == 4)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le quatrième élément est non nul:    ";
-        if()
+        if(etat.getChars().get(4,1) != 0)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
@@ -117,7 +126,9 @@ namespace state{
         
         //Tests sur la grille
         cout << "Tests sur la grille..." << endl;
-        cout << "Cree une grille de taille 15 par 12..." << endl;
+        cout << "redimensionne en 15 par 14..." << endl;
+        etat.getGrid().resize(15,14);
+        
         cout << "Vérifie que la largeur est correte:    ";
         if()
             cout << "OK" << endl;

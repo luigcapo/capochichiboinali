@@ -11,7 +11,7 @@ namespace state{
     void testState(){
         cout << "Tests état..." << endl;
         cout << "Fabrique un état..." << endl;
-        /*State etat;
+        State etat;
         //etat.getChars().resize(6,1);
         
         //Tests sur la liste des personnages
@@ -21,7 +21,6 @@ namespace state{
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
-        
         
         
         
@@ -55,7 +54,6 @@ namespace state{
         
         
         
-        
         cout << "Ajout d'un militaire de type épéiste..." << endl;
         Millitary ep(1);
         etat.getChars().add(ep);
@@ -83,7 +81,6 @@ namespace state{
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
-        
         
         
         
@@ -117,7 +114,6 @@ namespace state{
         
         
         
-        
         cout << "Ajout d'une catapulte..." << endl;
         Catapult ctp;
         etat.getChars().add(ctp);
@@ -144,6 +140,7 @@ namespace state{
         
         
         
+        
         //Tests sur la grille
         cout << "Tests sur la grille..." << endl;
         cout << "redimensionne en 15 par 12..." << endl;
@@ -162,81 +159,118 @@ namespace state{
             cout << "Error" << endl;
         
         cout << "Vérifie que toutes les cases sont nulles:    ";
-        if()
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;
+        for(int i = 0; i < etat.getGrid().getWidth(); i++){
+            for(int j=0; j < etat.getGrid().getHeight(); i++){
+                if(etat.getGrid().get(i, j) == 0)
+                    cout << "OK" << endl;
+                else
+                    cout << "Error" << endl;
+            }
+        }
         
-        cout << "Rempli avec des espaces vides...";
-        if()
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;
+        cout << "Rempli avec des plateaux vides...";
+        Plateau plte(1);
+        for(int i = 0; i < etat.getGrid().getWidth(); i++){
+            for(int j=0; j < etat.getGrid().getHeight(); i++){
+                etat.getGrid().set(i, j, plte);
+            }
+        }
         
         cout << "Vérifie que toutes les cases sont des espaces vides:    ";
-        if()
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;
+        for(int i = 0; i < etat.getGrid().getWidth(); i++){
+            for(int j=0; j < etat.getGrid().getHeight(); i++){
+                if(etat.getGrid().get(i, j)->getTypeId() == 5)  //A vérifier
+                    cout << "OK" << endl;
+                else
+                    cout << "Error" << endl;
+            }
+        }
         
-        cout << "Ajoute un mur en 14,9 de type 1..." << endl;
+        
+        
+        cout << "Ajoute un mur en 5,9 de type 1..." << endl;
+        Wall m(1);
+        etat.getGrid().set(5, 9, m);
+        
         cout << "Vérifie que la cellule modifiée est bien un mur:    ";
-        if()
+        if(etat.getGrid().get(5, 9)->getTypeId() == 4)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le mur est du bon type:    ";
-        if()
+        if(m.getWallTypeId() == 1)
             cout << "OK" << endl;
         else
-            cout << "Error" << endl;
+            cout << "Error" << endl;  
         
-        cout << "Ajoute un mur en 7,8 de type 2..." << endl;
+        
+        
+        cout << "Ajoute un mur en 14,2 de type 2..." << endl;
+        Wall m1(2);
+        etat.getGrid().set(14, 2, m1);
+        
         cout << "Vérifie que la cellule modifiée est bien un mur:    ";
-        if()
+        if(etat.getGrid().get(14, 2)->getTypeId() == 4)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le mur est du bon type:    ";
-        if()
+        if(m1.getWallTypeId() == 2)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
+        
+        
         
         cout << "Ajoute un plateau en 10,8 de type 4... " << endl;
+        Plateau pltd(4);
+        etat.getGrid().set(10, 8, pltd);
+        
         cout << "Vérifie que la cellule modifiée est bien un plateau:    ";
-        if()
+        if(etat.getGrid().get(10, 8)->getTypeId() == 5)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que le plateau est du bon type:    ";
-        if()
+        if(pltd.getPlateautypeId() == 4)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
+        
+        
         cout << "Ajoute une ressource en 1,5 de type 3..." << endl;
+        Ressource rsc(3);
+        etat.getGrid().set(1, 5, rsc);
+        
         cout << "Vérifie que la cellule modifiée est bien une ressource:    ";
-        if()
+        if(etat.getGrid().get(1, 5)->getTypeId() == 6)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
         cout << "Vérifie que la ressource est du bon type:    ";
-        if()
+        if(rsc.getRessourceTypeId() == 3)
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
         
+        
+        
         cout << "Ajoute une colonie en 6,10..." << endl;
+        Colonie cln;
+        etat.getGrid().set(6, 10, cln);
+        
         cout << "Vérifie que la cellule modifiée est bien une colonie:    ";
-        if()
+        if(etat.getGrid().get(1, 5)->getTypeId() == 7)
             cout << "OK" << endl;
         else
-            cout << "Error" << endl;*/
+            cout << "Error" << endl;
+        
+        */
         
         //Tests classe Batiment
     }

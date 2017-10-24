@@ -56,12 +56,10 @@ int main(int argc,char* argv[])
         window.draw(map);
         window.display();
     }
-
-
     
-    //Tests unitaires à faire sur un autre fichier
+    //Tests unitaires avec différents modes
     if (argc < 2 ){
-        cout << "Usage: ./bin/client <mode>" << endl;
+        cout << "Usage:  ./bin/client <mode>" << endl;
         cout << "Modes disponibles: " << endl;
         cout << "   hello: affiche un simple message dans la console" << endl;
         cout << "   state: effectue des opérations élémentaires sur l'état" << endl;
@@ -80,9 +78,13 @@ int main(int argc,char* argv[])
     
     string mode = argv[1];
     if (mode == "hello")
-        cout << "Hello world !" << endl; //endl pour passer à la ligne.
+        cout << "Hello world !" << endl; //endl pour passer à la ligne
+    
     else if (mode == "state")
         testState();
+    
+    else if (mode == "render")
+        texturetext();
     
     return 0;
 }

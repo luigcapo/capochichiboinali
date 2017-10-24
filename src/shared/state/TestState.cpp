@@ -12,8 +12,8 @@ namespace state{
     void testState(){
         cout << "Test de l'implantation des états..." << endl;
         cout << "Fabrique un état..." << endl;
-        /*State st;
-        ElementTab et(15, 12);
+        State st;
+        //ElementTab et(15, 12);
         
         //Tests sur la liste des personnages
         cout << "Tests sur la liste des personnages..." << endl;

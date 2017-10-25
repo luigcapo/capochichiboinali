@@ -3,4 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+#include "TileSet.h"
 
+namespace render{
+
+    const Tile& TileSet::getCharTIle(char c) const {
+
+    }
+
+    const Tile& TileSet::getTile(const state::ELement& e) const {
+        
+    }
+}

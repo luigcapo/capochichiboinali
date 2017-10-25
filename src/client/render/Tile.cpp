@@ -29,7 +29,7 @@ namespace render{
     }
 
     int Tile::getY() const {
-        return t;
+        return y;
     }
 
     void Tile::setHeight(int height) {

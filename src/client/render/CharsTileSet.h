@@ -3,6 +3,7 @@
 #define RENDER__CHARSTILESET__H
 
 #include <vector>
+#include <string>
 
 namespace render {
   class Tile;
@@ -24,10 +25,8 @@ namespace render {
     // Operations
   public:
     CharsTileSet ();
-    int getCellWidth () const;
-    int getCellHeight () const;
-    int getImageFile () const;
-    virtual const Tile& getTile ( e const state::Element&) const;
+    const std::string getImageFile () const;
+    const Tile& getTile ( e const state::Element&) const;
     // Setters and Getters
   };
 

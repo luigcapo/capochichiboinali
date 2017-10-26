@@ -3,6 +3,7 @@
 #define RENDER__SURFACE__H
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 namespace sf {
   class Texture;
@@ -27,7 +28,7 @@ namespace render {
     sf::VertexArray quads;
     // Operations
   public:
-    void loadTexture (const std::sting& image_file);
+    void loadTexture (const std::string& image_file);
     void initQuads (int count);
     void setSpriteLocation (int i, int x, int y);
     void setSpriteTexture (int i, const Tile& tex);

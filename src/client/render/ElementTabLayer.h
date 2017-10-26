@@ -3,15 +3,18 @@
 #define RENDER__ELEMENTTABLAYER__H
 
 
+namespace state {
+  class ElementTab;
+};
 namespace render {
   class Layer;
 };
-namespace State {
+namespace state {
   class State;
 }
 
 #include "Layer.h"
-#include "State/State.h"
+#include "state/State.h"
 
 namespace render {
 

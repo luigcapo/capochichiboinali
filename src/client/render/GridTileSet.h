@@ -3,6 +3,7 @@
 #define RENDER__GRIDTILESET__H
 
 #include <vector>
+#include <string>
 
 namespace render {
   class Tile;
@@ -26,14 +27,12 @@ namespace render {
     std::vector<Tile> plateau;
     std::vector<Tile> ressource;
     std::vector<Tile> wall;
-    std::vector<Tile> colonie;
+    std::vector<Tile> batiment;
     // Operations
   public:
     GridTileSet ();
-    int getCellWidth () const;
-    int getCellHeight () const;
-    int getImageFile () const;
-    virtual const Tile& getTile (const state::Element& e) const;
+    const std::string getImageFile () const;
+    const Tile& getTile (const state::Element& e) const;
     // Setters and Getters
   };
 

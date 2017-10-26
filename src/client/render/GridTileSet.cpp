@@ -7,12 +7,12 @@
 
 namespace render{
 
-    GridTileSet::GridTileSet() {
+    /*GridTileSet::GridTileSet() {
         plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile()); 
         ressource.push_back(Tile());ressource.push_back(Tile());ressource.push_back(Tile());ressource.push_back(Tile());
         wall.push_back(Tile());wall.push_back(Tile());
         batiment.push_back(Tile());batiment.push_back(Tile());batiment.push_back(Tile());batiment.push_back(Tile());batiment.push_back(Tile());
-    }
+    }*/
 
     /*const std::string GridTileSet::getImageFile() const {
     }*/

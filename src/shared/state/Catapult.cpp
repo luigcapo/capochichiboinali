@@ -30,6 +30,6 @@ namespace state{
     }
 
     TypeId Catapult::getTypeId() const{
-        return TypeId::Catapult;
+        return TypeId::CATAPULT;
     }
 }

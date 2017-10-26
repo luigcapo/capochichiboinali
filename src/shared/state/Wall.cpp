@@ -39,7 +39,7 @@ namespace state{
     }
     
     TypeId Wall::getTypeId() const {
-        return TypeId::Wall;
+        return TypeId::WALL;
     }
 
     WallTypeId Wall::getWallTypeId() const {

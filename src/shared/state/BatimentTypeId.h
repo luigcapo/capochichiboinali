@@ -6,11 +6,11 @@
 namespace state {
 
   enum BatimentTypeId {
-    baraque     = 1,
-    bibliotheque     = 2,
-    Amphitheatre     = 3,
-    hotel     = 4,
-    chateau     = 5
+    BARAQUE     = 1,
+    BIBLIOTHEQUE     = 2,
+    AMPHITHEATRE     = 3,
+    HOTEL     = 4,
+    CHATEAU     = 5
   };
 
 };

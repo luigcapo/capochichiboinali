@@ -6,10 +6,10 @@
 namespace state {
 
   enum RessourceTypeId {
-    cheval     = 1,
-    charbon     = 2,
-    fer     = 3,
-    vin     = 4
+    CHEVAL     = 1,
+    CHARBON     = 2,
+    FER     = 3,
+    VIN     = 4
   };
 
 };

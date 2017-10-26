@@ -6,12 +6,12 @@
 namespace state {
 
   enum PlateauTypeId {
-    empty     = 1,
-    plaine     = 2,
-    cote     = 3,
-    desert     = 4,
-    montagne     = 5,
-    ocean     = 6
+    EMPTY     = 1,
+    PLAINE     = 2,
+    COTE     = 3,
+    DESERT     = 4,
+    MONTAGNE     = 5,
+    OCEAN     = 6
   };
 
 };

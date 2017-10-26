@@ -20,6 +20,6 @@ namespace state{
     }
     
     TypeId Plateau::getTypeId() const{
-        return TypeId::Plateau;
+        return TypeId::PLATEAU;
     }
 }

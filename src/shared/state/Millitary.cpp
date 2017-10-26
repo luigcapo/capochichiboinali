@@ -14,7 +14,7 @@ namespace state{
     }
     
     TypeId Millitary::getTypeId() const{
-        return TypeId::Millitary;
+        return TypeId::MILLITARY;
     }
 
     int Millitary::getCombat() const {

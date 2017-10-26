@@ -6,9 +6,9 @@
 namespace state {
 
   enum MillTypeId {
-    epeiste     = 1,
-    mitrailleur     = 2,
-    mousquetaire     = 3
+    EPEISTE     = 1,
+    MITRAILLEUR     = 2,
+    MOUSQUETAIRE     = 3
   };
 
 };

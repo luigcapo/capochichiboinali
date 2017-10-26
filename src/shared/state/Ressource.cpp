@@ -19,6 +19,6 @@ namespace state{
     }
     
     TypeId Ressource::getTypeId() const{
-        return TypeId::Ressource;
+        return TypeId::RESSOURCE;
     }
 }

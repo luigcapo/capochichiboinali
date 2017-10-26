@@ -6,8 +6,8 @@
 namespace state {
 
   enum WallTypeId {
-    wallofbabylon     = 1,
-    wallnormal     = 2
+    WALLOFBABYLON     = 1,
+    WALLNORMAL     = 2
   };
 
 };

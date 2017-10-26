@@ -11,12 +11,12 @@ namespace state{
     void testState(){
         cout << "Tests état..." << endl;
         cout << "Fabrique un état..." << endl;
-        State etat;
+        //State etat;
         //etat.getChars().resize(6,1);
         
         //Tests sur la liste des personnages
         cout << "Tests sur la liste des personnages..." << endl;
-        cout << "Vérifie que la largeur est nulle:    ";
+        /*cout << "Vérifie que la largeur est nulle:    ";
         if(etat.getChars().getWidth() == 0)
             cout << "OK" << endl;
         else

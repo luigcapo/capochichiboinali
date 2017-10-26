@@ -23,7 +23,7 @@ namespace state {
     std::vector<std::unique_ptr<Element>> list;
     // Operations
   public:
-    ElementTab (int width = 0, int height = 1);
+    ElementTab ();
     int getWidth () const;
     int getHeight () const;
     void add (Element* e);

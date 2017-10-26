@@ -8,6 +8,11 @@
 
 namespace state{
     
+    ElementTab::ElementTab() {
+        width = 0;
+        height = 1;
+    }
+    
     int ElementTab::getWidth () const {
         return this->width;
     }
@@ -25,7 +30,8 @@ namespace state{
     }
 
     void ElementTab::set (int i, int j, Element* e) {
-        //list[i,j] = e;
+        //list[i+j*width] = e.set();
+        //list[i+j*width].set() = e;
     }
 
 }

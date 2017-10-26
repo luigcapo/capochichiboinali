@@ -19,6 +19,6 @@ namespace state{
     }
     
     TypeId Colonie::getTypeId() const{
-        return TypeId::Colonie;
+        return TypeId::COLONIE;
     }
 }

@@ -10,11 +10,11 @@ namespace render{
 
     Layer::Layer() {
         this->surface=std::unique_ptr<Surface>(new Surface());
-        this->tileset=std::shared_ptr<TileSet>(new TileSet());
+        this->tileset=nullptr;
     }
 
     const Surface* Layer::getSurface() const {
-        return surface;
+        return &(*(this->surface));
     }
 
     const std::shared_ptr<TileSet>& Layer::getTileset() const {
@@ -22,7 +22,7 @@ namespace render{
     }
 
     void Layer::setSurface(Surface* surface) {
-        this->surface = surface;
+        *(this->surface) = *surface;
     }
 
     void Layer::setTileset(const std::shared_ptr<TileSet>& tileset) {
@@ -30,8 +30,6 @@ namespace render{
     }
 
     Layer::~Layer() {
-        delete surface;
-        delete tileset;
     }
 
 }

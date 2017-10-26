@@ -8,8 +8,7 @@
 
 namespace render{
 
-    StateLayer::StateLayer(const state::State& state) {
-        this->state=state;
+    StateLayer::StateLayer(const state::State& state):state(state) {
     }
 
     void StateLayer::initSurface() {

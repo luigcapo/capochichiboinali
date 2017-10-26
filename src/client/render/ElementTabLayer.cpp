@@ -8,14 +8,12 @@
 
 namespace render{
 
-    ElementTabLayer::ElementTabLayer(const state::ElementTab& tab) {
-        this->tab=tab;
-    }
+    ElementTabLayer::ElementTabLayer(const state::ElementTab& tab):tab(tab) {}
 
     void ElementTabLayer::initSurface() {
-        Surface s;
+        //Surface s;
         //s.loadTexture();
         //s.initQuads();  
     }
-
+    
 }

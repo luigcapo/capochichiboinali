@@ -10,7 +10,7 @@ void testSFML() {
 // Fin test SFML
 
 #include "state.h"
-//#include "state/TestState.h"
+#include "state/TestState.h"
 #include "state/Texture.h"
 
 
@@ -18,22 +18,10 @@ using namespace std;
 using namespace state;
 
 int main(int argc,char* argv[]) {
-    //Tests unitaires avec différents modes
+    
+    //Menu des tests unitaires avec différents modes
     if (argc < 2 ){
-        cout << "Usage:  ./bin/client <mode>" << endl;
-        cout << "Modes disponibles: " << endl;
-        cout << "   hello: affiche un simple message dans la console" << endl;
-        cout << "   state: effectue des opérations élémentaires sur l'état" << endl;
-        cout << "   render: affiche un état" << endl;
-        //cout << "   engine: teste le moteur de jeu" << endl;
-        //cout << "   random_ai: teste l'IA aléatoire" << endl;
-        //cout << "   heuristic_ai: teste l'IA heuristique" << endl;
-        //cout << "   rollback: teste le retour en arrière" << endl;
-        //cout << "   deep_ai: teste l'IA avancée" << endl;
-        //cout << "   replay: affiche un enregistrement" << endl;
-        //cout << "   thread: teste l'exécution du moteur dans un thread" << endl;
-        //cout << "   network [<url serveur>] [<port>]: teste le jeu en mode réseau" << endl;
-
+        menu();
         return 2;
     }//nombre argument ici bin/client represente un argument et hello un autre par exemple
     
@@ -41,52 +29,8 @@ int main(int argc,char* argv[]) {
     if (mode == "hello")
         cout << "Hello world !" << endl; //endl pour passer à la ligne
     
-    else if (mode == "state"){
-        //testState();
-        
-        cout << "Tests état..." << endl;
-        cout << "Fabrique un état..." << endl;
-        State etat;
-        //etat.getChars().resize(6,1);
-        
-        //Tests sur la liste des personnages
-        cout << "Tests sur la liste des personnages..." << endl;
-        cout << "Vérifie que la largeur est nulle:    ";
-        if(etat.getChars().getWidth() == 0)
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;
-        
-        
-        
-        cout << "Ajoute un colon..." << endl;
-        Colon luigi;
-        /*etat.getChars().add(*luigi);
-        
-        cout << "Vérifie que la largeur est 1:    ";
-        if(etat.getChars().getWidth() == 1)
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;
-        
-        cout << "Vérifie que le premier élément est non nul:    ";
-        if(etat.getChars().get(1,1) != 0)
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;
-        
-        cout << "Vérifie que le premier élément est bien un colon:    ";
-        if(etat.getChars().get(1,1)->getTypeId() == 1)
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;
-        
-        cout << "Vérifie que le premier élément est statique:    ";
-        if(etat.getChars().get(1,1)->isStatic() == true)
-            cout << "OK" << endl;
-        else
-            cout << "Error" << endl;*/
-    }
+    else if (mode == "state")
+        testState();
     
     else if (mode == "render"){
         
@@ -128,6 +72,11 @@ int main(int argc,char* argv[]) {
         window.draw(map);
         window.display();
     }
+    }
+    
+    else{
+        cout << "Choisir un mode" << endl;
+        menu();
     }
     
     return 0;

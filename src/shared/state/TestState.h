@@ -7,12 +7,15 @@
 #ifndef TESTSTATE_H
 #define TESTSTATE_H
 
-#include "../state.h"
+//#include "/src/shared/state.h"
+#include "state.h"
 #include <iostream>
 using namespace std;
 
 namespace state{
+    void menu();
     void testState();
+    
 }
 
 #endif /* TESTSTATE_H */

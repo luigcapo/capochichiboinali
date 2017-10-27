@@ -11,7 +11,7 @@ namespace state{
         pv=0;
         def=0;
         cout=0;
-        
+        wallTypeId = id;
     }
     
     int Wall::getCout() const {

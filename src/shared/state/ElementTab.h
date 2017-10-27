@@ -2,6 +2,7 @@
 #ifndef STATE__ELEMENTTAB__H
 #define STATE__ELEMENTTAB__H
 
+#include <stdlib.h>
 #include <vector>
 #include <memory>
 
@@ -18,18 +19,19 @@ namespace state {
     // Associations
     // Attributes
   private:
-    int width;
-    int height;
+    std::size_t width;
+    std::size_t height;
     std::vector<std::unique_ptr<Element>> list;
     // Operations
   public:
     ElementTab ();
-    int getWidth () const;
-    int getHeight () const;
+    std::size_t getWidth () const;
+    std::size_t getHeight () const;
     void add (Element* e);
-    void resize (int width, int height);
-    Element* get (int i, int j) const;
-    void set (int i, int j, Element* e);
+    void resize (std::size_t width, std::size_t height);
+    Element* get (std::size_t i, std::size_t j) const;
+    void set (std::size_t i, std::size_t j, Element* e);
+    std::size_t size () const;
     // Setters and Getters
   };
 

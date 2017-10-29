@@ -17,7 +17,7 @@ namespace render{
 
 
     const std::string GridTileSet::getImageFile() const {
-        std::string s = "res/.jpg";
+        std::string s = "res/terrain1.jpg";
         return s;
     }
 

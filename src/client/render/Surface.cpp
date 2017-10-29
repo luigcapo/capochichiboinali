@@ -15,7 +15,6 @@ namespace render{
         
     }
 
-    //void Surface::loadTexture(const std::string& image_file) {}
 
     void Surface::setSpriteLocation(int i, int x, int y) {
 

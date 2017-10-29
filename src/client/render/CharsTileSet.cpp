@@ -10,10 +10,9 @@
 namespace render{
 
     CharsTileSet::CharsTileSet() {
-        millitary.push_back(Tile());millitary.push_back(Tile());millitary.push_back(Tile()); 
-        colon.push_back(Tile());
-        catapult.push_back(Tile());
-
+        millitary.push_back(Tile(0,100,10,10));millitary.push_back(Tile(30,100,10,10));millitary.push_back(Tile(60,100,10,10)); 
+        colon.push_back(Tile(80,100,10,10));
+        catapult.push_back(Tile(100,100,15,15));
     }
 
     const std::string CharsTileSet::getImageFile() const {

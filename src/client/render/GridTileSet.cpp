@@ -9,10 +9,10 @@
 namespace render{
 
     GridTileSet::GridTileSet() {
-        plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile());plateau.push_back(Tile()); 
-        ressource.push_back(Tile());ressource.push_back(Tile());ressource.push_back(Tile());ressource.push_back(Tile());
-        wall.push_back(Tile());wall.push_back(Tile());
-        batiment.push_back(Tile());batiment.push_back(Tile());batiment.push_back(Tile());batiment.push_back(Tile());batiment.push_back(Tile());
+        plateau.push_back(Tile());plateau.push_back(Tile(0,10,24,24));plateau.push_back(Tile(0,20,24,24));plateau.push_back(Tile(0,40,24,24));plateau.push_back(Tile(0,50,24,24));plateau.push_back(Tile(0,80,24,24)); 
+        ressource.push_back(Tile(0,30,10,10));ressource.push_back(Tile(30,30,10,10));ressource.push_back(Tile(60,30,10,10));ressource.push_back(Tile(90,30,10,10));
+        wall.push_back(Tile(10,10,50,50));wall.push_back(Tile(20,20,50,50));
+        batiment.push_back(Tile(0,50,20,20));batiment.push_back(Tile(20,50,20,20));batiment.push_back(Tile(40,50,20,20));batiment.push_back(Tile(60,50,20,20));batiment.push_back(Tile(80,50,20,20));
     }
 
 

@@ -25,4 +25,9 @@ namespace render{
         
     }
 
+    void Surface::loadTexture(const std::string& image_file) {
+
+    }
+
+
 }

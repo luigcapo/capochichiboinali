@@ -7,6 +7,11 @@
 
 namespace render {
   class Tile;
+};
+namespace state {
+  class Element;
+};
+namespace render {
   class TileSet;
 }
 
@@ -26,7 +31,7 @@ namespace render {
   public:
     CharsTileSet ();
     const std::string getImageFile () const;
-    const Tile& getTile ( e const state::Element&) const;
+    const Tile& getTile (const state::Element& e) const;
     // Setters and Getters
   };
 

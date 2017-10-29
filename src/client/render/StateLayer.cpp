@@ -12,7 +12,10 @@ namespace render{
     }
 
     void StateLayer::initSurface() {
+        Surface s;
+        s.loadTexture(tileset->getImageFIle());
         
+        //s.initQuads(4);
     }
 
 }

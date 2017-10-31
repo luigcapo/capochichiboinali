@@ -316,12 +316,12 @@ namespace state{
             cout << "Error" << endl;
         
         
-        //Colonie
-        cout << "Ajoute une colonie en 6,10..." << endl;
-        Colonie *cln = new Colonie();
-        etat.getGrid().set(6, 10, cln);
+        //Batiment
+        cout << "Ajoute une batiment en 6,10..." << endl;
+        Batiment* bln = new Batiment(BARAQUE);
+        etat.getGrid().set(6, 10, bln);
         
-        cout << "Vérifie que la cellule modifiée est bien une colonie:    ";
+        cout << "Vérifie que la cellule modifiée est bien une batiment:    ";
         if(etat.getGrid().get(6, 10)->getTypeId() == 7)
             cout << "OK" << endl;
         else

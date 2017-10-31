@@ -3,12 +3,18 @@
 #define STATE__BATIMENT__H
 
 
+namespace state {
+  class Static;
+}
+
 #include "BatimentTypeId.h"
+#include "TypeId.h"
+#include "Static.h"
 
 namespace state {
 
   /// class Batiment - 
-  class Batiment {
+  class Batiment : public state::Static {
     // Associations
     state::BatimentTypeId batimentTypeId;
     // Attributes
@@ -19,6 +25,7 @@ namespace state {
   public:
     Batiment (BatimentTypeId id);
     BatimentTypeId getBatimentTypeId () const;
+    TypeId  getTypeId () const;
     // Setters and Getters
     void setBatimentTypeId(BatimentTypeId batimentTypeId);
     int getPv() const;

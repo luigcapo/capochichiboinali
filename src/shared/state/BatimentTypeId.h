@@ -10,7 +10,13 @@ namespace state {
     BIBLIOTHEQUE     = 2,
     AMPHITHEATRE     = 3,
     HOTEL     = 4,
-    CHATEAU     = 5
+    CHATEAU     = 5,
+    HANGAR     = 6,
+    SEAPORT     = 7,
+    COLISEE     = 8,
+    WATER_MILL     = 9,
+    ZOO     = 10,
+    USINE     = 11
   };
 
 };

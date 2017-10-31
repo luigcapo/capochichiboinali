@@ -12,7 +12,7 @@ namespace state {
     WALL     = 4,
     PLATEAU     = 5,
     RESSOURCE     = 6,
-    COLONIE     = 7
+    BATIMENT     = 7
   };
 
 };

@@ -38,4 +38,8 @@ namespace state {
         this->pv=pv;
     }
 
+    TypeId Batiment::getTypeId() const {
+        return TypeId::BATIMENT;
+    }
+
 }

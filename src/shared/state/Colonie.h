@@ -2,31 +2,34 @@
 #ifndef STATE__COLONIE__H
 #define STATE__COLONIE__H
 
+#include <vector>
+#include <memory>
+#include <string>
 
 namespace state {
-  class Static;
-  class Batiment;
+  class Element;
 }
 
-#include "TypeId.h"
-#include "Static.h"
-#include "Batiment.h"
+#include "Element.h"
 
 namespace state {
 
   /// class Colonie - 
-  class Colonie : public state::Static {
+  class Colonie {
     // Associations
     // Attributes
   protected:
-    int cout;
+    std::vector<std::unique_ptr<Element>> groupe;
+    std::string name;
     // Operations
   public:
     Colonie ();
-    TypeId getTypeId () const;
+    void add (Element* e);
     // Setters and Getters
-    int getCout() const;
-    void setCout(int cout);
+    const std::vector<std::unique_ptr<Element>>& getGroupe() const;
+    void setGroupe(const std::vector<std::unique_ptr<Element>>& groupe);
+    const std::string& getName() const;
+    void setName(const std::string& name);
   };
 
 };

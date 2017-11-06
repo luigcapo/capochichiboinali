@@ -14,7 +14,7 @@ namespace state{
         cout << "   hello: affiche un simple message dans la console" << endl;
         cout << "   state: effectue des opérations élémentaires sur l'état" << endl;
         cout << "   render: affiche un état" << endl;
-        //cout << "   engine: teste le moteur de jeu" << endl;
+        cout << "   engine: teste le moteur de jeu" << endl;
         //cout << "   random_ai: teste l'IA aléatoire" << endl;
         //cout << "   heuristic_ai: teste l'IA heuristique" << endl;
         //cout << "   rollback: teste le retour en arrière" << endl;

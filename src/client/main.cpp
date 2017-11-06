@@ -36,6 +36,10 @@ int main(int argc,char* argv[]) {
         texturetext();
     }
     
+    else if (mode == "engine"){
+        cout << "Test du moteur de jeu" <<endl;
+    }
+    
     else{
         cout << "Choisir un mode" << endl;
         menu();

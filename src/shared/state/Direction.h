@@ -10,7 +10,11 @@ namespace state {
     EAST     = 1,
     NORTH     = 2,
     WEST     = 3,
-    SOUTH     = 4
+    SOUTH     = 4,
+    NORTH_EAST     = 5,
+    NORTH_WEST     = 6,
+    SOUTH_EAST     = 7,
+    SOUTH_WEST     = 8
   };
 
 };

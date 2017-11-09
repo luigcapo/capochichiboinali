@@ -6,7 +6,7 @@
 #include "OrientationCommand.h"
 
 namespace engine{
-
+    /*
     OrientationCommand::OrientationCommand(int c, state::Direction d) {
         this->character=c;
         this->orientation=d;
@@ -52,5 +52,6 @@ namespace engine{
 
     CommandTypeId OrientationCommand::getTypeId() const {
         return CommandTypeId::ORIENTATION; 
-    } 
+    }
+     */  
 }

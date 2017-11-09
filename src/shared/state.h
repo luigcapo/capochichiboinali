@@ -20,6 +20,7 @@
 #include "state/Batiment.h"
 #include "state/Direction.h"
 #include "state/ElementTab.h"
-#include "state/State.h"
 #include "state/Colonie.h"
+#include "state/Joueur.h"
+#include "state/State.h"
 #endif

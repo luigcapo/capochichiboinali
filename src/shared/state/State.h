@@ -2,12 +2,15 @@
 #ifndef STATE__STATE__H
 #define STATE__STATE__H
 
+#include <vector>
 
 namespace state {
   class ElementTab;
+  class Joueur;
 }
 
 #include "ElementTab.h"
+#include "Joueur.h"
 
 namespace state {
 
@@ -18,10 +21,12 @@ namespace state {
   private:
     ElementTab grid;
     ElementTab chars;
+    std::vector<Joueur*> listJoueur;
     // Operations
   public:
     ElementTab& getGrid ();
     ElementTab& getChars ();
+    void addJoueur (Joueur* j);
     // Setters and Getters
   };
 

@@ -14,8 +14,8 @@ namespace engine{
 
     void OrientationCommand::execute(state::State& state) {
         //state::ElementTab listt= state.getChars();
-        for(std::size_t i=0;i< state.getChars().getHeight();i++){
-            for(std::size_t j=0;i< state.getChars().getWidth();j++){
+        for(std::size_t i=0; i< state.getChars().getHeight(); i++){
+            for(std::size_t j=0; j< state.getChars().getWidth(); j++){
                 state::Element* e = state.getChars().get(i,j);
                 if(e->getTypeId()!= character){}
                 else{  

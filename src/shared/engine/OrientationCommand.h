@@ -25,9 +25,9 @@ namespace engine {
     state::Direction orientation;
     // Operations
   public:
-    OrientatonCommand (int c, state::Direction d);
+    OrientationCommand (int c, state::Direction d);
     CommandTypeId getTypeId () const;
-    execute (state::State& state);
+    void execute (state::State& state);
     // Setters and Getters
     int getCharacter() const;
     void setCharacter(int character);

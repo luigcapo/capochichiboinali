@@ -7,17 +7,23 @@
 
 namespace engine{
 
-    int OrientationCommand::OrientatonCommand(int c, state::Direction d) {
-        
+    OrientationCommand::OrientationCommand(int c, state::Direction d) {
+
     }
 
-    int OrientationCommand::execute(state::State& state) {
+    void OrientationCommand::execute(state::State& state) {
 
     }
 
     int OrientationCommand::getCharacter() const {
-        
+
     }
+
+    void OrientationCommand::setCharacter(int character) {
+
+    }
+
+    
     /*void MoveCommand::execute(state::State& state) {
         state::ElementTab listt=state.getChars();
         for(int i=0;i<listt.getHeight();i++){
@@ -32,6 +38,6 @@ namespace engine{
         }    
     }*/
     CommandTypeId OrientationCommand::getTypeId() const {
-        return CommandTypeId.ORIENTATION; 
+        return CommandTypeId::ORIENTATION; 
     } 
 }

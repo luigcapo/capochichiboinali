@@ -12,7 +12,7 @@ namespace engine{
     }
 
     void LoadCommand::execute(state::State& state) {
-        
+        LoadCommand();
     }
 
     const std::string& LoadCommand::getFile_name() const {

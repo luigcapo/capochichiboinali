@@ -10,6 +10,7 @@ namespace engine {
   class Command;
 }
 
+#include "CommandTypeId.h"
 #include "Command.h"
 
 namespace engine {
@@ -19,7 +20,7 @@ namespace engine {
     // Operations
   public:
     void execute (state::State& state);
-    CommandeTypeId getTypeId () const;
+    CommandTypeId getTypeId () const;
     void TestCollisions ();
     // Setters and Getters
   };

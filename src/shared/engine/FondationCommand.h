@@ -7,7 +7,6 @@ namespace state {
   class State;
 };
 namespace engine {
-  class CommandTypeId;
   class Command;
 }
 

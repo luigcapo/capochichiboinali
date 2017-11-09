@@ -30,7 +30,7 @@ namespace engine {
     ~Engine ();
     const state::State& getState ();
     void addPassiveCommands ();
-    void addCommand (int priority, Command* cmd);
+    void addCommand (Command* cmd);
     void update ();
     // Setters and Getters
   };

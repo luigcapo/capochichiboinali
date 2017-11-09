@@ -5,18 +5,14 @@
 
 namespace engine {
 
-  /// class CommandTypeId - 
-  class CommandTypeId {
-    // Attributes
-  public:
-     LOAD     = 1;
-     ORIENTATION     = 2;
-     MOVE     = 3;
-     HANDLE_COLLISIONS     = 4;
-     HANDLE_FONDA     = 5;
-     ATTAQUE     = 6;
-     FONDA     = 7;
-    // Setters and Getters
+  enum CommandTypeId {
+    LOAD     = 0,
+    ORIENTATION     = 1,
+    MOVE     = 2,
+    HANDLE_COLLISIONS     = 3,
+    HANDLE_FONDA     = 4,
+    ATTAQUE     = 5,
+    FONDA     = 6
   };
 
 };

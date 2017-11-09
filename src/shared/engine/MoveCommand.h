@@ -3,9 +3,6 @@
 #define ENGINE__MOVECOMMAND__H
 
 
-namespace engine {
-  class CommandTypeId;
-};
 namespace state {
   class State;
 };

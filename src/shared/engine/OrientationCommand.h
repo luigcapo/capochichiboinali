@@ -3,9 +3,6 @@
 #define ENGINE__ORIENTATIONCOMMAND__H
 
 
-namespace engine {
-  class CommandTypeId;
-};
 namespace state {
   class State;
 };
@@ -25,7 +22,7 @@ namespace engine {
     // Attributes
   protected:
     int character;
-    state::Direction orientationCommand;
+    state::Direction orientation;
     // Operations
   public:
     OrientatonCommand (int c, state::Direction d);
@@ -34,8 +31,8 @@ namespace engine {
     // Setters and Getters
     int getCharacter() const;
     void setCharacter(int character);
-    state::Direction getOrientationCommand() const;
-    void setOrientationCommand(state::Direction orientationCommand);
+    state::Direction getOrientation() const;
+    void setOrientation(state::Direction orientation);
   };
 
 };

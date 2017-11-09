@@ -3,9 +3,6 @@
 #define ENGINE__HANDLEFONDATIONCOMMAND__H
 
 
-namespace engine {
-  class CommandTypeId;
-};
 namespace state {
   class State;
 };

@@ -8,13 +8,10 @@ namespace state {
 };
 namespace render {
   class Layer;
-};
-namespace state {
-  class ElementTab;
 }
 
 #include "Layer.h"
-#include "state/ElementTab.h"
+#include "state/State.h"
 
 namespace render {
 

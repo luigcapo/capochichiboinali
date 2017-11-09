@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 #include "LoadCommand.h"
+#include "render/StateLayer.h"
 
 namespace engine{
 
@@ -12,7 +13,8 @@ namespace engine{
     }
 
     void LoadCommand::execute(state::State& state) {
-        LoadCommand();
+        render::StateLayer* slayer=new render::StateLayer(state);
+         slayer->initSurface();
     }
 
     const std::string& LoadCommand::getFile_name() const {

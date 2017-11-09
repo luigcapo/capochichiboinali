@@ -15,6 +15,7 @@ namespace state {
   protected:
     int x;
     int y;
+    int j;
     // Operations
   public:
     Element ();
@@ -27,6 +28,8 @@ namespace state {
     void setX(int x);
     int getY() const;
     void setY(int y);
+    int getJ() const;
+    void setJ(int j);
   };
 
 };

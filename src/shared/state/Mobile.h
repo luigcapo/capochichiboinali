@@ -17,7 +17,6 @@ namespace state {
   protected:
     int point_mouvement;
     int cout;
-    int position;
     // Operations
   public:
     Mobile ();
@@ -27,8 +26,6 @@ namespace state {
     void setPoint_mouvement(int point_mouvement);
     int getCout() const;
     void setCout(int cout);
-    int getPosition() const;
-    void setPosition(int position);
   };
 
 };

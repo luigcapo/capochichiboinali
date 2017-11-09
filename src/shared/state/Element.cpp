@@ -31,5 +31,14 @@ namespace state{
     void Element::setY(int y) {
         this->y = y;
     }
+
+    int Element::getJ() const {
+        return j;
+    }
+
+    void Element::setJ(int j) {
+        this->j=j;
+    }
+
     
 }

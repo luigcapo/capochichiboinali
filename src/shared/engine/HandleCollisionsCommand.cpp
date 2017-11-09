@@ -15,6 +15,6 @@ namespace engine{
     }
 
     CommandTypeId HandleCollisionsCommand::getTypeId() const {
-        
+        return CommandTypeId::HANDLE_COLLISIONS;
     }
 }

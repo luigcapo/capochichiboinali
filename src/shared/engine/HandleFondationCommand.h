@@ -4,6 +4,7 @@
 
 
 namespace state {
+  class Colon;
   class State;
 };
 namespace engine {
@@ -12,6 +13,7 @@ namespace engine {
 
 #include "CommandTypeId.h"
 #include "Command.h"
+#include "state/Colon.h"
 
 namespace engine {
 
@@ -19,7 +21,7 @@ namespace engine {
   class HandleFondationCommand : public engine::Command {
     // Operations
   public:
-    void TestFonda ();
+    void TestFonda (state::Colon& c);
     CommandTypeId getTypeId () const;
     void execute (state::State& state);
     // Setters and Getters

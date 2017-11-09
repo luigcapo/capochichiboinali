@@ -13,11 +13,10 @@ namespace engine{
     }
 
     void OrientationCommand::execute(state::State& state) {
-        state::ElementTab listt=state.getChars();
-        for(unsigned int i=0;i<listt.getHeight();i++){
-            for(unsigned 
-                    int j=0;i<listt.getWidth();i++){
-                state::Element* e=listt.get(i,j);
+        //state::ElementTab listt= state.getChars();
+        for(std::size_t i=0;i< state.getChars().getHeight();i++){
+            for(std::size_t j=0;i< state.getChars().getWidth();j++){
+                state::Element* e = state.getChars().get(i,j);
                 if(e->getTypeId()!= character){}
                 else{  
                     if(e->isStatic()==true){}
@@ -51,20 +50,6 @@ namespace engine{
         return orientation;
     }
 
-    
-    /*void MoveCommand::execute(state::State& state) {
-        state::ElementTab listt=state.getChars();
-        for(int i=0;i<listt.getHeight();i++){
-            for(int j=0;i<listt.getWidth();i++){
-                state::Element e=listt.get(i,j);
-                if(e.isStatic()==true){}
-                else{
-                    
-                }
-            }
-            
-        }    
-    }*/
     CommandTypeId OrientationCommand::getTypeId() const {
         return CommandTypeId::ORIENTATION; 
     } 

@@ -9,7 +9,7 @@
 namespace state{
         
     ElementTab& State::getChars() {
-        return this->chars;
+        return chars;
     }
     
     ElementTab& State::getGrid() {

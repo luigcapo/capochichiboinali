@@ -13,8 +13,7 @@ namespace engine{
     }
 
     void LoadCommand::execute(state::State& state) {
-        render::StateLayer* slayer=new render::StateLayer(state);
-         slayer->initSurface();
+        //besoin du fichier texte du rendu
     }
 
     const std::string& LoadCommand::getFile_name() const {

@@ -9,10 +9,10 @@ namespace render {
   class Tile {
     // Attributes
   protected:
-    int x     = 0;
+    int x     = 672;
     int y     = 0;
-    int width     = 24;
-    int height     = 24;
+    int width     = 96;
+    int height     = 48;
     // Operations
   public:
     Tile ();

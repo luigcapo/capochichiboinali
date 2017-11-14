@@ -4,13 +4,16 @@
 
 
 namespace state {
+  class Millitary;
   class State;
 };
 namespace engine {
   class Command;
 }
 
+#include "CommandTypeId.h"
 #include "Command.h"
+#include "state/Millitary.h"
 
 namespace engine {
 
@@ -18,8 +21,8 @@ namespace engine {
   class AttaqueCommand : public engine::Command {
     // Operations
   public:
-    void attaque (state::State& state);
-    CommandeTypeId getTypeId () const;
+    void attaque (state::Millitary* m, state::Millitary* m1);
+    CommandTypeId getTypeId () const;
     void execute (state::State& state);
     // Setters and Getters
   };

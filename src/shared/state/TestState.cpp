@@ -318,7 +318,7 @@ namespace state{
         
         //Batiment
         cout << "Ajoute une batiment en 6,10..." << endl;
-        Batiment* bln = new Batiment(BARAQUE);
+        Batiment* bln = new Batiment(BARRACK);
         etat.getGrid().set(6, 10, bln);
         
         cout << "Vérifie que la cellule modifiée est bien une batiment:    ";

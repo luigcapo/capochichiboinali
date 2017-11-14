@@ -4,6 +4,7 @@
 
 #include "state/TypeId.h"
 #include "state/Element.h"
+#include "state/Direction.h"
 #include "state/Mobile.h"
 #include "state/Static.h"
 #include "state/MillTypeId.h"
@@ -18,7 +19,6 @@
 #include "state/Wall.h"
 #include "state/BatimentTypeId.h"
 #include "state/Batiment.h"
-#include "state/Direction.h"
 #include "state/ElementTab.h"
 #include "state/Colonie.h"
 #include "state/Joueur.h"

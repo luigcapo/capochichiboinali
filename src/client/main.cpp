@@ -12,6 +12,7 @@ void testSFML() {
 #include "state.h"
 #include "state/TestState.h"
 #include "state/Texture.h"
+//#include "engine/testEngine.h"
 
 
 using namespace std;
@@ -37,7 +38,7 @@ int main(int argc,char* argv[]) {
     }
     
     else if (mode == "engine"){
-        cout << "Test du moteur de jeu" <<endl;
+        //testEngine();
     }
     
     else{

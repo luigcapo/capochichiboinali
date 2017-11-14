@@ -9,8 +9,8 @@
 namespace state {
 
     Mobile::Mobile() {
-        point_mouvement=0;
-        cout=0;
+        point_mouvement = 0;
+        cout = 0;
     }
 
     int Mobile::getCout() const {
@@ -30,7 +30,15 @@ namespace state {
     }
 
     void Mobile::setPoint_mouvement(int point_mouvement) {
-        this->point_mouvement=point_mouvement;
+        this->point_mouvement = point_mouvement;
+    }
+    
+    Direction Mobile::getOrientation() const {
+        return this->orientation;
+    }
+        
+    void Mobile::setOrientation(Direction orientation) {
+        this->orientation = orientation;
     }
 
 }

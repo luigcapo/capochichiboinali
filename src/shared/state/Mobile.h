@@ -7,6 +7,7 @@ namespace state {
   class Element;
 }
 
+#include "Direction.h"
 #include "Element.h"
 
 namespace state {
@@ -17,6 +18,7 @@ namespace state {
   protected:
     int point_mouvement;
     int cout;
+    Direction orientation     = NONE;
     // Operations
   public:
     Mobile ();
@@ -26,6 +28,8 @@ namespace state {
     void setPoint_mouvement(int point_mouvement);
     int getCout() const;
     void setCout(int cout);
+    Direction getOrientation() const;
+    void setOrientation(Direction orientation);
   };
 
 };

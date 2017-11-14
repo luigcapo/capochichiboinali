@@ -11,12 +11,18 @@ namespace render{
     ElementTabLayer::ElementTabLayer(const state::ElementTab& tab):tab(tab) {}
 
     void ElementTabLayer::initSurface() {
+        
+        // fabrique une nouvelle surface
         Surface s;
-        s.loadTexture(tileset->getImageFIle());
+        
+        // demande à la surface de charger la texture
+        s.loadTexture( tileset->getImageFIle() );
+        
+        // on initialise la liste des sprites
         for (unsigned int i=0;i<tab.getHeight();i++){
             for(unsigned int j=0;j<tab.getWidth();j++){
-                Tile tile=tileset->getTile(*(tab.get(i,j)));
-                    s.initQuads(tile.getHeight()*tile.getWidth());
+                Tile tile = tileset->getTile( *(tab.get(i,j)) );
+                    s.initQuads( tile.getHeight()*tile.getWidth() );
             }
         }
         

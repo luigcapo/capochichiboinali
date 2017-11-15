@@ -9,8 +9,8 @@
 namespace state{
     
     ElementTab::ElementTab() {
-        width = 0;
-        height = 1;
+        this->width = 0;
+        this->height = 1;
     }
     
     std::size_t ElementTab::getWidth () const {
@@ -23,6 +23,7 @@ namespace state{
 
     void ElementTab::add (Element* e) {
         list.push_back(std::unique_ptr<state::Element>(e));
+        this->width+=1;
     }
     
     Element* ElementTab::get (std::size_t i, std::size_t j) const {
@@ -30,7 +31,6 @@ namespace state{
     }
 
     void ElementTab::set (std::size_t i, std::size_t j, Element* e) {
-        //list[i+j*width] = e.set();
         list[i+j*width] = std::unique_ptr<state::Element>(e);
     }
     
@@ -38,30 +38,10 @@ namespace state{
         return list.size();   
     }
     
-    void ElementTab::resize (std::size_t width, std::size_t height){
+    void ElementTab::resize (std::size_t width, std::size_t height) {
         
         this->width = width;
         this->height = height;
-        
-        std::size_t taille = width+width*height;
-        
-        //Redimensionnement de la taille de la liste
-        if( taille > list.size() ){
-            
-            do{
-                list.push_back( nullptr );
-            } while( taille > list.size() );   
-        }
-        else if( taille < list.size() ){
-            
-            do{
-                list.pop_back();
-            } while( taille < list.size() );
-        }
-        
-        
-        
+        list.resize(width*height);
     }
-    
-
 }

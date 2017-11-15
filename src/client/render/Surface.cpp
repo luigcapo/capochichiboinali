@@ -20,24 +20,27 @@ namespace render{
     }
     
     // A REVOIR.... Taille tuile: 96*96
-    void Surface::setSpriteLocation(int i, int x, int y) {
+    void Surface::setSpriteLocation (int i, int x, int y, const Tile& tex) {
         // Surface::setSpriteLocation(int i, int x, int y, const Tile& tex)
         
         // fixe les coordonnées des quatre coins du carré où doit être dessiné la tuile à l’écran
-        // x: position x
-        // y: position y
+        // i: numero du quad à définir
+        // x: position tuile x
+        // y: position tuile y
         
         sf::Vertex* quad = &quads[4*i];
+        int tx = tex.getWidth();
+        int ty = tex.getHeight();
         
-        /*quad[0].position = sf::Vector2f( x, y );
-        quad[1].position = sf::Vector2f( (x+tex.getX()), y );
-        quad[2].position = sf::Vector2f( (x+tex.getX()), (y+tex.getY()) );
-        quad[3].position = sf::Vector2f( x, (y+tex.getY()) );*/
+        quad[0].position = sf::Vector2f( x*tx, y*ty );
+        quad[1].position = sf::Vector2f( (x+1)*tx, y*ty );
+        quad[2].position = sf::Vector2f( (x+1)*tx, (y+1)*ty );
+        quad[3].position = sf::Vector2f( x*tx, (y+1)*ty );
         
-        quad[0].position = sf::Vector2f(x * 96, y * 96);
+        /*quad[0].position = sf::Vector2f(x * 96, y * 96);
         quad[1].position = sf::Vector2f((x + 1) * 96, y * 96);
         quad[2].position = sf::Vector2f((x + 1) * 96, (y + 1) * 96);
-        quad[3].position = sf::Vector2f(x * 96, (y + 1) * 96);
+        quad[3].position = sf::Vector2f(x * 96, (y + 1) * 96);*/
     }
     
     void Surface::setSpriteTexture(int i, const Tile& tex) {

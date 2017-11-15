@@ -177,6 +177,7 @@ namespace state{
         
         
         
+        
         //Tests sur la grille
         cout << "Tests sur la grille..." << endl;
         cout << "redimensionne en 15 par 12..." << endl;
@@ -209,21 +210,16 @@ namespace state{
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
-         
-        /*
-         * Erreur segmentation dans remplir
-         * 
-        cout << "Rempli avec des plateaux vides..." << endl;
-        Plateau *plte = new Plateau(EMPTY);
+        
+
+
+       cout << "Rempli avec des plateaux vides..." << endl;
         for(std::size_t i = 0; i < etat.getGrid().getWidth(); i++){
             for(std::size_t j=0; j < etat.getGrid().getHeight(); j++){
-                etat.getGrid().set(i, j, plte);
+                etat.getGrid().set(i, j, new Plateau(EMPTY));
             }
         }
-         * 
-         * 
-         * 
-         * 
+          
         
         cout << "Vérifie que toutes les cases sont des plateaux vides:    ";
         result = true;
@@ -239,9 +235,10 @@ namespace state{
             cout << "OK" << endl;
         else
             cout << "Error" << endl;
-         * 
-         * 
-         * */
+         
+        
+        
+        
         //delete plte;
         
         //Wall
@@ -321,7 +318,7 @@ namespace state{
         Batiment* bln = new Batiment(BARRACK);
         etat.getGrid().set(6, 10, bln);
         
-        cout << "Vérifie que la cellule modifiée est bien une batiment:    ";
+        cout << "Vérifie que la cellule modifiée est bien un batiment:    ";
         if(etat.getGrid().get(6, 10)->getTypeId() == 7)
             cout << "OK" << endl;
         else

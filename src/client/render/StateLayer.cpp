@@ -30,7 +30,7 @@ namespace render{
             for( std::size_t j=0; j<state.getHeight(); j++ ){
                 
                 // surface->setSpriteLocation( (i+j*tab.getWidth()), tab.get(i, j)->getX(), tab.get(i, j)->getY() );
-                surface->setSpriteLocation( (i+j*state.getWidth()), i, j );
+                surface->setSpriteLocation( (i+j)*state.getWidth(), i, j, tileset->getTile(*state.get(i, j)) );
                 surface->setSpriteTexture( (i+j*state.getWidth()), tileset->getTile(*state.get(i, j)) ); 
             }
         }

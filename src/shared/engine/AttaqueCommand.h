@@ -19,8 +19,15 @@ namespace engine {
 
   /// class AttaqueCommand - 
   class AttaqueCommand : public engine::Command {
+    // Attributes
+  private:
+    int x;
+    int y;
+    int x1;
+    int y1;
     // Operations
   public:
+    AttaqueCommand (int x, int y, int x1, int y1);
     void attaque (state::Millitary* m, state::Millitary* m1);
     CommandTypeId getTypeId () const;
     void execute (state::State& state);

@@ -7,9 +7,9 @@ namespace engine {
 
   enum CommandTypeId {
     LOAD     = 0,
-    ORIENTATION     = 1,
-    ATTAQUE     = 4,
-    FONDA     = 5
+    MOVE     = 1,
+    ATTAQUE     = 2,
+    FONDA     = 3
   };
 
 };

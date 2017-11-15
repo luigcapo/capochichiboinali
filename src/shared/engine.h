@@ -5,7 +5,7 @@
 #include "engine/CommandTypeId.h"
 #include "engine/Command.h"
 #include "engine/LoadCommand.h"
-#include "engine/OrientationCommand.h"
+#include "engine/MoveCommand.h"
 #include "engine/AttaqueCommand.h"
 #include "engine/FondationCommand.h"
 #include "engine/Engine.h"

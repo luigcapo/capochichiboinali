@@ -23,6 +23,15 @@ namespace render{
         return "res/units_tileset.png";
     }
 
+    int CharsTileSet::getCellWidth() const {
+        return 512;
+    }
+
+    
+    int CharsTileSet::getCellHeight() const {
+        return 240;
+    }
+
     const Tile& CharsTileSet::getTile(const state::Element& e) const {
         
         if( e.isStatic() ){

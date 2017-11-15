@@ -23,7 +23,7 @@ namespace render {
   /// class GridTileSet - 
   class GridTileSet : public render::TileSet {
     // Attributes
-  public:
+  private:
     std::vector<Tile> plateau;
     std::vector<Tile> ressource;
     std::vector<Tile> wall;
@@ -31,6 +31,8 @@ namespace render {
     // Operations
   public:
     GridTileSet ();
+    int getCellWidth () const;
+    int getCellHeight () const;
     const std::string getImageFile () const;
     const Tile& getTile (const state::Element& e) const;
     // Setters and Getters

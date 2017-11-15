@@ -4,14 +4,14 @@
 
 
 namespace state {
-  class State;
+  class ElementTab;
 };
 namespace render {
   class Layer;
 }
 
 #include "Layer.h"
-#include "state/State.h"
+#include "state/ElementTab.h"
 
 namespace render {
 
@@ -20,10 +20,10 @@ namespace render {
     // Associations
     // Attributes
   private:
-    const state::State& state;
+    const state::ElementTab& state;
     // Operations
   public:
-    StateLayer (const state::State& state);
+    StateLayer (const state::ElementTab& state);
     void initSurface ();
     // Setters and Getters
   };

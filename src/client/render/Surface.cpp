@@ -15,36 +15,42 @@ namespace render{
     
     void Surface::initQuads(int count) {
         //on crée un nombre de quads/sprites égal au nombre de cellules dans la grille
-        for(int i=0; i<count; i++){
-            // création d'un quad
-            sf::VertexArray quad(sf::Quads, 4);
-        }
+        quads.setPrimitiveType(sf::Quads);
+        quads.resize(4*count); // count = nombre de sprites
     }
     
-    /*
+    // A REVOIR.... Taille tuile: 96*96
     void Surface::setSpriteLocation(int i, int x, int y) {
+        // Surface::setSpriteLocation(int i, int x, int y, const Tile& tex)
         
-        //fixe la position de la cellule(tile) i
+        // fixe les coordonnées des quatre coins du carré où doit être dessiné la tuile à l’écran
+        // x: position x
+        // y: position y
         
-        sf::Vertex* quad = &quads[i];
+        sf::Vertex* quad = &quads[4*i];
         
-        quad[0].position = sf::Vector2f(x, y);
-        quad[1].position = sf::Vector2f(x, y);
-        quad[2].position = sf::Vector2f(x, y);
-        quad[3].position = sf::Vector2f(x, y);
+        /*quad[0].position = sf::Vector2f( x, y );
+        quad[1].position = sf::Vector2f( (x+tex.getX()), y );
+        quad[2].position = sf::Vector2f( (x+tex.getX()), (y+tex.getY()) );
+        quad[3].position = sf::Vector2f( x, (y+tex.getY()) );*/
+        
+        quad[0].position = sf::Vector2f(x * 96, y * 96);
+        quad[1].position = sf::Vector2f((x + 1) * 96, y * 96);
+        quad[2].position = sf::Vector2f((x + 1) * 96, (y + 1) * 96);
+        quad[3].position = sf::Vector2f(x * 96, (y + 1) * 96);
     }
     
     void Surface::setSpriteTexture(int i, const Tile& tex) {
         
-        //fixe la texture de la cellule i
+        // fixe les coordonnées des quatre coins de la tuile à sélectionner dans la texture
         
-        sf::Vertex* quad = &quads[i];
+        sf::Vertex* quad = &quads[4*i];
         
-        quads[i].texCoords=sf::Vector2f(tex.getX(),tex.getY());
+        quad[0].texCoords = sf::Vector2f( tex.getX(), tex.getY() );
+        quad[1].texCoords = sf::Vector2f( tex.getX() + tex.getWidth(), tex.getY());
+        quad[2].texCoords = sf::Vector2f( tex.getX() + tex.getWidth(), tex.getY() + tex.getHeight() );
+        quad[3].texCoords = sf::Vector2f( tex.getX(), tex.getY() + tex.getHeight() );
     }
-    
-     * 
-     * */
     
     void Surface::draw(sf::RenderTarget& target, sf::RenderStates states) const {
         // on applique la transformation de l'entité

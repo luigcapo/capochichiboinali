@@ -24,6 +24,15 @@ namespace render{
         return "res/grid_tileset.png";
     }
 
+    int GridTileSet::getCellWidth() const {
+        return 768;
+    }
+
+    int GridTileSet::getCellHeight() const {
+        return 576;
+    }
+
+
     const Tile& GridTileSet::getTile(const state::Element& e) const {
         
         // Définitition des tuiles éléments statiques

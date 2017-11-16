@@ -12,11 +12,13 @@ void testSFML() {
 #include "state.h"
 #include "state/TestState.h"
 #include "render.h"
+#include "engine/TestEngine.h"
 //#include "TestRendu.h"
 
 
 using namespace std;
 using namespace state;
+using namespace engine;
 
 int main(int argc,char* argv[]) {
     
@@ -109,7 +111,7 @@ int main(int argc,char* argv[]) {
     }
     
     else if (mode == "engine"){
-        // testEngine();
+        testEngine();
     }
     
     else if (mode == "random_ai"){

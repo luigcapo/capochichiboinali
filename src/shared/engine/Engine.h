@@ -26,7 +26,7 @@ namespace engine {
   public:
     Engine (state::State& state);
     ~Engine ();
-    const state::State& getState ();
+    state::State& getState () const;
     void addCommand (Command* cmd);
     void update ();
     void resize (int c);

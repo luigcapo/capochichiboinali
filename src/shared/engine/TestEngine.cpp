@@ -23,21 +23,31 @@ namespace engine{
         Millitary *m2= new Millitary(MOUSQUETAIRE);
         m->setJ(1);
         m1->setJ(1);
+        m1->setCombat(30);
         m2->setJ(2);
         c->setJ(1);
+        state.getChars().resize(20,20);
         state.getChars().set(3,5,m);
         state.getChars().set(4,4,m1);
         state.getChars().set(5,4,c);
         state.getChars().set(5,5,m2);
         std::cout<<"crée le moteur à partir de l'état"<<std::endl;
         Engine*eng = new Engine(state);
+        /*std::cout<<"ajoute de nouvelle commande"<< std::endl;
+        eng->execute(new MoveCommand(3,5,4,4));
         std::cout<<"ajoute de nouvelle commande"<< std::endl;
-        eng->addCommand(new MoveCommand(3,5,4,4));
-        eng->addCommand(new MoveCommand(4,4,5,5));
-        eng->addCommand(new AttaqueCommand(4,4,5,5));
-        eng->update();
+        eng->execute(new MoveCommand(4,4,5,5));
+        std::cout<<"ajoute de nouvelle commande"<< std::endl;*/
+        
+        eng->execute(new AttaqueCommand(4,4,5,5));
         std::cout<< m2->getPv() <<std::endl;
-        std::cout<< state.getChars().get(4,4)->getTypeId() <<std::endl;         
+        /*std::cout<<"ajoute de nouvelle commande"<< std::endl;
+        eng->resize(10);
+        eng->update();*/
+        std::cout<<"ajoute de nouvelle commande"<< std::endl;
+        std::cout<< m2->getPv() <<std::endl;
+        std::cout<< state.getChars().get(4,4)->getTypeId() <<std::endl;
+       
     }
 
     

@@ -29,6 +29,8 @@ namespace engine {
     const state::State& getState ();
     void addCommand (Command* cmd);
     void update ();
+    void resize (int c);
+    void execute (Command* c);
     // Setters and Getters
   };
 

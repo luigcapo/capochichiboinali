@@ -6,18 +6,18 @@
 
 #include "Engine.h"
 
-namespace engine{
+namespace engine {
+    Engine::Engine(state::State& state):currentState(state) {
 
-    Engine::Engine() {
-        
     }
 
+
     Engine::~Engine() {
-        
+        for (auto command:currentCommands){delete command;}
     }
     
     void Engine::addCommand(Command* cmd) {
-        currentCommands.push_back(std::unique_ptr<Command>(cmd));
+        currentCommands.push_back(cmd);
     }
 
     const state::State& Engine::getState() {

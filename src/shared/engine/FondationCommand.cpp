@@ -6,6 +6,7 @@
 
 #include "FondationCommand.h"
 #include "state/Colon.h"
+using namespace state;
 
 namespace engine {
     void FondationCommand::fonda(state::Colon*c) {
@@ -23,7 +24,7 @@ namespace engine {
             for(std::size_t j=0; j< state.getChars().getWidth(); j++){
                 if(state.getChars().get(i,j)->getTypeId()!=1){}
                 else{
-                    state::Colon*c= (state::Colon*) state.getChars().get(i,j);
+                    Colon*c= (Colon*) state.getChars().get(i,j);
                     fonda(c);
                 }
             }

@@ -3,7 +3,6 @@
 #define ENGINE__ENGINE__H
 
 #include <vector>
-#include <memory>
 
 namespace state {
   class State;
@@ -12,7 +11,6 @@ namespace engine {
   class Command;
 }
 
-#include "state/State.h"
 #include "Command.h"
 
 namespace engine {
@@ -22,11 +20,11 @@ namespace engine {
     // Associations
     // Attributes
   private:
-    state::State currentState;
-    std::vector<std::unique_ptr<Command>> currentCommands;
+    state::State& currentState;
+    std::vector<Command*> currentCommands;
     // Operations
   public:
-    Engine ();
+    Engine (state::State& state);
     ~Engine ();
     const state::State& getState ();
     void addCommand (Command* cmd);

@@ -37,9 +37,7 @@ namespace engine{
         eng->addCommand(new AttaqueCommand(4,4,5,5));
         eng->update();
         std::cout<< m2->getPv() <<std::endl;
-        std::cout<< state.getChars().get(4,4)->getTypeId() <<std::endl;
-        
-                
+        std::cout<< state.getChars().get(4,4)->getTypeId() <<std::endl;         
     }
 
     

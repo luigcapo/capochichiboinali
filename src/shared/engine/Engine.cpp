@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+#include <iostream>
+
 #include "Engine.h"
 
 namespace engine {
@@ -33,9 +35,10 @@ namespace engine {
         for(auto command : currentCommands){
             command->execute(currentState);
         }
+        currentCommands.clear();
     }
 
-    void Engine::execute(Command* c) {
+    void Engine::executeCom(Command* c) {
         c->execute(currentState);
     }
 

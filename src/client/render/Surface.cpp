@@ -29,6 +29,7 @@ namespace render{
         // y: position tuile y
         
         sf::Vertex* quad = &quads[4*i];
+        
         int tx = tex.getWidth();
         int ty = tex.getHeight();
         
@@ -37,10 +38,6 @@ namespace render{
         quad[2].position = sf::Vector2f( (x+1)*tx, (y+1)*ty );
         quad[3].position = sf::Vector2f( x*tx, (y+1)*ty );
         
-        /*quad[0].position = sf::Vector2f(x * 96, y * 96);
-        quad[1].position = sf::Vector2f((x + 1) * 96, y * 96);
-        quad[2].position = sf::Vector2f((x + 1) * 96, (y + 1) * 96);
-        quad[3].position = sf::Vector2f(x * 96, (y + 1) * 96);*/
     }
     
     void Surface::setSpriteTexture(int i, const Tile& tex) {
@@ -48,6 +45,9 @@ namespace render{
         // fixe les coordonnées des quatre coins de la tuile à sélectionner dans la texture
         
         sf::Vertex* quad = &quads[4*i];
+        
+        //int tu = tileNumber % (m_tileset.getSize().x / tileSize.x);
+        //int tv = tileNumber / (m_tileset.getSize().x / tileSize.x);
         
         quad[0].texCoords = sf::Vector2f( tex.getX(), tex.getY() );
         quad[1].texCoords = sf::Vector2f( tex.getX() + tex.getWidth(), tex.getY());

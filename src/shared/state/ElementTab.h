@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <memory>
+#include <string>
 
 namespace state {
   class Element;
@@ -25,6 +26,7 @@ namespace state {
     // Operations
   public:
     ElementTab ();
+    ElementTab (int width, int height);
     std::size_t getWidth () const;
     std::size_t getHeight () const;
     void add (Element* e);
@@ -32,6 +34,9 @@ namespace state {
     Element* get (std::size_t i, std::size_t j) const;
     void set (std::size_t i, std::size_t j, Element* e);
     std::size_t size () const;
+    void load (const std::string& file);
+    Element* getChar (int i) const;
+    void setChar (int i, Element* e);
     // Setters and Getters
   };
 

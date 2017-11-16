@@ -5,12 +5,19 @@
  */
 
 #include "ElementTab.h"
+#include "Utils.h"
 
 namespace state{
     
     ElementTab::ElementTab() {
         this->width = 0;
         this->height = 1;
+    }
+    
+    ElementTab::ElementTab(int width, int height) {
+        this->width = width;
+        this->height = height;
+        list.resize(width*height);
     }
     
     std::size_t ElementTab::getWidth () const {
@@ -23,7 +30,6 @@ namespace state{
 
     void ElementTab::add (Element* e) {
         list.push_back(std::unique_ptr<state::Element>(e));
-        //this->width+=1;
     }
     
     Element* ElementTab::get (std::size_t i, std::size_t j) const {
@@ -32,6 +38,8 @@ namespace state{
 
     void ElementTab::set (std::size_t i, std::size_t j, Element* e) {
         list[i+j*width] = std::unique_ptr<state::Element>(e);
+        e->setX(i);
+        e->setY(j);
     }
     
     std::size_t ElementTab::size () const{
@@ -44,4 +52,47 @@ namespace state{
         this->height = height;
         list.resize(width*height);
     }
+    void ElementTab::load(const std::string& file) {
+        /*std::vector<int> vcarteInit = loadCSV(file);
+        std::vector<int> tileToElem = loadCSV("res/TileToElement.csv");
+            
+        for(int i = 0; i<height; i++)
+            for(int j = 0; j<width; j++){
+
+                if(vcarteInit[i*width + j] < 0){
+                    this->set(j,i,NULL);
+                }
+                else if(tileToElem[vcarteInit[i*width + j]] == 0){
+                    this->set(j,i,(new Landscape(vcarteInit[i*width + j], false)));
+                }
+                else if(tileToElem[vcarteInit[i*width + j]] == 1){
+                    this->set(j,i,(new Landscape(vcarteInit[i*width + j], true)));
+
+                }
+                else if(tileToElem[vcarteInit[i*width + j]] == 2){
+                    this->set(j,i,(new City(1,true)));
+                }
+                else if(tileToElem[vcarteInit[i*width + j]] == 3)
+                    this->set(j,i,(new City(1,false)));
+                else if(tileToElem[vcarteInit[i*width + j]] == 4)
+                    this->set(j,i,(new City(2,false))); 
+                else if(tileToElem[vcarteInit[i*width + j]] == 5)
+                    this->set(j,i,(new City(3,false)));
+                else if(tileToElem[vcarteInit[i*width + j]] == -1){
+                    this->set(j,i,NULL);
+                }
+                else
+                    std::cout << "Erreur: tuile inutilisée" << std::endl;    
+        }*/
+    }
+
+    Element* ElementTab::getChar (int i) const {
+        return list[i].get();
+    }
+    void ElementTab::setChar(int i, Element* e) {
+        list[i] = std::unique_ptr<state::Element>(e);
+    }
+
+
+
 }

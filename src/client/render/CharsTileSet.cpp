@@ -162,7 +162,7 @@ namespace render{
                     return *( new Tile(448, 192, 64, 48) );
             } 
         }
-        return *( new Tile(0, 0, 1, 1) );
+        return *( new Tile(448, 192, 64, 48) );
     }
     
 }

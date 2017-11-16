@@ -39,46 +39,67 @@ int main(int argc,char* argv[]) {
       //TestRendu();  
     
     // on crée la fenêtre
-    sf::RenderWindow window(sf::VideoMode(528, 256), "Test Liste Personnages");
+    sf::RenderWindow window(sf::VideoMode(528, 256), "Test sur le rendu");
     
     
+    // on crée un état
+    state::State etat;
     
     
+    // test sur la liste des personnages
+    state::Millitary* msq = new state::Millitary(MOUSQUETAIRE);
+    msq->setX(4);
+    msq->setY(2);
     
-    
-    
-    /*state::State etat;
-    state::Colon *c = new Colon();
-    etat.getChars().add(c);
-    state::Millitary *ep = new Millitary(EPEISTE);
-    etat.getChars().add(ep);
-    state::Millitary *msq = new Millitary(MOUSQUETAIRE);
+    etat.getChars().add(new Millitary(EPEISTE));
     etat.getChars().add(msq);
-    state::Catapult *ctp = new Catapult();
-    etat.getChars().add(ctp);
-    etat.getChars().add(c);
-    etat.getChars().add(ep);
-    etat.getChars().add(ctp); 
-     
+    etat.getChars().add(new Millitary(MITRAILLEUR));
+    /*etat.getChars().setChar(0, new Millitary(EPEISTE));
+    etat.getChars().setChar(1, new Millitary(MOUSQUETAIRE));
+    etat.getChars().setChar(2, new Colon());
+    etat.getChars().setChar(2, new Catapult());
+    //etat.getChars().set(2, 4, new Millitary(EPEISTE));
+    //etat.getChars().set(3, 1, new Millitary(MOUSQUETAIRE));
+    //tat.getChars().set(1, 2, new Catapult());*/
     
-    render::StateLayer* tstate= new render::StateLayer(etat.getChars());
-    tstate.initSurface();*/
-    
-    /*
-    
-    
+    render::ElementTabLayer tChars(etat.getChars());
+    tChars.initSurface();
     
     
-    State etat1;
-    etat1.getGrid().resize(3,3);
-    etat1.getGrid().set(0, 0, new Plateau(PLAINE));
-    etat1.getGrid().set(0, 1, new Plateau(DESERT));
-    etat1.getGrid().set(0, 2, new Plateau(PLAINE));
+    
+    // test sur la grille
+    etat.getGrid().resize(5,5);
+    etat.getGrid().set(0, 0, new Plateau(PLAINE));
+    etat.getGrid().set(0, 1, new Plateau(PLAINE));
+    etat.getGrid().set(0, 2, new Plateau(PLAINE));
+    etat.getGrid().set(0, 3, new Plateau(PLAINE));
+    etat.getGrid().set(0, 4, new Plateau(PLAINE));
+    etat.getGrid().set(1, 0, new Plateau(PLAINE));
+    etat.getGrid().set(1, 1, new Plateau(PLAINE));
+    etat.getGrid().set(1, 2, new Plateau(DESERT));
+    etat.getGrid().set(1, 3, new Plateau(DESERT));
+    etat.getGrid().set(1, 4, new Plateau(PLAINE));
+    etat.getGrid().set(2, 0, new Plateau(PLAINE));
+    etat.getGrid().set(2, 1, new Plateau(PLAINE));
+    etat.getGrid().set(2, 2, new Plateau(DESERT));
+    etat.getGrid().set(2, 3, new Plateau(DESERT));
+    etat.getGrid().set(2, 4, new Plateau(PLAINE));
+    etat.getGrid().set(3, 0, new Plateau(PLAINE));
+    etat.getGrid().set(3, 1, new Plateau(PLAINE));
+    etat.getGrid().set(3, 2, new Plateau(PLAINE));
+    etat.getGrid().set(3, 3, new Plateau(PLAINE));
+    etat.getGrid().set(3, 4, new Plateau(PLAINE));
+    etat.getGrid().set(4, 0, new Plateau(PLAINE));
+    etat.getGrid().set(4, 1, new Plateau(PLAINE));
+    etat.getGrid().set(4, 2, new Plateau(PLAINE));
+    etat.getGrid().set(4, 3, new Plateau(PLAINE));
+    etat.getGrid().set(4, 4, new Plateau(PLAINE));
+
     
 
     
-    render::ElementTabLayer* et = new render::ElementTabLayer(etat1.getGrid());
-    et->initSurface();
+    render::ElementTabLayer tGrid(etat.getGrid());
+    tGrid.initSurface();
     
     
     
@@ -98,12 +119,11 @@ int main(int argc,char* argv[]) {
 
         // on dessine le niveau
         window.clear();
-        //window.draw(*(tstate.getSurface()));
-        window.draw(*(et->getSurface()));
+        window.draw(*(tGrid.getSurface()));
+        window.draw(*(tChars.getSurface()));
         window.display();
     }
     
-    //*/
     
     
     

@@ -28,17 +28,13 @@ int main(int argc,char* argv[]) {
     
     string mode = argv[1];
     if (mode == "hello")
-        cout << "Hello world !" << endl; //endl pour passer à la ligne
+        cout << "Hello World !" << endl; //endl pour passer à la ligne
     
     else if (mode == "state")
         testState();
     
     else if (mode == "render"){
-      //TestRendu();
-        
-        
-        
-    /*    
+      //TestRendu();  
     
     // on crée la fenêtre
     sf::RenderWindow window(sf::VideoMode(528, 256), "Test Liste Personnages");
@@ -47,7 +43,9 @@ int main(int argc,char* argv[]) {
     
     
     
-    state::State etat;
+    
+    
+    /*state::State etat;
     state::Colon *c = new Colon();
     etat.getChars().add(c);
     state::Millitary *ep = new Millitary(EPEISTE);
@@ -58,10 +56,27 @@ int main(int argc,char* argv[]) {
     etat.getChars().add(ctp);
     etat.getChars().add(c);
     etat.getChars().add(ep);
-    etat.getChars().add(ctp);
+    etat.getChars().add(ctp); 
+     
     
-    render::StateLayer* tstate = new render::StateLayer(etat.getChars());
-    tstate->initSurface();
+    render::StateLayer* tstate= new render::StateLayer(etat.getChars());
+    tstate.initSurface();*/
+    
+    /*
+    
+    
+    
+    
+    State etat1;
+    etat1.getGrid().resize(3,3);
+    etat1.getGrid().set(0, 0, new Plateau(PLAINE));
+    etat1.getGrid().set(0, 1, new Plateau(DESERT));
+    etat1.getGrid().set(0, 2, new Plateau(PLAINE));
+    
+
+    
+    render::ElementTabLayer* et = new render::ElementTabLayer(etat1.getGrid());
+    et->initSurface();
     
     
     
@@ -81,9 +96,12 @@ int main(int argc,char* argv[]) {
 
         // on dessine le niveau
         window.clear();
-        window.draw(tstate->getSurface());
+        //window.draw(*(tstate.getSurface()));
+        window.draw(*(et->getSurface()));
         window.display();
-    }*/
+    }
+    
+    //*/
     
     
     
@@ -99,8 +117,7 @@ int main(int argc,char* argv[]) {
     }
     
     else{
-        cout << "Choisir un mode" << endl;
-        menu();
+        cout << "Mode invalide" << endl;
     }
     
     return 0;

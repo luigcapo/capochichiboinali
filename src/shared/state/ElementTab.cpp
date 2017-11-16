@@ -23,7 +23,7 @@ namespace state{
 
     void ElementTab::add (Element* e) {
         list.push_back(std::unique_ptr<state::Element>(e));
-        this->width+=1;
+        //this->width+=1;
     }
     
     Element* ElementTab::get (std::size_t i, std::size_t j) const {

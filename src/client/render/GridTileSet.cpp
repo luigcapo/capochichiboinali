@@ -45,6 +45,7 @@ namespace render{
         // si l'élément est bien statique, on détermine son type afin de renvoyer la définition correspondante
         else{
             
+            
             // mur
             if ( e.getTypeId()==4 ){ 
                 
@@ -55,6 +56,10 @@ namespace render{
                 else if( w->getWallTypeId() == state::WALLOFBABYLON )
                     return *( new Tile(576, 480, 96, 96) ); 
             }
+            
+            
+            
+            
             
             // plateau
             else if ( e.getTypeId() == 5 ){
@@ -74,6 +79,10 @@ namespace render{
                 else // ocean
                     return *( new Tile(0, 384, 96, 48) );
             }
+            
+            
+            
+            
             
             // ressource
             else if ( e.getTypeId() == 6 ){
@@ -110,6 +119,10 @@ namespace render{
                 else // BARRACK
                     return *( new Tile(576, 480, 96, 96) );
             } 
+            
+            
+            
+            
         }
         return *(new Tile);
     }

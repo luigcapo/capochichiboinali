@@ -15,19 +15,28 @@ namespace engine {
     Engine::~Engine() {
         for (auto command:currentCommands){delete command;}
     }
-    
+
+    void Engine::resize(int c) {
+        currentCommands.resize(c);
+    }
+
+
     void Engine::addCommand(Command* cmd) {
         currentCommands.push_back(cmd);
     }
-
-    const state::State& Engine::getState() {
+    state::State& Engine::getState() const {
         return currentState;
     }
 
+    
     void Engine::update() {
-        for(auto& command : currentCommands){
-            command->execute( currentState);
+        for(auto command : currentCommands){
+            command->execute(currentState);
         }
+    }
+
+    void Engine::execute(Command* c) {
+        c->execute(currentState);
     }
 
 }

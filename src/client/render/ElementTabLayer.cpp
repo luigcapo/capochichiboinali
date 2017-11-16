@@ -18,9 +18,7 @@ namespace render{
         
         // fabrique une nouvelle surface
         surface = std::unique_ptr<Surface>(new Surface());
-        
-        
-        
+              
         
         if(tab.getHeight() == 1){
             
@@ -43,10 +41,8 @@ namespace render{
                     surface->setSpriteTexture( i, tileset->getTile(*tab.getChar(i)) ); 
             
             }
-        }
-        
-        
-        else{
+        }   
+        else if(tab.getMap1()){
             
             tileset = std::shared_ptr<TileSet>(new GridTileSet());
             
@@ -70,6 +66,30 @@ namespace render{
                 }
             }
         }
+        else{
+            tileset = std::shared_ptr<TileSet>(new GridTileSet());
+            
+            // demande à la surface de charger la texture
+            surface->loadTexture( tileset->getImageFile() );
+            
+            
+            // on redimensionne le tableau de vertex pour qu'il puisse contenir tout le niveau
+            surface->initQuads( (tab.getWidth()) * (tab.getHeight()) );
+            
+            // on initialise la liste des sprites
+            for ( std::size_t i=0; i<tab.getWidth(); i++ ){
+                for( std::size_t j=0; j<tab.getHeight(); j++ ){
+                    
+                    // setSpriteLocation (int i, int x, int y, const Tile& tex)
+                    // surface->setSpriteLocation( (i+j*tab.getWidth()), tab.get(i, j)->getX(), tab.get(i, j)->getY() );
+                
+                
+                    surface->setSpriteLocationMap2( (i+j*tab.getWidth()), i, j, tileset->getTile(*tab.get(i, j)) );
+                    surface->setSpriteTexture( (i+j*tab.getWidth()), tileset->getTile(*tab.get(i, j)) ); 
+                }
+            }
+        }
+    
         
     }
     

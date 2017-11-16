@@ -40,6 +40,20 @@ namespace render{
         
     }
     
+    void Surface::setSpriteLocationMap2 (int i, int x, int y, const Tile& tex) {
+        
+        sf::Vertex* quad = &quads[4*i];
+        
+        int tx = tex.getWidth();
+        int ty = tex.getHeight();
+        
+        quad[0].position = sf::Vector2f( x*tx+tx/2, y*ty+ty/2 );
+        quad[1].position = sf::Vector2f( (x+1)*tx+tx/2, y*ty+ty/2 );
+        quad[2].position = sf::Vector2f( (x+1)*tx+tx/2, (y+1)*ty+ty/2 );
+        quad[3].position = sf::Vector2f( x*tx+tx/2, (y+1)*ty+ty/2 );
+        
+    }
+    
     void Surface::setSpriteTexture(int i, const Tile& tex) {
         
         // fixe les coordonnées des quatre coins de la tuile à sélectionner dans la texture

@@ -39,7 +39,7 @@ int main(int argc,char* argv[]) {
       //TestRendu();  
     
     // on crée la fenêtre
-    sf::RenderWindow window(sf::VideoMode(528, 256), "Test sur le rendu");
+    sf::RenderWindow window(sf::VideoMode(1152, 720), "Test sur le rendu");
     
     
     // on crée un état
@@ -47,13 +47,24 @@ int main(int argc,char* argv[]) {
     
     
     // test sur la liste des personnages
-    state::Millitary* msq = new state::Millitary(MOUSQUETAIRE);
-    msq->setX(4);
-    msq->setY(2);
+    state::Millitary* ep = new state::Millitary(EPEISTE);
+    ep->setX(1);
+    ep->setY(1);
+    ep->setOrientation(state::EAST);
     
-    etat.getChars().add(new Millitary(EPEISTE));
+    state::Millitary* msq = new state::Millitary(MOUSQUETAIRE);
+    msq->setX(3);
+    msq->setY(2);
+    msq->setOrientation(state::SOUTH);
+    
+    state::Millitary* mt = new state::Millitary(MITRAILLEUR);
+    mt->setX(5);
+    mt->setY(3);
+    mt->setOrientation(state::NORTH_EAST);
+    
     etat.getChars().add(msq);
-    etat.getChars().add(new Millitary(MITRAILLEUR));
+    etat.getChars().add(mt);
+    etat.getChars().add(ep);
     /*etat.getChars().setChar(0, new Millitary(EPEISTE));
     etat.getChars().setChar(1, new Millitary(MOUSQUETAIRE));
     etat.getChars().setChar(2, new Colon());
@@ -95,14 +106,34 @@ int main(int argc,char* argv[]) {
     etat.getGrid().set(4, 3, new Plateau(PLAINE));
     etat.getGrid().set(4, 4, new Plateau(PLAINE));
 
-    
-
-    
     render::ElementTabLayer tGrid(etat.getGrid());
     tGrid.initSurface();
     
     
     
+    
+    // Map2
+    state::ElementTab map2(4,4);
+    map2.setMap2();
+    map2.set(0,0, new Plateau(PLAINE));
+    map2.set(0,1, new Plateau(PLAINE));
+    map2.set(0,2, new Plateau(PLAINE));
+    map2.set(0,3, new Plateau(PLAINE));
+    map2.set(1,0, new Plateau(PLAINE));
+    map2.set(1,1, new Plateau(PLAINE));
+    map2.set(1,2, new Plateau(PLAINE));
+    map2.set(1,3, new Plateau(PLAINE));
+    map2.set(2,0, new Plateau(PLAINE));
+    map2.set(2,1, new Plateau(PLAINE));
+    map2.set(2,2, new Plateau(PLAINE));
+    map2.set(2,3, new Plateau(PLAINE));
+    map2.set(3,0, new Plateau(PLAINE));
+    map2.set(3,1, new Plateau(PLAINE));
+    map2.set(3,2, new Plateau(PLAINE));
+    map2.set(3,3, new Plateau(PLAINE));
+    
+    render::ElementTabLayer tMap2(map2);
+    tMap2.initSurface();
     
     
 
@@ -120,6 +151,7 @@ int main(int argc,char* argv[]) {
         // on dessine le niveau
         window.clear();
         window.draw(*(tGrid.getSurface()));
+        window.draw(*(tMap2.getSurface()));
         window.draw(*(tChars.getSurface()));
         window.display();
     }

@@ -12,11 +12,13 @@ namespace state{
     ElementTab::ElementTab() {
         this->width = 0;
         this->height = 1;
+        this->map1 = true;
     }
     
     ElementTab::ElementTab(int width, int height) {
         this->width = width;
         this->height = height;
+        this->map1 = true;
         list.resize(width*height);
     }
     
@@ -53,10 +55,10 @@ namespace state{
         list.resize(width*height);
     }
     void ElementTab::load(const std::string& file) {
-        /*std::vector<int> vcarteInit = loadCSV(file);
+        std::vector<int> vcarteInit = loadCSV(file);
         std::vector<int> tileToElem = loadCSV("res/TileToElement.csv");
             
-        for(int i = 0; i<height; i++)
+        /*for(int i = 0; i<height; i++)
             for(int j = 0; j<width; j++){
 
                 if(vcarteInit[i*width + j] < 0){
@@ -92,7 +94,14 @@ namespace state{
     void ElementTab::setChar(int i, Element* e) {
         list[i] = std::unique_ptr<state::Element>(e);
     }
+    
+    bool ElementTab::getMap1 () const {
+        return this->map1;
+    }
 
+    void ElementTab::setMap2() {
+        this->map1 = false;
+    }
 
 
 }

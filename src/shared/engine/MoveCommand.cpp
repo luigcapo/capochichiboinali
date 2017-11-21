@@ -13,29 +13,34 @@ using namespace std;
 //Le lien avec la direction et le nombre de déplacement seront rajoutés ultérieurement
 namespace engine {
 
-    MoveCommand::MoveCommand(int x, int y, int x1, int y1):x(x),y(y),x1(x1),y1(y1){}
-
-
-    bool MoveCommand::trymove(state::State& state) {
-        Plateau* p;
-        //if (state.getChars().get(x1,y1)!=NULL){return 0;}//A mettre ou pas lorsque j'aurai une vrai map.
-        if (state.getChars().get(x,y)->getJ()!= state.getChars().get(x1,y1)->getJ()){return 1;}
-        else if (state.getChars().get(x,y)->getJ()!= state.getGrid().get(x1,y1)->getJ()){return 1;}
-        
-        else if(state.getGrid().get(x1,y1)->getTypeId()==5){
-            p=(Plateau*) state.getGrid().get(x1,y1);
-            if(p->getPlateautypeId()==6){delete (p);return 0;}
-            else{delete(p);return 1;}
-        }
-        else{return 1;}
+    MoveCommand::MoveCommand(int x, int y, int x1, int y1) : x(x), y(y), x1(x1), y1(y1) {
     }
 
-    void MoveCommand::execute(state::State& state){
-        if (trymove(state)){
-            state.getChars().set(x1,y1,state.getChars().get(x,y));
-           state.getChars().set(x,y,nullptr);
+    bool MoveCommand::trymove(state::State& state) const {
+        Plateau* p;
+        //if (state.getChars().get(x1,y1)!=NULL){return 0;}//A mettre ou pas lorsque j'aurai une vrai map.
+        if (state.getChars().get(x, y)->getJ() != state.getChars().get(x1, y1)->getJ()) {
+            return 1;
+        } else if (state.getChars().get(x, y)->getJ() != state.getGrid().get(x1, y1)->getJ()) {
+            return 1;
+        } else if (state.getGrid().get(x1, y1)->getTypeId() == state::PLATEAU) {
+            p = (Plateau*) state.getGrid().get(x1, y1);
+            if (p->getPlateautypeId() == state::OCEAN) {
+                return 0;
+            } else {
+                return 1;
+            }
+        } else {
+            return 1;
         }
-        else{std::cout << "impossible de déplacer l'élément" <<std::endl;}
+    }
+
+    void MoveCommand::execute(state::State& state) {
+        if (trymove(state)) {
+            state.getChars().set(x1, y1, state.getChars().release(x, y));
+        } else {
+            std::cout << "impossible de déplacer l'élément" << std::endl;
+        }
     }
 
     CommandTypeId MoveCommand::getTypeId() const {
@@ -85,5 +90,5 @@ namespace engine {
     CommandTypeId OrientationCommand::getTypeId() const {
         return CommandTypeId::ORIENTATION; 
     }
-     */  
+     */
 }

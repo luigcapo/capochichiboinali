@@ -33,7 +33,7 @@ namespace engine {
     MoveCommand (int x, int y, int  x1, int y1);
     CommandTypeId getTypeId () const;
     void execute (state::State& state);
-    bool trymove (state::State& state);
+    bool trymove (state::State& state) const;
     // Setters and Getters
     int getCharacter() const;
     void setCharacter(int character);

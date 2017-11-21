@@ -17,6 +17,10 @@
 #include "ai.h"
 #include <iostream>
 
+using namespace std;
+using namespace state;
+using namespace engine;
+
 namespace ai{
     void testai();
 }

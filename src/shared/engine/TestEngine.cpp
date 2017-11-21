@@ -34,20 +34,20 @@ namespace engine{
         state.getChars().set(4,4,m1);
         state.getChars().set(5,4,c);
         state.getChars().set(5,5,m2);
-        std::cout<<"crée le moteur à partir de l'état"<<std::endl;
+        
+        //state.getChars().set(7,7,state.getChars().release(3,5));
+        
+      std::cout<<"crée le moteur à partir de l'état"<<std::endl;
         Engine*eng = new Engine(state);
-        std::cout<<"ajoute de nouvelle commande d'attaque"<< std::endl;
+        std::cout<<"ajoute de nouvelle commande"<< std::endl;
         eng->addCommand(new MoveCommand(3,5,7,7));
-        std::cout<<"La nouevelle position de notre élément est" << endl;
-        /*std::cout<<"ajoute de nouvelle commande"<< std::endl;
-        eng->addCommand(new MoveCommand(4,4,5,6));
-        std::cout<<"ajoute de nouvelle commande"<< std::endl;*/
+        //eng->addCommand(new MoveCommand(4,4,5,6));
+        std::cout<<"ajoute de nouvelle commande d'attaque"<< std::endl;
         eng->addCommand(new AttaqueCommand(4,4,5,5));
         eng->addCommand(new MoveCommand(5,4,6,6));
         eng->update();
         std::cout<<"Vérifie les points de vie de l'unité attaqué ont diminué:";
         if (m2->getPv()<100){std::cout<< "OK" <<std::endl ;}else{std::cout<< "Problème sur la commande" <<std::endl;}
-        //eng->addCommand(new MoveCommand(5,4,6,6));
         std::cout<<state.getChars().get(5,5)->getTypeId()<<std::endl;
     }
 }

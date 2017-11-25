@@ -15,7 +15,6 @@ using namespace std;
 namespace state{
     void menu();
     void testState();
-    
 }
 
 #endif /* TESTSTATE_H */

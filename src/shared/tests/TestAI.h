@@ -22,7 +22,7 @@ using namespace state;
 using namespace engine;
 
 namespace ai{
-    void testai();
+    void testRandomAI();
 }
 
 

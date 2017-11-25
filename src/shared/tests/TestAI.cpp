@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 
-#include "Testai.h"
-#include "state/State.h"
-#include "RandomAI.h"
-#include "state/Military.h"
-#include "engine/Engine.h"
+#include "TestAI.h"
+#include "state.h"
+#include "ai.h"
+#include "engine.h"
 
 using namespace std;
 using namespace state;
 using namespace engine;
 
 namespace ai{
-    void testai(){
+    
+    void testRandomAI(){
         std::cout<< "Epoque 1"<<std::endl;
         State state;
         std::cout<< "Ajout de deux joueurs à notre état"<<std::endl;
@@ -34,4 +34,5 @@ namespace ai{
         randoom.run(*eng);
         std::cout<< "ca marche" << std::endl;
     }
+    
 }

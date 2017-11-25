@@ -6,7 +6,7 @@
 #include <iostream>
 
 #include "MoveCommand.h"
-#include "state/Plateau.h"
+#include "state/Terrain.h"
 
 using namespace state;
 using namespace std;
@@ -17,15 +17,15 @@ namespace engine {
     }
 
     bool MoveCommand::trymove(state::State& state) const {
-        Plateau* p;
+        Terrain* p;
         //if (state.getChars().get(x1,y1)!=NULL){return 0;}//A mettre ou pas lorsque j'aurai une vrai map.
         if (state.getChars().get(x, y)->getJ() != state.getChars().get(x1, y1)->getJ()) {
             return 1;
         } else if (state.getChars().get(x, y)->getJ() != state.getGrid().get(x1, y1)->getJ()) {
             return 1;
-        } else if (state.getGrid().get(x1, y1)->getTypeId() == state::PLATEAU) {
-            p = (Plateau*) state.getGrid().get(x1, y1);
-            if (p->getPlateautypeId() == state::OCEAN) {
+        } else if (state.getGrid().get(x1, y1)->getTypeId() == state::TERRAIN) {
+            p = (Terrain*) state.getGrid().get(x1, y1);
+            if (p->getTerrainTypeId() == state::OCEAN) {
                 return 0;
             } else {
                 return 1;

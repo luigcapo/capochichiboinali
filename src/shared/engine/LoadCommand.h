@@ -20,15 +20,18 @@ namespace engine {
   class LoadCommand : public engine::Command {
     // Attributes
   protected:
-    std::string file_name;
+    std::string file_name_map;
+    std::string file_name_grid;
     // Operations
   public:
-    LoadCommand ();
+    LoadCommand (const std::string& mapCSV, const std::string& gridCSV);
     CommandTypeId getTypeId () const;
     void execute (state::State& state);
     // Setters and Getters
-    const std::string& getFile_name() const;
-    void setFile_name(const std::string& file_name);
+    const std::string& getFile_name_map() const;
+    void setFile_name_map(const std::string& file_name_map);
+    const std::string& getFile_name_grid() const;
+    void setFile_name_grid(const std::string& file_name_grid);
   };
 
 };

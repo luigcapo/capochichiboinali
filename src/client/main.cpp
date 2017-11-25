@@ -12,7 +12,7 @@ void testSFML() {
 #include "state.h"
 #include "tests/TestState.h"
 #include "render.h"
-#include "engine/TestEngine.h"
+#include "tests/TestEngine.h"
 #include "tests/TestRender.h"
 
 

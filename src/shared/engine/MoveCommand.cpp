@@ -10,7 +10,8 @@
 
 using namespace state;
 using namespace std;
-//Le lien avec la direction et le nombre de déplacement seront rajoutés ultérieurement
+
+//Le lien entre la direction et le nombre de déplacement sera rajouté ultérieurement
 namespace engine {
 
     MoveCommand::MoveCommand(int x, int y, int x1, int y1) : x(x), y(y), x1(x1), y1(y1) {

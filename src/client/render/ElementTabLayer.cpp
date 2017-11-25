@@ -44,39 +44,15 @@ namespace render{
         // on redimensionne le tableau de vertex pour qu'il puisse contenir tout le niveau
         surface->initQuads( tab.getWidth() * tab.getHeight() );
         
-        
-        
-        
-        /* CharsTileSet */
-        if(id == 3){
-            // on initialise la liste des sprites
-            for ( std::size_t i=0; i<tab.getWidth(); i++ ){
-                for( std::size_t j=0; j<tab.getHeight(); j++ ){
-                    if (tab.get(i, j)) {
-                        surface->setSpriteLocationUnit( i+j*tab.getWidth(), i, j );
-                        surface->setSpriteTexture( i+j*tab.getWidth(), tileset->getTile(*tab.get(i, j)) );
-                    }
+        // on initialise la liste des sprites
+        for ( std::size_t i=0; i<tab.getWidth(); i++ ){
+            for( std::size_t j=0; j<tab.getHeight(); j++ ){
+                if (tab.get(i, j)) {
+                    surface->setSpriteLocation( i+j*tab.getWidth(), i, j );
+                    surface->setSpriteTexture( i+j*tab.getWidth(), tileset->getTile(*tab.get(i, j)) );
                 }
             }
-        }   // if
-        
-        
-        
-        
-        /* GridTileSet ou TerrainTileSet */
-        else{
-            // on initialise la liste des sprites
-            for ( std::size_t i=0; i<tab.getWidth(); i++ ){
-                for( std::size_t j=0; j<tab.getHeight(); j++ ){
-                    if (tab.get(i, j)) {
-                        surface->setSpriteLocation( i+j*tab.getWidth(), i, j );
-                        surface->setSpriteTexture( i+j*tab.getWidth(), tileset->getTile(*tab.get(i, j)) );
-                    }
-                }
-            }
-        }   // else
-                  
-        
+        }
     }   // initSurface();
      
     

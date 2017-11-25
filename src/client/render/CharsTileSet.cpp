@@ -24,19 +24,14 @@ namespace render{
     }
 
     int CharsTileSet::getCellWidth() const {
-        return 512;
+        return 768;
     }
-
     
     int CharsTileSet::getCellHeight() const {
-        return 240;
-    }
-
-    
+        return 480;
+    }  
     
     const Tile& CharsTileSet::getTile(const state::Element& e) const {
-        
-
         
         if( e.isStatic() )
             return *( new Tile(0, 0, 0, 0) );
@@ -44,123 +39,122 @@ namespace render{
         else{
             
             // COLON
-            if( e.getTypeId() == 1 ){
+            if( e.getTypeId() == state::TypeId::COLON ){
                 
                 state::Colon* c = (state::Colon*)&e;
                 //delete
                 
-                if( c->getOrientation() == state::NONE)
-                    return *( new Tile(0, 0, 64, 48) );
-                else if( c->getOrientation() == state::EAST)
-                    return *( new Tile(0, 0, 64, 48) );
-                else if( c->getOrientation() == state::NORTH)
-                    return *( new Tile(64, 0, 64, 48) );
-                else if( c->getOrientation() == state::WEST)
-                    return *( new Tile(128, 0, 64, 48) );
-                else if( c->getOrientation() == state::SOUTH)
-                    return *( new Tile(192, 0, 64, 48) );
-                else if( c->getOrientation() == state::NORTH_EAST)
-                    return *( new Tile(256, 0, 64, 48) );
-                else if( c->getOrientation() == state::NORTH_WEST)
-                    return *( new Tile(328, 0, 64, 48) );
-                else if( c->getOrientation() == state::SOUTH_EAST)
-                    return *( new Tile(384, 0, 64, 48) );
-                else if( c->getOrientation() == state::SOUTH_WEST)
-                    return *( new Tile(448, 0, 64, 48) );
+                if( c->getOrientation() == state::Direction::NONE)
+                    return *( new Tile(0, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::WEST)
+                    return *( new Tile(0, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::NORTH_WEST)
+                    return *( new Tile(96, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::NORTH)
+                    return *( new Tile(192, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::NORTH_EAST)
+                    return *( new Tile(288, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::EAST)
+                    return *( new Tile(384, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::SOUTH_EAST)
+                    return *( new Tile(480, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::SOUTH)
+                    return *( new Tile(576, 0, 96, 96) );
+                else if( c->getOrientation() == state::Direction::SOUTH_WEST)
+                    return *( new Tile(672, 0, 96, 96) );
             }
             
             // MILITARY
-            else if( e.getTypeId() ==2 ){
+            else if( e.getTypeId() == state::TypeId::MILITARY ){
                 
-                state::Military* m = (state::Military*)&e;
+                state::Military* m = (state::Military*)&e; 
                 
-                
-                if( m->getMilTypeId() == state::EPEISTE ){
+                if( m->getMilTypeId() == state::MilTypeId::EPEISTE ){
                     
-                    if( m->getOrientation() == state::NONE)
-                        return *( new Tile(0, 48, 64, 48) );
-                    else if( m->getOrientation() == state::EAST)
-                        return *( new Tile(0, 48, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH)
-                        return *( new Tile(64, 48, 64, 48) );
-                    else if( m->getOrientation() == state::WEST)
-                        return *( new Tile(128, 48, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH)
-                        return *( new Tile(192, 48, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH_EAST)
-                        return *( new Tile(256, 48, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH_WEST)
-                        return *( new Tile(328, 48, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH_EAST)
-                        return *( new Tile(384, 48, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH_WEST)
-                        return *( new Tile(448, 48, 64, 48) );
+                    if( m->getOrientation() == state::Direction::NONE)
+                        return *( new Tile(0, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::WEST)
+                        return *( new Tile(0, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH_WEST)
+                        return *( new Tile(96, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH)
+                        return *( new Tile(192, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH_EAST)
+                        return *( new Tile(288, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::EAST)
+                        return *( new Tile(384, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH_EAST)
+                        return *( new Tile(480, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH)
+                        return *( new Tile(576, 96, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH_WEST)
+                        return *( new Tile(672, 96, 96, 96) );
                 }
                     
-                else if( m->getMilTypeId() == state::MITRAILLEUR ){
+                else if( m->getMilTypeId() == state::MilTypeId::MITRAILLEUR ){
                     
-                    if( m->getOrientation() == state::NONE)
-                        return *( new Tile(0, 96, 64, 48) );
-                    else if( m->getOrientation() == state::EAST)
-                        return *( new Tile(0, 96, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH)
-                        return *( new Tile(64, 96, 64, 48) );
-                    else if( m->getOrientation() == state::WEST)
-                        return *( new Tile(128, 96, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH)
-                        return *( new Tile(192, 96, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH_EAST)
-                        return *( new Tile(256, 96, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH_WEST)
-                        return *( new Tile(328, 96, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH_EAST)
-                        return *( new Tile(384, 96, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH_WEST)
-                        return *( new Tile(448, 96, 64, 48) );
+                    if( m->getOrientation() == state::Direction::NONE)
+                        return *( new Tile(0, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::WEST)
+                        return *( new Tile(0, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH_WEST)
+                        return *( new Tile(96, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH)
+                        return *( new Tile(192, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH_EAST)
+                        return *( new Tile(288, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::EAST)
+                        return *( new Tile(384, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH_EAST)
+                        return *( new Tile(480, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH)
+                        return *( new Tile(576, 192, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH_WEST)
+                        return *( new Tile(672, 192, 96, 96) );
                 }
                 
-                else if( m->getMilTypeId() == state::CATAPULT ){
+                else if( m->getMilTypeId() == state::MilTypeId::CATAPULT ){
                 
-                if( m->getOrientation() == state::NONE)
-                    return *( new Tile(0, 192, 64, 48) );
-                else if( m->getOrientation() == state::EAST)
-                    return *( new Tile(0, 192, 64, 48) );
-                else if( m->getOrientation() == state::NORTH)
-                    return *( new Tile(64, 192, 64, 48) );
-                else if( m->getOrientation() == state::WEST)
-                    return *( new Tile(128, 192, 64, 48) );
-                else if( m->getOrientation() == state::SOUTH)
-                    return *( new Tile(192, 192, 64, 48) );
-                else if( m->getOrientation() == state::NORTH_EAST)
-                    return *( new Tile(256, 192, 64, 48) );
-                else if( m->getOrientation() == state::NORTH_WEST)
-                    return *( new Tile(328, 192, 64, 48) );
-                else if( m->getOrientation() == state::SOUTH_EAST)
-                    return *( new Tile(384, 192, 64, 48) );
-                else if( m->getOrientation() == state::SOUTH_WEST)
-                    return *( new Tile(448, 192, 64, 48) );
+                if( m->getOrientation() == state::Direction::NONE)
+                    return *( new Tile(0, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::WEST)
+                    return *( new Tile(0, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::NORTH_WEST)
+                    return *( new Tile(96, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::NORTH)
+                    return *( new Tile(192, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::NORTH_EAST)
+                    return *( new Tile(288, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::EAST)
+                    return *( new Tile(384, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::SOUTH_EAST)
+                    return *( new Tile(480, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::SOUTH)
+                    return *( new Tile(576, 384, 96, 96) );
+                else if( m->getOrientation() == state::Direction::SOUTH_WEST)
+                    return *( new Tile(672, 384, 96, 96) );
                 }
                 
                 // MOUSQUETAIRE
                 else{
-                    if( m->getOrientation() == state::NONE)
-                        return *( new Tile(0, 144, 64, 48) );
-                    else if( m->getOrientation() == state::EAST)
-                        return *( new Tile(0, 144, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH)
-                        return *( new Tile(64, 144, 64, 48) );
-                    else if( m->getOrientation() == state::WEST)
-                        return *( new Tile(128, 144, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH)
-                        return *( new Tile(192, 144, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH_EAST)
-                        return *( new Tile(256, 144, 64, 48) );
-                    else if( m->getOrientation() == state::NORTH_WEST)
-                        return *( new Tile(328, 144, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH_EAST)
-                        return *( new Tile(384, 144, 64, 48) );
-                    else if( m->getOrientation() == state::SOUTH_WEST)
-                        return *( new Tile(448, 144, 64, 48) );
+                    if( m->getOrientation() == state::Direction::NONE)
+                        return *( new Tile(0, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::WEST)
+                        return *( new Tile(0, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH_WEST)
+                        return *( new Tile(96, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH)
+                        return *( new Tile(192, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::NORTH_EAST)
+                        return *( new Tile(288, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::EAST)
+                        return *( new Tile(384, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH_EAST)
+                        return *( new Tile(480, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH)
+                        return *( new Tile(576, 288, 96, 96) );
+                    else if( m->getOrientation() == state::Direction::SOUTH_WEST)
+                        return *( new Tile(672, 288, 96, 96) );
                 }
             }
             

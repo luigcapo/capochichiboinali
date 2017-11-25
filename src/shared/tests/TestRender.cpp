@@ -113,19 +113,19 @@ void testMap(){
     
     etat.getChars().resize(12,8);
 
-    state::Military* ep = new state::Military(state::EPEISTE);
-    ep->setOrientation(state::EAST);
+    state::Military* ep = new state::Military(state::MilTypeId::EPEISTE);
+    ep->setOrientation(state::Direction::SOUTH_WEST);
     
-    state::Military* msq = new state::Military(state::MOUSQUETAIRE);
-    msq->setOrientation(state::SOUTH);
+    state::Military* msq = new state::Military(state::MilTypeId::MOUSQUETAIRE);
+    msq->setOrientation(state::Direction::SOUTH);
     
-    state::Military* mt = new state::Military(state::MITRAILLEUR);
-    mt->setOrientation(state::NORTH_EAST);
+    state::Military* mt = new state::Military(state::MilTypeId::MITRAILLEUR);
+    mt->setOrientation(state::Direction::NORTH_EAST);
     
-    etat.getChars().set(3, 2, msq);
-    etat.getChars().set(1, 4, ep);
+    etat.getChars().set(3, 1, msq);
+    etat.getChars().set(1, 1, ep);
     etat.getChars().set(4, 3, new state::Colon());
-    etat.getChars().set(2, 7, new state::Military(state::CATAPULT));
+    etat.getChars().set(2, 7, new state::Military(state::MilTypeId::CATAPULT));
     etat.getChars().set(6, 0, mt);
     
     render::ElementTabLayer tChars(etat.getChars(), 3);

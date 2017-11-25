@@ -37,17 +37,6 @@ namespace render{
         
     }
     
-    void Surface::setSpriteLocationUnit (int i, int x, int y) {
-        
-        sf::Vertex* quad = &quads[4*i];
-        
-        quad[0].position = sf::Vector2f( x*64+32, y*48+48 );
-        quad[1].position = sf::Vector2f( (x+1)*64+32, y*48+48 );
-        quad[2].position = sf::Vector2f( (x+1)*64+32, (y+1)*48+48 );
-        quad[3].position = sf::Vector2f( x*64+32, (y+1)*48+48 );
-        
-    }
-    
     void Surface::setSpriteTexture(int i, const Tile& tex) {
         
         // fixe les coordonnées des quatre coins de la tuile à sélectionner dans la texture

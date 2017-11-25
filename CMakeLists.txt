@@ -5,13 +5,14 @@ project (plt)
 include_directories ("${PROJECT_SOURCE_DIR}/src/client")
 include_directories ("${PROJECT_SOURCE_DIR}/src/server")
 include_directories ("${PROJECT_SOURCE_DIR}/src/shared")
+include_directories ("${PROJECT_SOURCE_DIR}/src/tests")
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 
 # Enable C++11
-set(CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 

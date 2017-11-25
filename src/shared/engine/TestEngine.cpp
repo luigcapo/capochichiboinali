@@ -17,10 +17,10 @@ namespace engine{
         state.addJoueur(new Joueur(2));
         std::cout<<"ajout des éléments à notre état"<<std::endl;
         state.getChars().resize(100,100);
-        Millitary *m=new Millitary(MOUSQUETAIRE);
-        Millitary *m1=new Millitary(EPEISTE);
+        Military *m=new Military(MOUSQUETAIRE);
+        Military *m1=new Military(EPEISTE);
         Colon *c = new Colon();
-        Millitary *m2= new Millitary(MOUSQUETAIRE);
+        Military *m2= new Military(MOUSQUETAIRE);
         Batiment *b=new Batiment(WATER_MILL);
         Batiment *bb=new Batiment(WATER_MILL);
         m->setJ(1);

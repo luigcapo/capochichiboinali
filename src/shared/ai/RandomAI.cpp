@@ -16,7 +16,7 @@ namespace ai{
     void RandomAI::run(engine::Engine& engine) {
         std::vector<Command*> list;
         list.resize(200);
-        listCommands(engine.getState(),list);
+        listCommands(list, engine.getState());
         engine.executeCom(list[randgen() % list.size()]);
     }
 

@@ -9,5 +9,6 @@
 #include "render/StateLayer.h"
 #include "render/ElementTabLayer.h"
 #include "render/CharsTileSet.h"
+#include "render/TerrainTileSet.h"
 #include "render/GridTileSet.h"
 #endif

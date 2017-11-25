@@ -13,7 +13,7 @@ using namespace engine;
 
 namespace ai{
 
-    void AI::listCommands(state::State& state, std::vector<engine::Command*> list) {
+    void AI::listCommands (std::vector<engine::Command*> list, state::State& state) {
         for(unsigned int i=0;i<state.getChars().getWidth();i++){
             for(unsigned int j=0;j<state.getChars().getHeight();j++){
                 if(state.getChars().get(i,j)->getTypeId()==1){

@@ -4,11 +4,13 @@
 
 #include <vector>
 
+namespace engine {
+  class Command;
+};
 namespace state {
   class State;
 };
 namespace engine {
-  class Command;
   class Engine;
 }
 
@@ -18,7 +20,7 @@ namespace ai {
   class AI {
     // Operations
   public:
-    void listCommands (state::State& state, std::vector<engine::Command*> list);
+    void listCommands (std::vector<engine::Command*> list, state::State& state);
     virtual void run  (engine::Engine& engine) = 0;
     // Setters and Getters
   };

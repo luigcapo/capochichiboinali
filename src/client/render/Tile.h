@@ -12,7 +12,7 @@ namespace render {
     int x     = 672;
     int y     = 0;
     int width     = 96;
-    int height     = 48;
+    int height     = 96;
     // Operations
   public:
     Tile ();

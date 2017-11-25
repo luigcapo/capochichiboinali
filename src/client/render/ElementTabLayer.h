@@ -3,15 +3,15 @@
 #define RENDER__ELEMENTTABLAYER__H
 
 
+namespace state {
+  class ElementTab;
+};
 namespace render {
   class Layer;
-};
-namespace state {
-  class State;
 }
 
 #include "Layer.h"
-#include "state/State.h"
+#include "state/ElementTab.h"
 
 namespace render {
 
@@ -20,10 +20,11 @@ namespace render {
     // Associations
     // Attributes
   private:
+    int id;
     const state::ElementTab& tab;
     // Operations
   public:
-    ElementTabLayer (const state::ElementTab& tab);
+    ElementTabLayer (const state::ElementTab& tab, int id);
     void initSurface ();
     // Setters and Getters
   };

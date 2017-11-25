@@ -10,7 +10,7 @@
 namespace render{
 
     // on enregistre un ElementTab(chars -> liste des personnages) dans l'attribut tab
-    StateLayer::StateLayer (const state::ElementTab& state):state(state) {
+    /*StateLayer::StateLayer (const state::ElementTab& state):state(state) {
     }
 
     // va afficher la liste des personnages
@@ -34,7 +34,7 @@ namespace render{
                 surface->setSpriteTexture( (i+j*state.getWidth()), tileset->getTile(*state.get(i, j)) ); 
             }
         }
-    }
+    }*/
     
 
 }

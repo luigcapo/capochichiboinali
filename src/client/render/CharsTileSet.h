@@ -24,9 +24,8 @@ namespace render {
   class CharsTileSet : public render::TileSet {
     // Attributes
   private:
-    std::vector<Tile> millitary;
     std::vector<Tile> colon;
-    std::vector<Tile> catapult;
+    std::vector<Tile> millitary;
     // Operations
   public:
     CharsTileSet ();

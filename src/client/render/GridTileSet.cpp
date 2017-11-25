@@ -29,7 +29,7 @@ namespace render{
     }
 
     int GridTileSet::getCellHeight() const {
-        return 576;
+        return 864;
     }
 
 
@@ -38,54 +38,36 @@ namespace render{
         // Définitition des tuiles éléments statiques
         
         // on teste si l'élément n'est pas mobile
-        if( !(e.isStatic()) ){
+        if( !(e.isStatic()) )
             return *(new Tile);
-        }
         
         // si l'élément est bien statique, on détermine son type afin de renvoyer la définition correspondante
-        else{
+        else{       
             
-            
-            // mur
-            if ( e.getTypeId()==4 ){ 
+            // Batiement
+            if(e.getTypeId() == 4){
+                state::Batiment* b = (state::Batiment*)&e;
                 
-                state::Wall* w = (state::Wall*)&e;
-                
-                if( w->getWallTypeId() == state::WALLNORMAL )
-                    return *( new Tile(576, 480, 96, 96) );
-                else if( w->getWallTypeId() == state::WALLOFBABYLON )
-                    return *( new Tile(576, 480, 96, 96) ); 
+                if( b->getBatimentTypeId() == state::WATER_MILL)
+                    return *( new Tile(0, 288, 96, 96) );
+                else if( b->getBatimentTypeId() == state::PALACE )
+                    return *( new Tile(288, 288, 96, 96) );
+                else if( b->getBatimentTypeId() == state::SHRINE )
+                    return *( new Tile(96, 288, 96, 96) );
+                else if( b->getBatimentTypeId() == state::PYRAMID )
+                    return *( new Tile(192, 288, 96, 96) );
+                else if( b->getBatimentTypeId() == state::HANGING_GARDEN )
+                    return *( new Tile(672, 288, 96, 96) );
+                else if( b->getBatimentTypeId() == state::GRANARY )
+                    return *( new Tile(480, 288, 96, 96) );
+                else if( b->getBatimentTypeId() == state::LIBRARY )
+                    return *( new Tile(384, 288, 96, 96) );
+                else // BARRACK
+                    return *( new Tile(576, 288, 96, 96) );
             }
-            
-            
-            
-            
-            
-            // plateau
-            else if ( e.getTypeId() == 5 ){
-                
-                state::Plateau* p = (state::Plateau*)&e;
-                
-                if( p->getPlateautypeId() == state::EMPTY )
-                    return *(new Tile);
-                else if( p->getPlateautypeId() == state::PLAINE )
-                    return *( new Tile(0, 0, 96, 48) );
-                else if( p->getPlateautypeId() == state::COTE )
-                    return *( new Tile(288, 384, 96, 48) );
-                else if( p->getPlateautypeId() == state::DESERT )
-                    return *( new Tile(288, 0, 96, 48) );
-                else if( p->getPlateautypeId() == state::MONTAGNE )
-                    return *( new Tile(0, 144, 96, 48) );
-                else // ocean
-                    return *( new Tile(0, 384, 96, 48) );
-            }
-            
-            
-            
-            
             
             // ressource
-            else if ( e.getTypeId() == 6 ){
+            else if ( e.getTypeId() == 5 ){
                 
                 state::Ressource* r = (state::Ressource*)&e;
                 
@@ -99,33 +81,28 @@ namespace render{
                     return *(new Tile);
             }
             
-            // batiment
-            else{
+            // paysage
+            else if(e.getTypeId() == 6){
+                state::Paysage* p = (state::Paysage*)&e;
                 
-                state::Batiment* b = (state::Batiment*)&e;
-                
-                if( b->getBatimentTypeId() == state::WATER_MILL)
-                    return *( new Tile(0, 480, 96, 96) );
-                else if( b->getBatimentTypeId() == state::STONEHENGE )
-                    return *( new Tile(96, 480, 96, 96) );
-                else if( b->getBatimentTypeId() == state::SHRINE )
-                    return *( new Tile(192, 480, 96, 96) );
-                else if( b->getBatimentTypeId() == state::PYRAMID )
-                    return *( new Tile(288, 480, 96, 96) );
-                else if( b->getBatimentTypeId() == state::HANGING_GARDEN )
-                    return *( new Tile(384, 480, 96, 96) );
-                else if( b->getBatimentTypeId() == state::GRANARY )
-                    return *( new Tile(480, 480, 96, 96) );
-                else // BARRACK
-                    return *( new Tile(576, 480, 96, 96) );
-            } 
-            
-            
+                if(p->getPaysageTypeId() == state::FORET1)
+                    return *( new Tile(0, 0, 96, 96) );
+                else if(p->getPaysageTypeId() == state::FORET2)
+                    return *( new Tile(96, 0, 96, 96) );
+                else if(p->getPaysageTypeId() == state::PLANTE1)
+                    return *( new Tile(192, 0, 96, 96) );
+                else if(p->getPaysageTypeId() == state::COLLINE1)
+                    return *( new Tile(288, 96, 96, 96) );
+                else if(p->getPaysageTypeId() == state::MONTAGNE1)
+                    return *( new Tile(96, 192, 96, 96) );
+            }
             
             
         }
         return *(new Tile);
     }
+    
+    
     
 
 }

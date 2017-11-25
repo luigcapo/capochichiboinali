@@ -12,7 +12,7 @@ namespace render{
     CharsTileSet::CharsTileSet() {
         /*
          * 
-         * millitary.push_back(Tile(0,100,10,10));millitary.push_back(Tile(30,100,10,10));millitary.push_back(Tile(60,100,10,10)); 
+         * military.push_back(Tile(0,100,10,10));military.push_back(Tile(30,100,10,10));millitary.push_back(Tile(60,100,10,10)); 
          * colon.push_back(Tile(80,100,10,10));
          * catapult.push_back(Tile(100,100,15,15));
          * 
@@ -32,11 +32,15 @@ namespace render{
         return 240;
     }
 
+    
+    
     const Tile& CharsTileSet::getTile(const state::Element& e) const {
         
-        if( e.isStatic() ){
-            return *( new Tile(0, 0, 1, 1) );
-        }
+
+        
+        if( e.isStatic() )
+            return *( new Tile(0, 0, 0, 0) );
+        
         else{
             
             // COLON
@@ -68,10 +72,10 @@ namespace render{
             // MILITARY
             else if( e.getTypeId() ==2 ){
                 
-                state::Millitary* m = (state::Millitary*)&e;
+                state::Military* m = (state::Military*)&e;
                 
                 
-                if( m->getMillTypeID() == state::EPEISTE ){
+                if( m->getMilTypeId() == state::EPEISTE ){
                     
                     if( m->getOrientation() == state::NONE)
                         return *( new Tile(0, 48, 64, 48) );
@@ -93,7 +97,7 @@ namespace render{
                         return *( new Tile(448, 48, 64, 48) );
                 }
                     
-                else if( m->getMillTypeID() == state::MITRAILLEUR ){
+                else if( m->getMilTypeId() == state::MITRAILLEUR ){
                     
                     if( m->getOrientation() == state::NONE)
                         return *( new Tile(0, 96, 64, 48) );
@@ -115,6 +119,29 @@ namespace render{
                         return *( new Tile(448, 96, 64, 48) );
                 }
                 
+                else if( m->getMilTypeId() == state::CATAPULT ){
+                
+                if( m->getOrientation() == state::NONE)
+                    return *( new Tile(0, 192, 64, 48) );
+                else if( m->getOrientation() == state::EAST)
+                    return *( new Tile(0, 192, 64, 48) );
+                else if( m->getOrientation() == state::NORTH)
+                    return *( new Tile(64, 192, 64, 48) );
+                else if( m->getOrientation() == state::WEST)
+                    return *( new Tile(128, 192, 64, 48) );
+                else if( m->getOrientation() == state::SOUTH)
+                    return *( new Tile(192, 192, 64, 48) );
+                else if( m->getOrientation() == state::NORTH_EAST)
+                    return *( new Tile(256, 192, 64, 48) );
+                else if( m->getOrientation() == state::NORTH_WEST)
+                    return *( new Tile(328, 192, 64, 48) );
+                else if( m->getOrientation() == state::SOUTH_EAST)
+                    return *( new Tile(384, 192, 64, 48) );
+                else if( m->getOrientation() == state::SOUTH_WEST)
+                    return *( new Tile(448, 192, 64, 48) );
+                }
+                
+                // MOUSQUETAIRE
                 else{
                     if( m->getOrientation() == state::NONE)
                         return *( new Tile(0, 144, 64, 48) );
@@ -137,33 +164,11 @@ namespace render{
                 }
             }
             
-            // CATAPULT
-            else{
-                
-                state::Catapult* c = (state::Catapult*)&e;
-                
-                if( c->getOrientation() == state::NONE)
-                    return *( new Tile(0, 192, 64, 48) );
-                else if( c->getOrientation() == state::EAST)
-                    return *( new Tile(0, 192, 64, 48) );
-                else if( c->getOrientation() == state::NORTH)
-                    return *( new Tile(64, 192, 64, 48) );
-                else if( c->getOrientation() == state::WEST)
-                    return *( new Tile(128, 192, 64, 48) );
-                else if( c->getOrientation() == state::SOUTH)
-                    return *( new Tile(192, 192, 64, 48) );
-                else if( c->getOrientation() == state::NORTH_EAST)
-                    return *( new Tile(256, 192, 64, 48) );
-                else if( c->getOrientation() == state::NORTH_WEST)
-                    return *( new Tile(328, 192, 64, 48) );
-                else if( c->getOrientation() == state::SOUTH_EAST)
-                    return *( new Tile(384, 192, 64, 48) );
-                else if( c->getOrientation() == state::SOUTH_WEST)
-                    return *( new Tile(448, 192, 64, 48) );
-            } 
         }
-        return *( new Tile(448, 192, 64, 48) );
+        return *( new Tile(0, 0, 0, 0) );
     }
+
+    
     
 }
 

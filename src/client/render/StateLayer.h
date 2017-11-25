@@ -3,11 +3,12 @@
 #define RENDER__STATELAYER__H
 
 
-namespace render {
-  class Layer;
-};
 namespace state {
   class State;
+  class ElementTab;
+};
+namespace render {
+  class Layer;
 }
 
 #include "Layer.h"
@@ -20,7 +21,7 @@ namespace render {
     // Associations
     // Attributes
   private:
-    const state::ElementTab& state;
+    const state::State& state;
     // Operations
   public:
     StateLayer (const state::ElementTab& state);

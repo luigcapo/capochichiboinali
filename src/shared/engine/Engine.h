@@ -28,8 +28,8 @@ namespace engine {
     ~Engine ();
     state::State& getState () const;
     void addCommand (Command* cmd);
-    void update ();
     void resize (int c);
+    void update ();
     void executeCom (Command* c);
     // Setters and Getters
   };

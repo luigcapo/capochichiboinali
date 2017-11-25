@@ -3,23 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include "Plateau.h"
+#include "Terrain.h"
 
-namespace state{
+namespace state {
 
-    Plateau::Plateau(PlateauTypeId id) {
-        plateautypeId = id;
+    bool Terrain::IsTerrain() const {
+        return true;
     }
 
-    PlateauTypeId Plateau::getPlateautypeId() const {
-        return plateautypeId;
+    Terrain::Terrain(TerrainTypeId id) {
+        this->terrainTypeId = id;
     }
 
-    void Plateau::setPlateautypeId(PlateauTypeId plateautypeId) {
-        this->plateautypeId = plateautypeId;
+    TerrainTypeId Terrain::getTerrainTypeId() const {
+        return this->terrainTypeId;
+    }
+
+    TypeId Terrain::getTypeId() const {
+        return TypeId::TERRAIN;
+    }
+
+    void Terrain::setTerrainTypeId(TerrainTypeId terrainTypeId) {
+        this->terrainTypeId = terrainTypeId;
     }
     
-    TypeId Plateau::getTypeId() const{
-        return TypeId::PLATEAU;
-    }
 }

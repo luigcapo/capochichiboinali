@@ -17,7 +17,7 @@ namespace state {
     // Attributes
   protected:
     int point_mouvement;
-    int cout;
+    int cost;
     Direction orientation     = NONE;
     // Operations
   public:
@@ -26,8 +26,8 @@ namespace state {
     // Setters and Getters
     int getPoint_mouvement() const;
     void setPoint_mouvement(int point_mouvement);
-    int getCout() const;
-    void setCout(int cout);
+    int getCost() const;
+    void setCost(int cost);
     Direction getOrientation() const;
     void setOrientation(Direction orientation);
   };

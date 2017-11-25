@@ -4,19 +4,12 @@
  * and open the template in the editor.
  */
 
-#ifndef TESTSTATE_H
-#define TESTSTATE_H
-
-//#include "/src/shared/state.h"
-#include "state.h"
-#include <iostream>
-using namespace std;
+#include "Grid.h"
 
 namespace state{
-    void menu();
-    void testState();
-    
+
+    bool Grid::isTerrain() const {
+        return false;
+    }
+
 }
-
-#endif /* TESTSTATE_H */
-

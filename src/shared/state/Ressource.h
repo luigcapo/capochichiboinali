@@ -4,19 +4,22 @@
 
 
 namespace state {
-  class Static;
+  class Grid;
 }
 
 #include "RessourceTypeId.h"
 #include "TypeId.h"
-#include "Static.h"
+#include "Grid.h"
 
 namespace state {
 
   /// class Ressource - 
-  class Ressource : public state::Static {
+  class Ressource : public state::Grid {
     // Associations
     state::RessourceTypeId ressourceTypeId;
+    // Attributes
+  public:
+     ;
     // Operations
   public:
     Ressource (RessourceTypeId id);

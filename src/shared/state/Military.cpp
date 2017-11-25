@@ -3,41 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include "Millitary.h"
+#include "Military.h"
 
 namespace state{
 
-    Millitary::Millitary(MillTypeId id) {
+    Military::Military(MilTypeId id) {
         combat=0;
         pv=100;
-        millTypeID=id;
+        milTypeId = id;
     }
     
-    TypeId Millitary::getTypeId() const{
-        return TypeId::MILLITARY;
+    TypeId Military::getTypeId() const{
+        return TypeId::MILITARY;
     }
 
-    int Millitary::getCombat() const {
+    int Military::getCombat() const {
         return combat;
     }
     
-    void Millitary::setCombat(int combat) {
+    void Military::setCombat(int combat) {
         this->combat=combat;
     }
 
-    MillTypeId Millitary::getMillTypeID() const {
-        return millTypeID;
+    MilTypeId Military::getMilTypeId() const {
+        return milTypeId;
     }
 
-    void Millitary::setMillTypeID(MillTypeId millTypeID) {
-        this->millTypeID=millTypeID;
+    void Military::setMilTypeId(MilTypeId milTypeId) {
+        this->milTypeId=milTypeId;
     }
     
-    int Millitary::getPv() const {
+    int Military::getPv() const {
         return pv;
     }
 
-    void Millitary::setPv(int pv) {
+    void Military::setPv(int pv) {
         this->pv=pv;
     }
 }

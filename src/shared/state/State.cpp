@@ -15,6 +15,10 @@ namespace state{
     ElementTab& State::getGrid() {
         return this->grid;
     }
+    
+    ElementTab& State::getTerrain() {
+        return this->terrain;
+    }
 
     void State::addJoueur(Joueur* j) {
         listJoueur.push_back(j);

@@ -10,11 +10,11 @@ namespace state {
 
     Mobile::Mobile() {
         point_mouvement = 0;
-        cout = 0;
+        cost = 0;
     }
 
-    int Mobile::getCout() const {
-        return cout;
+    int Mobile::getCost() const {
+        return cost;
     }
 
     int Mobile::getPoint_mouvement() const {
@@ -25,8 +25,8 @@ namespace state {
         return false;
     }
 
-    void Mobile::setCout(int cout) {
-        this->cout = cout;
+    void Mobile::setCost(int cost) {
+        this->cost = cost;
     }
 
     void Mobile::setPoint_mouvement(int point_mouvement) {

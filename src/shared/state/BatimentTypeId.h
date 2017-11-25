@@ -7,12 +7,13 @@ namespace state {
 
   enum BatimentTypeId {
     WATER_MILL     = 1,
-    STONEHENGE     = 2,
+    PALACE     = 2,
     SHRINE     = 3,
     PYRAMID     = 4,
     HANGING_GARDEN     = 5,
     GRANARY     = 6,
-    BARRACK     = 7
+    BARRACK     = 7,
+    LIBRARY     = 8
   };
 
 };

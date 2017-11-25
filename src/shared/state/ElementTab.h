@@ -23,7 +23,6 @@ namespace state {
     std::size_t width;
     std::size_t height;
     std::vector<std::unique_ptr<Element>> list;
-    bool map1;
     // Operations
   public:
     ElementTab ();
@@ -33,13 +32,10 @@ namespace state {
     void add (Element* e);
     void resize (std::size_t width, std::size_t height);
     Element* get (std::size_t i, std::size_t j) const;
+    Element* release (std::size_t i, std::size_t j);
     void set (std::size_t i, std::size_t j, Element* e);
     std::size_t size () const;
-    void load (const std::string& file);
-    Element* getChar (int i) const;
-    void setChar (int i, Element* e);
-    bool getMap1 () const;
-    void setMap2 ();
+    void load (const std::string& file, int id);
     // Setters and Getters
   };
 

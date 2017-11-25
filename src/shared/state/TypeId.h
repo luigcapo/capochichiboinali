@@ -7,12 +7,11 @@ namespace state {
 
   enum TypeId {
     COLON     = 1,
-    MILLITARY     = 2,
-    CATAPULT     = 3,
-    WALL     = 4,
-    PLATEAU     = 5,
-    RESSOURCE     = 6,
-    BATIMENT     = 7
+    MILITARY     = 2,
+    TERRAIN     = 3,
+    BATIMENT     = 4,
+    RESSOURCE     = 5,
+    PAYSAGE     = 6
   };
 
 };

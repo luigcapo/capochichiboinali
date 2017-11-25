@@ -9,7 +9,7 @@
 namespace state {
     
     Batiment::Batiment(BatimentTypeId id) {
-        cout = 0;
+        cost = 0;
         pv=0;
         this->batimentTypeId = id;
     }
@@ -22,16 +22,16 @@ namespace state {
         this->batimentTypeId =  batimentTypeId ;
     }
 
-    int Batiment::getCout() const {
-        return cout;
+    int Batiment::getCost() const {
+        return cost;
     }
 
     int Batiment::getPv() const {
         return pv;
     }
 
-    void Batiment::setCout(int cout) {
-        this->cout= cout;
+    void Batiment::setCost(int cost) {
+        this->cost= cost;
     }
 
     void Batiment::setPv(int pv) {

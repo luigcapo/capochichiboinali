@@ -19,6 +19,7 @@ namespace state {
     // Associations
     // Attributes
   private:
+    ElementTab terrain;
     ElementTab grid;
     ElementTab chars;
     std::vector<Joueur*> listJoueur;
@@ -26,6 +27,7 @@ namespace state {
   public:
     ElementTab& getGrid ();
     ElementTab& getChars ();
+    ElementTab& getTerrain ();
     void addJoueur (Joueur* j);
     // Setters and Getters
   };

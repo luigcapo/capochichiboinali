@@ -4,23 +4,23 @@
 
 
 namespace state {
-  class Static;
+  class Grid;
 }
 
 #include "BatimentTypeId.h"
 #include "TypeId.h"
-#include "Static.h"
+#include "Grid.h"
 
 namespace state {
 
   /// class Batiment - 
-  class Batiment : public state::Static {
+  class Batiment : public state::Grid {
     // Associations
     state::BatimentTypeId batimentTypeId;
     // Attributes
   protected:
     int pv;
-    int cout;
+    int cost;
     // Operations
   public:
     Batiment (BatimentTypeId id);
@@ -30,8 +30,8 @@ namespace state {
     void setBatimentTypeId(BatimentTypeId batimentTypeId);
     int getPv() const;
     void setPv(int pv);
-    int getCout() const;
-    void setCout(int cout);
+    int getCost() const;
+    void setCost(int cost);
   };
 
 };

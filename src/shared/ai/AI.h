@@ -14,6 +14,9 @@ namespace engine {
   class Engine;
 }
 
+#include "engine/Command.h"
+#include "engine/Engine.h"
+
 namespace ai {
 
   /// class AI - 

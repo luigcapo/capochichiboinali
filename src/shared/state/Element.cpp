@@ -11,6 +11,7 @@ namespace state{
     Element::Element() {
         x=0;
         y=0;
+        j=0;
     }
     
     Element::~Element() {

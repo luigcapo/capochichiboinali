@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+#include <iostream>
+
 #include "RandomAI.h"
 #include "engine/Engine.h"
 using namespace state;
@@ -15,9 +17,14 @@ namespace ai{
 
     void RandomAI::run(engine::Engine& engine) {
         std::vector<Command*> list;
-        list.resize(200);
+        //list.resize(200);
+        std::cout<<list.size()<<std::endl;
+        //list.resize(100);
         listCommands(list, engine.getState());
-        engine.executeCom(list[randgen() % list.size()]);
+        //std::cout<<list.size()<<std::endl;
+        engine.addCommand(list[randgen() % list.size()]);
+        engine.update();
+        list.clear();
     }
 
 }

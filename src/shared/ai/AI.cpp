@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+#include <iostream>
+
 #include "AI.h"
 #include "engine/FondationCommand.h"
 #include "engine/MoveCommand.h"
@@ -13,16 +15,21 @@ using namespace engine;
 
 namespace ai{
 
-    void AI::listCommands (std::vector<engine::Command*> list, state::State& state) {
-        for(unsigned int i=0;i<state.getChars().getWidth();i++){
-            for(unsigned int j=0;j<state.getChars().getHeight();j++){
+    void AI::listCommands (std::vector<Command*> list, state::State& state) {
+        
+        for(size_t i=1;i<state.getChars().getWidth()-1;i++){
+            for(size_t j=1;j<state.getChars().getHeight()-1;j++){
                 if(state.getChars().get(i,j)->getTypeId()==1){
-                    list.push_back(new FondationCommand());
+                    //list.push_back(new FondationCommand());
+                    
                     list.push_back(new MoveCommand(i,j,i+1,j+1));
+     
                     list.push_back(new MoveCommand(i,j,i,j+1));
+                    
                     list.push_back(new MoveCommand(i,j,i-1,j+1));
+                    
                     list.push_back(new MoveCommand(i,j,i+1,j));
-                    list.push_back(new MoveCommand(i,j,i-1,j));
+                    list.push_back(new MoveCommand(i,j,i-1,j));                   
                     list.push_back(new MoveCommand(i,j,i+1,j-1));
                     list.push_back(new MoveCommand(i,j,i,j-1));
                     list.push_back(new MoveCommand(i,j,i-1,j-1));

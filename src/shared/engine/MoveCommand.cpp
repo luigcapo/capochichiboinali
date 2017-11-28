@@ -21,11 +21,11 @@ namespace engine {
         Terrain* p;
         //if (state.getChars().get(x1,y1)!=NULL){return 0;}//A mettre ou pas lorsque j'aurai une vrai map.
         if (state.getChars().get(x, y)->getJ() != state.getChars().get(x1, y1)->getJ()) {
-            return 1;
-        } else if (state.getChars().get(x, y)->getJ() != state.getGrid().get(x1, y1)->getJ()) {
-            return 1;
-        } else if (state.getGrid().get(x1, y1)->getTypeId() == state::TERRAIN) {
-            p = (Terrain*) state.getGrid().get(x1, y1);
+            return 0;
+        } else if (state.getChars().get(x, y)->getJ() != state.getTerrain().get(x1, y1)->getJ()) {
+            return 0;
+        } else if (state.getTerrain().get(x1, y1)->getTypeId() == state::TERRAIN) {
+            p = (Terrain*) state.getTerrain().get(x1, y1);
             if (p->getTerrainTypeId() == state::OCEAN) {
                 return 0;
             } else {

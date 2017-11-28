@@ -15,7 +15,7 @@ using namespace engine;
 
 namespace ai{
 
-    void AI::listCommands (std::vector<Command*> list, state::State& state) {
+    void AI::listCommands (std::vector<Command*>& list, state::State& state) {
         
         for(size_t i=1;i<state.getChars().getWidth()-1;i++){
             for(size_t j=1;j<state.getChars().getHeight()-1;j++){

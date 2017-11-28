@@ -23,7 +23,7 @@ namespace ai {
   class AI {
     // Operations
   public:
-    void listCommands (std::vector<engine::Command*> list, state::State& state);
+    void listCommands (std::vector<engine::Command*>& list, state::State& state);
     virtual void run  (engine::Engine& engine) = 0;
     // Setters and Getters
   };

@@ -9,8 +9,8 @@
 namespace engine{
     
     LoadCommand::LoadCommand(const std::string& mapCSV, const std::string& gridCSV) {
-        this->file_name_map = file_name_map;
-        this->file_name_grid = file_name_grid;
+        this->file_name_map = mapCSV;
+        this->file_name_grid = gridCSV;
     }
     
     const std::string& LoadCommand::getFile_name_grid() const {

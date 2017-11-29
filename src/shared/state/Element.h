@@ -15,7 +15,7 @@ namespace state {
   protected:
     int x;
     int y;
-    int j;
+    int j     = 0;
     // Operations
   public:
     Element ();

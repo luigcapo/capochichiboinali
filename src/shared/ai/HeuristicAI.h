@@ -28,11 +28,17 @@ namespace ai {
     // Attributes
   private:
     std::mt19937 randgen;
-    PathMap joueur1Map;
-    PathMap joueur2Map;
+    PathMap unitJoueur1Map;
+    PathMap unitJoueur2Map;
+    PathMap batJoueur1Map;
+    PathMap batJoueur2Map;
     // Operations
   public:
     HeuristicAI (const state::State& state);
+    const PathMap& getUnitJoueur1Map () const;
+    const PathMap& getUnitJoueur2Map () const;
+    const PathMap& getBatJoueur1Map () const;
+    const PathMap& getBatJoueur2Map () const;
     void run (engine::Engine& engine);
     // Setters and Getters
   };

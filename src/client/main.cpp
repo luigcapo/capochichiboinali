@@ -14,11 +14,13 @@ void testSFML() {
 #include "render.h"
 #include "tests/TestEngine.h"
 #include "tests/TestRender.h"
+#include "tests/TestAI.h"
 
 
 using namespace std;
 using namespace state;
 using namespace engine;
+using namespace ai;
 
 int main(int argc,char* argv[]) {
     
@@ -45,7 +47,7 @@ int main(int argc,char* argv[]) {
     }
     
     else if (mode == "random_ai"){
-        
+        testRandomAI();
     }
     
     else{

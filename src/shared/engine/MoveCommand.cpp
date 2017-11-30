@@ -19,7 +19,9 @@ namespace engine {
 
     bool MoveCommand::trymove(state::State& state) const {
         Terrain* p;
-        if (state.getChars().get(x1,y1)){return 0;}//A mettre ou pas lorsque j'aurai une vrai map.
+        if (state.getChars().get(x1,y1)){
+            return 0;
+        }//A mettre ou pas lorsque j'aurai une vrai map.
         else if(state.getGrid().get(x1,y1)){
             if (state.getChars().get(x, y)->getJ() != state.getGrid().get(x1, y1)->getJ()) {
                 return 0;
@@ -28,23 +30,28 @@ namespace engine {
         else{
             if (state.getChars().get(x, y)->getJ() != state.getTerrain().get(x1, y1)->getJ()) {
                 return 1;
-            }else if (state.getTerrain().get(x1, y1)) {
-            p = (Terrain*) state.getTerrain().get(x1, y1);
-            if (p->getTerrainTypeId() == state::OCEAN) {
-                return 0;
-            } else {
+            }
+            else if (state.getTerrain().get(x1, y1)) {
+                p = (Terrain*) state.getTerrain().get(x1, y1);
+                if (p->getTerrainTypeId() == state::OCEAN) {
+                    return 0;
+                }
+                else {
+                    return 1;
+                }
+            }
+            else {
                 return 1;
             }
-        } else {
-            return 1;
         }
+        return 1;
     }
-}
 
     void MoveCommand::execute(state::State& state) {
         if (trymove(state)) {
             state.getChars().set(x1, y1, state.getChars().release(x, y));
-        } else {
+        }
+        else {
             std::cout << "impossible de déplacer l'élément" << std::endl;
         }
     }

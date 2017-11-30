@@ -15,7 +15,7 @@ namespace engine{
 
     void AttaqueCommand::attaque(state::Military* m, state::Military* m1) {
             m1->setPv(m1->getPv()-m->getCombat());
-            if(m1->getPv()<=0){delete (m);}
+            
     }
 
     CommandTypeId AttaqueCommand::getTypeId() const {
@@ -33,7 +33,13 @@ namespace engine{
                             else{
                                  Military*m1=(Military*) state.getChars().get(x1,y1);
                                  //if (m->getX()+1==m1->getX()||m->getY()+1==m1->getY()||m->getX()-1==m1->getX()||m->getY()-1==m1->getY()){
-                                 if(m->getJ()!=m1->getJ()){attaque(m,m1);}
+                                 if(m->getJ()!=m1->getJ()){
+                                     attaque(m,m1);
+                                     if(m1->getPv()<=0){
+                                         state.getChars().destroy(x1,y1);
+                                         state.getChars().set(x1,y1,state.getChars().release(x,y));
+                                     } //CRÉER UNEb COMMANDE KILL DANS LE ElementTab
+                                 }
                                  else{}
                            }
                 }

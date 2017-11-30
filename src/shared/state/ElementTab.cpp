@@ -280,6 +280,10 @@ namespace state{
                 }
         }
     }   // load
-        
+
+    void ElementTab::destroy(std::size_t i, std::size_t j) {
+        list[i+j*width]=NULL;
+    }
+   
         
 }

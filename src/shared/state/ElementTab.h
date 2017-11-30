@@ -36,6 +36,7 @@ namespace state {
     void set (std::size_t i, std::size_t j, Element* e);
     std::size_t size () const;
     void load (const std::string& file, int id);
+    void destroy (std::size_t i, std::size_t j);
     // Setters and Getters
   };
 

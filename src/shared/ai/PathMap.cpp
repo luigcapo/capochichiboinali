@@ -5,31 +5,90 @@
  */
 
 #include "PathMap.h"
+#include "state/TerrainTypeId.h"
+#include "state/Terrain.h"
+#include <limits>
 
 namespace ai{
 
     void PathMap::addSink(Point p) {
-
+        // p.setWeight(0);
+        setWeight(p);
+        queue.push(p);
     }
 
     int PathMap::getWeight(const Point& p) const {
-
+        if (p.getX() >= 0 && p.getY() >= 0 && p.getX() < width && p.getY() < height) {
+            return weights[p.getX() + p.getY()*width];
+        }
+        else {
+            return std::numeric_limits<int>::infinity();
+        }
     }
     
     void PathMap::setWeight(const Point& p) {
-
+        if (p.getX() >= 0 && p.getY() >= 0 && p.getX() < width && p.getY() < height) {
+            weights[p.getX() + p.getY()*width] = p.getWeight();
+        }
     }
 
-    const int* PathMap::getWeights() const {
-
+    const std::vector<int>& PathMap::getWeights() const {
+        return this->weights;
     }
+
 
     void PathMap::init(const state::ElementTab& grid) {
-
+        this->width = grid.getWidth();
+        this->height = grid.getHeight();
+        
+        weights.clear();
+        // On redimmensionne la liste et on initialise ses éléments avec l'infini
+        weights.resize(width*height, std::numeric_limits<int>::infinity());
     }
 
     void PathMap::update(const state::ElementTab& grid) {
-
-    }
+        /*
+         * Dijkstra
+         * 
+         */
+        // bool found = true;
+        static const std::vector<state::Direction> directions{
+            state::Direction::EAST, state::Direction::NORTH,
+            state::Direction::WEST, state::Direction::SOUTH_WEST,
+            state::Direction::SOUTH, state::Direction::NORTH_EAST,
+            state::Direction::NORTH_WEST, state::Direction::SOUTH_EAST};
+        queue.push(Point(0, 0, 0));
+        while(!queue.empty()) {
+            auto p = queue.top();
+            queue.pop();
+            setWeight(p);
+            /*if(p.getX() == ... && p.getY() == ...){     // Changer conditions
+                found = true;
+            }*/
+            for(state::Direction d: directions) {
+                auto pp = p.transform(d);
+                // && state.getGrid().get(,)->getTypeId()==WALL (A ajouter quand on va ajouter WALL dans state)
+                /*if(! (grid.get(p.getX(), p.getY())->getTypeId()==state::TypeId::TERRAIN) ){
+                    state::Terrain* t = (state::Terrain*)&grid.get(p.getX(), p.getY());
+                    if(! (t->getTerrainTypeId() == state::TerrainTypeId::OCEAN) ){
+                        pp.setWeight(p.getWeight() + 1);
+                        if(getWeight(pp) > pp.getWeight()){
+                            queue.push(pp);
+                 * 
+                 * 
+                 * 
+                 * pointTmp.setWeight(point.getWeight() + board.findTerrainOnPosition(pointTmp.getX(), pointTmp.getY())->getMovementCost());
+                 * if (pointTmp.getWeight() < getWeight(pointTmp)) {     
+                 * setWeight(pointTmp);
+                 * queue.push(pointTmp);}
+                 * 
+                 * 
+                 * 
+                        }
+                    }
+                }*/
+            }
+        } // while
+    } // update
 
 }

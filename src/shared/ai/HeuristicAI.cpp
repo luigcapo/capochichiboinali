@@ -9,11 +9,11 @@
 namespace ai{
     
     HeuristicAI::HeuristicAI(const state::State& state) {
-
+        
     }
 
     void HeuristicAI::run(engine::Engine& engine) {
-
+        
     }
     
 }

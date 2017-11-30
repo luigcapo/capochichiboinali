@@ -33,7 +33,7 @@ namespace ai {
   public:
     int getWeight (const Point& p) const;
     void setWeight (const Point& p);
-    const int* getWeights () const;
+    const std::vector<int>& getWeights () const;
     void init (const state::ElementTab& grid);
     void addSink (Point p);
     void update (const state::ElementTab& grid);

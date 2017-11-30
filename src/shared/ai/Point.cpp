@@ -8,10 +8,8 @@
 
 namespace ai{
 
-    Point::Point(int x, int y, int w) {
-        this->weight = w;
-        this->x = x;
-        this->y = y;
+    Point::Point(int x, int y, int w): x(x), y(y), weight(w) {
+        
     }
 
     int Point::getWeight() const {
@@ -39,33 +37,25 @@ namespace ai{
     }
 
     Point Point::transform(state::Direction d) {
-        
-        if(d == state::Direction::EAST){
-            return Point(x+1, y, weight);
-        }
-        else if(d == state::Direction::NORTH){
-            return Point(x, y-1, weight);
-        }
-        else if(d == state::Direction::NORTH_EAST){
-            return Point(x+1, y-1, weight);
-        }
-        else if(d == state::Direction::NORTH_WEST){
-            return Point(x-1, y-1, weight);
-        }
-        else if(d == state::Direction::SOUTH){
-            return Point(x, y+1, weight);
-        }
-        else if(d == state::Direction::SOUTH_EAST){
-            return Point(x+1, y+1, weight);
-        }
-        else if(d == state::Direction::SOUTH_WEST){
-            return Point(x-1, y+1, weight);
-        }
-        else if(d == state::Direction::WEST){
-            return Point(x-1, y, weight);
-        }
-        else{
-            return Point(x, y, weight);
+        switch (d) {
+            case state::Direction::EAST :
+                return Point(x+1, y, weight);
+            case state::Direction::NORTH :
+                return Point(x, y-1, weight);
+            case state::Direction::NORTH_EAST :
+                return Point(x+1, y-1, weight);
+            case state::Direction::NORTH_WEST :
+                return Point(x-1, y-1, weight);
+            case state::Direction::SOUTH :
+                return Point(x, y+1, weight);
+            case state::Direction::SOUTH_EAST :
+                return Point(x+1, y+1, weight);
+            case state::Direction::SOUTH_WEST :
+                return Point(x-1, y+1, weight);
+            case state::Direction::WEST :
+                return Point(x-1, y, weight);
+            default :
+                return Point(x, y, weight);
         }
     }
 

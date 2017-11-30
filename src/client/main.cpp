@@ -31,25 +31,25 @@ int main(int argc,char* argv[]) {
     }//nombre argument ici bin/client represente un argument et hello un autre par exemple
     
     string mode = argv[1];
-    if (mode == "hello")
+    if (mode == "hello"){
         cout << "Hello World !" << endl; //endl pour passer à la ligne
-    
-    else if (mode == "state")
+    }
+    else if (mode == "state"){
         testState();
-    
+    }
     else if (mode == "render"){
         //testRender();    // (Test manuel sans load)
         testMap();  // Test avec load(CSV)
     }
-    
     else if (mode == "engine"){
         testEngine();
     }
-    
     else if (mode == "random_ai"){
         testRandomAI();
     }
-    
+    else if (mode == "heuristic_ai"){
+        
+    }
     else{
         cout << "Mode invalide" << endl;
     }

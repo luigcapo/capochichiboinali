@@ -26,11 +26,10 @@ namespace ai {
   class HeuristicAI : public ai::AI {
     // Associations
     // Attributes
-  public:
-    PathMap joueur1Map;
-    PathMap joueur2Map;
   private:
     std::mt19937 randgen;
+    PathMap joueur1Map;
+    PathMap joueur2Map;
     // Operations
   public:
     HeuristicAI (const state::State& state);

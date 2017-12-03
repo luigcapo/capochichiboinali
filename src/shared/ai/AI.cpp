@@ -19,13 +19,11 @@ namespace ai{
         
         for(size_t i=1;i<state.getChars().getWidth()-1;i++){
             for(size_t j=1;j<state.getChars().getHeight()-1;j++){
+                if(state.getChars().get(i,j)){
                 if(state.getChars().get(i,j)->getTypeId()==1){
                     //list.push_back(new FondationCommand());
-                    
                     list.push_back(new MoveCommand(i,j,i+1,j+1));
-     
                     list.push_back(new MoveCommand(i,j,i,j+1));
-                    
                     list.push_back(new MoveCommand(i,j,i-1,j+1));
                     
                     list.push_back(new MoveCommand(i,j,i+1,j));
@@ -51,6 +49,8 @@ namespace ai{
                     list.push_back(new AttaqueCommand(i,j,i+1,j-1));
                     list.push_back(new AttaqueCommand(i,j,i,j-1));
                     list.push_back(new AttaqueCommand(i,j,i-1,j-1));
+                }
+                else{}
                 }
                 else{}
             }

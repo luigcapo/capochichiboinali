@@ -21,7 +21,7 @@ namespace ai{
         std::cout<<list.size()<<std::endl;
         //list.resize(100);
         listCommands(list, engine.getState());
-        //std::cout<<list.size()<<std::endl;
+        std::cout<<list.size()<<std::endl;
         engine.addCommand(list[randgen() % list.size()]);
         engine.update();
         list.clear();

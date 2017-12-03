@@ -25,6 +25,7 @@ namespace engine{
     
 
     void AttaqueCommand::execute(state::State& state) {
+        if(state.getChars().get(x,y)&& state.getChars().get(x1,y1)){
                 if(state.getChars().get(x,y)->getTypeId()!=2){}
                 else{
 
@@ -43,6 +44,7 @@ namespace engine{
                                  else{}
                            }
                 }
+    }
     }
 }
 

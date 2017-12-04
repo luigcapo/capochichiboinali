@@ -34,6 +34,8 @@ namespace ai {
     int getWeight (const Point& p) const;
     void setWeight (const Point& p);
     const std::vector<int>& getWeights () const;
+    Point getWeightMin (int x, int y) const;
+    Point getWeightMax (int x, int y) const;
     void init (const state::ElementTab& grid);
     void addSink (Point p);
     void update (const state::ElementTab& grid);

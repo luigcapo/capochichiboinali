@@ -12,11 +12,8 @@
 namespace ai{
 
     void PathMap::addSink(Point p) {
-        // p.setWeight(0);
-        /*setWeight(p);
-        queue.push(p);*/
-        Point pp(p.getX(), p.getY(), 0);
-        queue.push(pp);
+        weights[p.getX() + p.getY()*width] = 0;
+        queue.push(p);
         
     }
 
@@ -48,6 +45,22 @@ namespace ai{
         // On redimmensionne la liste et on initialise ses éléments avec l'infini
         weights.resize(width*height, std::numeric_limits<int>::infinity());
     }
+    
+    /*Point PathMap::getWeightMin(int x, int y) const {
+        if(x>0 && y>0 && x<width && y<height){
+            if(weights[x+1, y] != std::numeric_limits<int>::infinity() && weights[x-1, y] != std::numeric_limits<int>::infinity()){
+                if(weights[x-1, y] >= weights[x+i, y+j]){
+                }
+                else{
+                }
+            }
+        }
+    }*/
+
+    Point PathMap::getWeightMax(int x, int y) const {
+        
+    }
+
 
     void PathMap::update(const state::ElementTab& grid) {
         /*
@@ -60,7 +73,8 @@ namespace ai{
             state::Direction::SOUTH, state::Direction::NORTH_EAST,
             state::Direction::NORTH_WEST, state::Direction::SOUTH_EAST};
             
-        queue.push(Point(0, 0, 0));
+        // queue.push(Point(0, 0, 0));
+        
         while(!queue.empty()) {
             auto p = queue.top();
             queue.pop();

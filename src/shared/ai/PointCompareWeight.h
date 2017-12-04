@@ -7,6 +7,8 @@ namespace ai {
   class Point;
 }
 
+#include "Point.h"
+
 namespace ai {
 
   /// class PointCompareWeight - 

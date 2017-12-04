@@ -63,6 +63,8 @@ namespace ai{
                         randoom.run(*eng);
                     }
                 }
+                if (event.type == sf::Event::Closed)
+                        window.close();
             }
             render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
             tMap.initSurface();
@@ -76,7 +78,8 @@ namespace ai{
             window.draw(*(tChars.getSurface()));
             window.display();
                 
-            } 
+            }
+
           
         /*
         std::cout<< "Epoque 1"<<std::endl;

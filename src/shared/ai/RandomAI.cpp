@@ -16,14 +16,6 @@ namespace ai{
     RandomAI::RandomAI() { }
 
     void RandomAI::run(engine::Engine& engine) {
-       /* std::vector<Command*> list;
-        std::cout<<list.size()<<std::endl;
-        listCommands(list, engine.getState());
-        std::cout<<list.size()<<std::endl;
-        engine.addCommand(list[randgen() % list.size()]);
-        engine.update();
-        list.clear();
-        */
         std::vector<Command*> list;
         for(size_t i=1;i<engine.getState().getChars().getWidth()-1;i++){
             for(size_t j=1;j<engine.getState().getChars().getHeight()-1;j++){

@@ -9,14 +9,14 @@ namespace ai {
   class Point;
 };
 namespace state {
-  class ElementTab;
+  class State;
 };
 namespace ai {
   class PointCompareWeight;
 }
 
 #include "Point.h"
-#include "state/ElementTab.h"
+#include "state/State.h"
 #include "PointCompareWeight.h"
 
 namespace ai {
@@ -36,9 +36,9 @@ namespace ai {
     const std::vector<int>& getWeights () const;
     Point getWeightMin (int x, int y) const;
     Point getWeightMax (int x, int y) const;
-    void init (const state::ElementTab& grid);
+    void init (state::State& state);
     void addSink (Point p);
-    void update (const state::ElementTab& grid);
+    void update (state::State& state);
     // Setters and Getters
   };
 

@@ -11,6 +11,12 @@
 
 namespace ai{
 
+    static const std::vector<state::Direction> directions{
+            state::Direction::EAST, state::Direction::NORTH,
+            state::Direction::WEST, state::Direction::SOUTH_WEST,
+            state::Direction::SOUTH, state::Direction::NORTH_EAST,
+            state::Direction::NORTH_WEST, state::Direction::SOUTH_EAST};
+    
     void PathMap::addSink(Point p) {
         weights[p.getX() + p.getY()*width] = 0;
         queue.push(p);
@@ -37,60 +43,63 @@ namespace ai{
     }
 
 
-    void PathMap::init(const state::ElementTab& grid) {
-        this->width = grid.getWidth();
-        this->height = grid.getHeight();
+    void PathMap::init (state::State& state) {
+        this->width = state.getTerrain().getWidth();
+        this->height = state.getTerrain().getHeight();
         
-        weights.clear();
+        this->weights.clear();
         // On redimmensionne la liste et on initialise ses éléments avec l'infini
-        weights.resize(width*height, std::numeric_limits<int>::infinity());
+        this->weights.resize(this->width*this->height, std::numeric_limits<int>::infinity());
     }
     
-    /*Point PathMap::getWeightMin(int x, int y) const {
-        if(x>0 && y>0 && x<width && y<height){
-            if(weights[x+1, y] != std::numeric_limits<int>::infinity() && weights[x-1, y] != std::numeric_limits<int>::infinity()){
-                if(weights[x-1, y] >= weights[x+i, y+j]){
-                }
-                else{
+    Point PathMap::getWeightMin(int x, int y) const {
+        Point p(x, y, 0);
+        Point min(x, y, 1);
+        for(state::Direction d: directions){
+           auto pp = p.transform(d);
+           if(weights[pp.getX()+pp.getY()*width] <= weights[min.getX()+min.getY()*width]){
+               min = pp;
+           }
+        }
+        return min;
+    }
+
+    Point PathMap::getWeightMax(int x, int y) const {
+        Point p(x, y, 0);
+        Point max(x, y, 0);
+        for(state::Direction d: directions){
+            auto pp = p.transform(d);
+            if(weights[pp.getX()+pp.getY()*width] > weights[max.getX()+max.getY()*width] ){
+                if(weights[pp.getX()+pp.getY()*width] != std::numeric_limits<int>::infinity()){
+                    max = pp;
                 }
             }
         }
-    }*/
-
-    Point PathMap::getWeightMax(int x, int y) const {
-        
+        return max;
     }
 
 
-    void PathMap::update(const state::ElementTab& grid) {
+    void PathMap::update (state::State& state) {
         /*
          * Dijkstra
          * 
          */
-        static const std::vector<state::Direction> directions{
-            state::Direction::EAST, state::Direction::NORTH,
-            state::Direction::WEST, state::Direction::SOUTH_WEST,
-            state::Direction::SOUTH, state::Direction::NORTH_EAST,
-            state::Direction::NORTH_WEST, state::Direction::SOUTH_EAST};
-            
-        // queue.push(Point(0, 0, 0));
         
+        // queue.push(Point(0, 0, 0));
         while(!queue.empty()) {
             auto p = queue.top();
             queue.pop();
             setWeight(p);
             for(state::Direction d: directions) {
                 auto pp = p.transform(d);
+                auto e = state.getTerrain().get(p.getX(), p.getY());
+                state::Terrain* t = (state::Terrain*)&e;
                 // && state.getGrid().get(,)->getTypeId()==WALL (A ajouter quand on va ajouter WALL dans state)
-                if(! (grid.get(p.getX(), p.getY())->getTypeId()==state::TypeId::TERRAIN) ){
-                    auto e = grid.get(p.getX(), p.getY());
-                    state::Terrain* t = (state::Terrain*)&e;
-                    if(! (t->getTerrainTypeId() == state::TerrainTypeId::OCEAN) ){
-                        pp.setWeight(p.getWeight() + 1);
-                        if(getWeight(pp) > pp.getWeight()){
-                            // setWeight(pp);
-                            queue.push(pp);
-                        }
+                if(t->getTerrainTypeId() != state::TerrainTypeId::OCEAN){
+                    pp.setWeight(p.getWeight() + 1);
+                    if(getWeight(pp) > pp.getWeight()){
+                        setWeight(pp);
+                        queue.push(pp);
                     }
                 }
             }

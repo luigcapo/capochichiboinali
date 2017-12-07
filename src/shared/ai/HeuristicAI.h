@@ -34,7 +34,7 @@ namespace ai {
     PathMap batJoueur2Map;
     // Operations
   public:
-    HeuristicAI (const state::State& state);
+    HeuristicAI (state::State& state);
     const PathMap& getUnitJoueur1Map () const;
     const PathMap& getUnitJoueur2Map () const;
     const PathMap& getBatJoueur1Map () const;

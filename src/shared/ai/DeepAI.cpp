@@ -8,7 +8,7 @@
 
 namespace ai {
 
-    DeepAI::DeepAI(const state::State& state) {
+    DeepAI::DeepAI(state::State& state) {
         
     }
 
@@ -29,7 +29,9 @@ namespace ai {
     }
     
     int DeepAI::minimin_rec(engine::Engine& engine, state::Direction& bestdir, int depth) {
+        int x = 0;
         
+        return x;
     }
     
     void DeepAI::run(engine::Engine& engine) {

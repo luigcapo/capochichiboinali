@@ -30,7 +30,7 @@ namespace ai {
     int maxUpdates     = 5000;
     // Operations
   public:
-    DeepAI (const state::State& state);
+    DeepAI (state::State& state);
     void run (engine::Engine& engine);
   protected:
     int minimin_rec (engine::Engine& engine, state::Direction& bestdir, int depth);

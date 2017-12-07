@@ -46,7 +46,6 @@ void testEngine(){
         
         //etat.getChars().set(7,7,b);
         //etat.getChars().set(5,4,c);
-        //
         //std::cout << "crée le moteur à partir de l'état" << std::endl;
         Engine*eng = new Engine(etat);
         eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
@@ -137,6 +136,8 @@ void testEngine(){
         std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
         State etat;
         std::stack<Action*> actions;
+        std::stack<Action*> actions1;
+        std::stack<Action*> actions2;
         etat.addJoueur(new Joueur(1));
         etat.addJoueur(new Joueur(2));
         etat.getChars().resize(100,100);
@@ -155,8 +156,6 @@ void testEngine(){
         
         //etat.getChars().set(7,7,b);
         //etat.getChars().set(5,4,c);
-        //
-        //std::cout << "crée le moteur à partir de l'état" << std::endl;
         Engine*eng = new Engine(etat);
         eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
         eng->update();
@@ -181,42 +180,32 @@ void testEngine(){
                 
                 if (event.key.code == sf::Keyboard::Space){ 
                     if(hh==1){
-                        std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
-                        std::cout << "crée le moteur à partir de l'état" << std::endl;
                         std::cout << "ajoute de nouvelle commande" << std::endl;
                         eng->addCommand(new MoveCommand(3,5,7,7));
                         actions=eng->update();
-                        std::cout<<"Vérifie le déplacement : ";
-                        if (etat.getChars().get(7,7)->getTypeId()==2){ std::cout << "OK" << std::endl; }
-                        else{ std::cout << "Problème sur la commande" << std::endl; }
-                    
                     }
                     else if(hh==2){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
                         
                         std::cout << "ajoute de nouvelle commande d'attaque" << std::endl;
                         eng->addCommand(new AttaqueCommand(10,10,2,9));
-                        actions=eng->update();
-                        std::cout <<"Vérifie les points de vie de l'unité attaqué ont diminué:";
-                        if (m2->getPv()<100){ std::cout << "OK" << std::endl; }
-                        else{ std::cout << "Problème sur la commande" << std::endl; }
+                        actions1=eng->update();
                     }
                     else if(hh==3){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
                         std::cout << "ajoute de nouvelle commande d'attaque" << std::endl;
                         eng->addCommand(new AttaqueCommand(10,10,2,9));
-                        actions=eng->update();
-                        std::cout<<actions.size()<<std::endl;
-                        std::cout <<"Vérifie les points de vie de l'unité attaqué ont diminué:";
+                        actions2=eng->update();
                         if (m2->getPv()<40){ std::cout << "OK" << std::endl; }
                         else{ std::cout << "Problème sur la commande" << std::endl; }
                     }
                     
                     else if(hh==4){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
-                        std::cout << "crée le moteur à partir de l'état" << std::endl;
-                        std::cout << "ajoute de nouvelle commande" << std::endl;
+                        std::cout << "Inverse toutes les opérations réalisées précédement" << std::endl;
                         eng->undo(actions);
+                        eng->undo(actions1);
+                        eng->undo(actions2);
                     }
                         
                     

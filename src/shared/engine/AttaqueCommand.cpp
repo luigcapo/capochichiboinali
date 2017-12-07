@@ -7,6 +7,7 @@
 #include <iostream>
 #include "AttaqueCommand.h"
 #include "KillAction.h"
+#include "AttaqueAction.h"
 
 using namespace state;
 
@@ -36,7 +37,10 @@ namespace engine{
                                  Military*m1=(Military*) state.getChars().get(x1,y1);
                                  //if (m->getX()+1==m1->getX()||m->getY()+1==m1->getY()||m->getX()-1==m1->getX()||m->getY()-1==m1->getY()){
                                  if(m->getJ()!=m1->getJ()){
-                                     attaque(m,m1);
+                                     AttaqueAction*att=new AttaqueAction(m,m1);
+                                     att->apply(state);
+                                     s.push(att);
+                                     //attaque(m,m1);
                                      if(m1->getPv()<=0){
                                          KillAction*kill=new KillAction(x,y,x1,y1);
                                          kill->apply(state);

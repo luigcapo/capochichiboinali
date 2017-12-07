@@ -22,10 +22,7 @@ namespace engine{
     }
 
     void KillAction::undo(state::State& state) {
-        std::cout<<"allez 1"<<std::endl;
         state.getChars().set(x,y,state.getChars().release(x1,y1));
-        std::cout<<"allez 2"<<std::endl;
-        //std::cout<<e->getTypeId()<<std::endl;
         state.getChars().set(x1,y1,new Military(tmp));
     }
 }

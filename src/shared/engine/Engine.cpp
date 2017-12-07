@@ -14,7 +14,6 @@ namespace engine {
     }
 
     void Engine::undo(std::stack<Action*>& actions) {
-        std::cout<<actions.empty()<<std::endl;
         while(!actions.empty()){
             
             actions.top()->undo(currentState);

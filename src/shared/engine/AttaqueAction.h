@@ -11,7 +11,6 @@ namespace engine {
   class Action;
 }
 
-#include "state/Military.h"
 #include "Action.h"
 
 namespace engine {
@@ -20,18 +19,18 @@ namespace engine {
   class AttaqueAction : public engine::Action {
     // Attributes
   protected:
-    state::Military m;
-    state::Military m1;
+    state::Military* m;
+    state::Military* m1;
     // Operations
   public:
-    AttaqueAction (state::Military m, state::Military m1);
+    AttaqueAction (state::Military* m, state::Military* m1);
     void apply (state::State& state);
     void undo (state::State& state);
     // Setters and Getters
-    const state::Military& getM() const;
-    void setM(const state::Military& m);
-    const state::Military& getM1() const;
-    void setM1(const state::Military& m1);
+    const state::Military*& getM() const;
+    void setM(const state::Military*& m);
+    const state::Military*& getM1() const;
+    void setM1(const state::Military*& m1);
   };
 
 };

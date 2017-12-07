@@ -135,9 +135,10 @@ void testEngine(){
         std::cout<<"Touches"<<std::endl;
         std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
         State etat;
-        std::stack<Action*> actions;
+         std::vector<std::stack <Action*> > actions;
+        /*std::stack<Action*> actions;
         std::stack<Action*> actions1;
-        std::stack<Action*> actions2;
+        std::stack<Action*> actions2;*/
         etat.addJoueur(new Joueur(1));
         etat.addJoueur(new Joueur(2));
         etat.getChars().resize(100,100);
@@ -182,20 +183,22 @@ void testEngine(){
                     if(hh==1){
                         std::cout << "ajoute de nouvelle commande" << std::endl;
                         eng->addCommand(new MoveCommand(3,5,7,7));
-                        actions=eng->update();
+                        actions.push_back(eng->update());
+                        //actions=eng->update();
                     }
                     else if(hh==2){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
                         
                         std::cout << "ajoute de nouvelle commande d'attaque" << std::endl;
                         eng->addCommand(new AttaqueCommand(10,10,2,9));
-                        actions1=eng->update();
+                        actions.push_back(eng->update());
                     }
                     else if(hh==3){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
                         std::cout << "ajoute de nouvelle commande d'attaque" << std::endl;
                         eng->addCommand(new AttaqueCommand(10,10,2,9));
-                        actions2=eng->update();
+                        actions.push_back(eng->update());
+                        //actions2=eng->update();
                         if (m2->getPv()<40){ std::cout << "OK" << std::endl; }
                         else{ std::cout << "Problème sur la commande" << std::endl; }
                     }
@@ -203,18 +206,27 @@ void testEngine(){
                     else if(hh==4){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
                         std::cout << "Inverse toutes les opérations réalisées précédement" << std::endl;
-                        eng->undo(actions);
-                        eng->undo(actions1);
-                        eng->undo(actions2);
+                        eng->undo(actions[2]);
                     }
-                        
+                    else if(hh==5){
+                        std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
+                        std::cout << "Inverse toutes les opérations réalisées précédement" << std::endl;
+                        eng->undo(actions[1]);
+                    }
+                    else if(hh==6){
+                        std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
+                        std::cout << "Inverse toutes les opérations réalisées précédement" << std::endl;
+                        eng->undo(actions[0]);
+                    }
                     
                     hh++;
+                    if(hh>6) hh=1;
                     
             }
         }
             if (event.type == sf::Event::Closed)
                         window.close();
+            
         }
                     
                     render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);

@@ -21,7 +21,8 @@ namespace engine {
 
     bool MoveCommand::trymove(state::State& state) const {
         Terrain* p;
-        if (state.getChars().get(x1,y1)){return 0;}//A mettre ou pas lorsque j'aurai une vrai map.
+        if (x1<0||x1>state.getTerrain().getWidth()||y1<0||y1>state.getTerrain().getHeight()){return 0;}
+        else if (state.getChars().get(x1,y1)){return 0;}//A mettre ou pas lorsque j'aurai une vrai map.
         else if(state.getGrid().get(x1,y1) && !(state.getChars().get(x1,y1))){
             if (state.getChars().get(x, y)->getJ() != state.getGrid().get(x1, y1)->getJ()) {
                 return 0;
@@ -30,18 +31,17 @@ namespace engine {
             
         }
         else{
-            if (state.getChars().get(x, y)->getJ() != state.getTerrain().get(x1, y1)->getJ()) {
-                return 1;
-            }
-            else if (state.getTerrain().get(x1, y1)) {
-                p = (Terrain*) state.getTerrain().get(x1, y1);
-                if (p->getTerrainTypeId() == state::OCEAN) {
-                    return 0;
-                } else {
-                    return 1;
+            if((state.getTerrain().get(x1,y1)->getJ()==0)||state.getChars().get(x, y)->getJ() == state.getTerrain().get(x1, y1)->getJ()){
+                if (state.getTerrain().get(x1, y1)) {
+                    p = (Terrain*) state.getTerrain().get(x1, y1);
+                    if (p->getTerrainTypeId() == state::OCEAN) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
                 }
-            } 
-            else {return 1;}   
+            }
+            else {return 0;}   
         }
     }
     /*

@@ -45,7 +45,7 @@ namespace ai{
         eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
         eng->update();
         state.getChars().set(2,9,m2);
-        state.getChars().set(10,10,m1);
+        state.getChars().set(5.3,8.1,m1);
         eng->getState().getChars().set(3,5,m);
         render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
         tMap.initSurface();

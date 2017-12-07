@@ -50,6 +50,9 @@ int main(int argc,char* argv[]) {
     else if (mode == "heuristic_ai"){
         
     }
+    else if (mode == "rollback"){
+        testRollback();
+    }
     else{
         cout << "Mode invalide" << endl;
     }

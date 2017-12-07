@@ -19,10 +19,10 @@
 
 using namespace state;
 using namespace std;
+ 
+void testEngine();
+void testRollback();
 
-namespace engine{  
-        void testEngine();
-}
 
 
 #endif /* TESTENGINE_H */

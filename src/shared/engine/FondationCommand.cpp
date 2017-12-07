@@ -9,6 +9,7 @@
 using namespace state;
 
 namespace engine {
+
     void FondationCommand::fonda(state::Colon*c) {
         state::Colonie co= state::Colonie();
         delete(c);
@@ -19,7 +20,7 @@ namespace engine {
         return CommandTypeId::FONDA;
     }
 
-    void FondationCommand::execute(state::State& state) {
+    void FondationCommand::execute(state::State& state,std::stack<Action*>& s) {
         for(std::size_t i=0; i< state.getChars().getHeight(); i++){
             for(std::size_t j=0; j< state.getChars().getWidth(); j++){
                 if(state.getChars().get(i,j)->getTypeId()!=1){}

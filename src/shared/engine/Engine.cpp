@@ -13,6 +13,15 @@ namespace engine {
 
     }
 
+    void Engine::undo(std::stack<Action*>& actions) {
+        std::cout<<actions.empty()<<std::endl;
+        while(!actions.empty()){
+            
+            actions.top()->undo(currentState);
+            actions.pop();
+        }
+    }
+
 
     Engine::~Engine() {
         for (auto command:currentCommands){delete command;}
@@ -31,15 +40,17 @@ namespace engine {
     }
 
     
-    void Engine::update() {
+    std::stack<Action*> Engine::update() {
+        std::stack<Action*> actions;
         for(auto command : currentCommands){
-            command->execute(currentState);
+            command->execute(currentState,actions);
         }
         currentCommands.clear();
+        return actions;
     }
 
     void Engine::executeCom(Command* c) {
-        c->execute(currentState);
+        //c->execute(currentState);
     }
 
 }

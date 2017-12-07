@@ -7,7 +7,7 @@
 #include "render/StateLayer.h"
 
 namespace engine{
-    
+
     LoadCommand::LoadCommand(const std::string& mapCSV, const std::string& gridCSV) {
         this->file_name_map = mapCSV;
         this->file_name_grid = gridCSV;
@@ -33,7 +33,7 @@ namespace engine{
         return CommandTypeId::LOAD;
     }
     
-    void LoadCommand::execute(state::State& state) {
+    void LoadCommand::execute(state::State& state,std::stack<Action*>& s) {
         state.getTerrain().load(file_name_map, 1);
         state.getGrid().load(file_name_grid, 2);
     }

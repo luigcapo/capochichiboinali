@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include "AttaqueCommand.h"
+#include "KillAction.h"
 
 using namespace state;
 
@@ -24,7 +25,7 @@ namespace engine{
 
     
 
-    void AttaqueCommand::execute(state::State& state) {
+    void AttaqueCommand::execute(state::State& state,std::stack<Action*>& s) {
         if(state.getChars().get(x,y)&& state.getChars().get(x1,y1)){
                 if(state.getChars().get(x,y)->getTypeId()!=2){}
                 else{
@@ -37,8 +38,9 @@ namespace engine{
                                  if(m->getJ()!=m1->getJ()){
                                      attaque(m,m1);
                                      if(m1->getPv()<=0){
-                                         state.getChars().destroy(x1,y1);
-                                         state.getChars().set(x1,y1,state.getChars().release(x,y));
+                                         KillAction*kill=new KillAction(x,y,x1,y1);
+                                         kill->apply(state);
+                                         s.push(kill);
                                      } //CRÉER UNEb COMMANDE KILL DANS LE ElementTab
                                  }
                                  else{}

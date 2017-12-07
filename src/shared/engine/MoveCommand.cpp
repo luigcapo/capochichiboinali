@@ -7,12 +7,14 @@
 
 #include "MoveCommand.h"
 #include "state/Terrain.h"
+#include "MoveAction.h"
 
 using namespace state;
 using namespace std;
 
 //Le lien entre la direction et le nombre de déplacement sera rajouté ultérieurement
 namespace engine {
+
 
     MoveCommand::MoveCommand(int x, int y, int x1, int y1) : x(x), y(y), x1(x1), y1(y1) {
     }
@@ -40,12 +42,23 @@ namespace engine {
                 }
             } 
             else {return 1;}   
+        }
     }
-}
-
-    void MoveCommand::execute(state::State& state) {
+    /*
+    void MoveCommand::execute(state::State& state,std::stack<Action*>& s) {
         if (trymove(state)) {
             state.getChars().set(x1, y1, state.getChars().release(x, y));
+        } else {
+            std::cout << "impossible de déplacer l'élément" << std::endl;
+        }
+    }
+    */
+    void MoveCommand::execute(state::State& state,std::stack<Action*>& s) {
+        if (trymove(state)) {
+            MoveAction *mov=new MoveAction(x,y,x1,y1);
+            mov->apply(state);
+            s.push(mov);
+            //state.getChars().set(x1, y1, state.getChars().release(x, y));
         } else {
             std::cout << "impossible de déplacer l'élément" << std::endl;
         }

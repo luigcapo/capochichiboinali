@@ -2,11 +2,13 @@
 #ifndef ENGINE__MOVECOMMAND__H
 #define ENGINE__MOVECOMMAND__H
 
+#include <stack>
 
 namespace state {
   class State;
 };
 namespace engine {
+  class Action;
   class Command;
 }
 
@@ -33,7 +35,7 @@ namespace engine {
     MoveCommand (int x, int y, int  x1, int y1);
     bool trymove (state::State& state) const;
     CommandTypeId getTypeId () const;
-    void execute (state::State& state);
+    void execute (state::State& state, std::stack<Action*>& s);
     // Setters and Getters
     int getCharacter() const;
     void setCharacter(int character);

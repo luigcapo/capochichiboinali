@@ -2,12 +2,14 @@
 #ifndef ENGINE__ATTAQUECOMMAND__H
 #define ENGINE__ATTAQUECOMMAND__H
 
+#include <stack>
 
 namespace state {
   class Military;
   class State;
 };
 namespace engine {
+  class Action;
   class Command;
 }
 
@@ -30,7 +32,7 @@ namespace engine {
     AttaqueCommand (int x, int y, int x1, int y1);
     void attaque (state::Military* m, state::Military* m1);
     CommandTypeId getTypeId () const;
-    void execute (state::State& state);
+    void execute (state::State& state, std::stack<Action*>& s);
     // Setters and Getters
   };
 

@@ -47,11 +47,11 @@ namespace ai{
         state.getChars().set(2,9,m2);
         state.getChars().set(5.3,8.1,m1);
         eng->getState().getChars().set(3,5,m);
-        render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
+        render::TerrainLayer tMap(eng->getState().getTerrain());
         tMap.initSurface();
-        render::ElementTabLayer tGrid(eng->getState().getGrid(), 2);
+        render::GridLayer tGrid(eng->getState().getGrid());
         tGrid.initSurface();    
-        render::ElementTabLayer tChars(eng->getState().getChars(), 3);
+        render::CharsLayer tChars(eng->getState().getChars());
         tChars.initSurface();
         while (window.isOpen()){
             sf::Event event;
@@ -66,11 +66,11 @@ namespace ai{
                 if (event.type == sf::Event::Closed)
                         window.close();
             }
-            render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
+            render::TerrainLayer tMap(eng->getState().getTerrain());
             tMap.initSurface();
-            render::ElementTabLayer tGrid(eng->getState().getGrid(), 2);
+            render::GridLayer tGrid(eng->getState().getGrid());
             tGrid.initSurface();    
-            render::ElementTabLayer tChars(eng->getState().getChars(), 3);
+            render::CharsLayer tChars(eng->getState().getChars());
             tChars.initSurface();
             window.clear();
             window.draw(*(tMap.getSurface()));

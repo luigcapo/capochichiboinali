@@ -53,11 +53,11 @@ void testEngine(){
         etat.getChars().set(2,9,m2);
         etat.getChars().set(10,10,m1);
         eng->getState().getChars().set(3,5,m);
-        render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
+        render::TerrainLayer tMap(eng->getState().getTerrain());
         tMap.initSurface();
-        render::ElementTabLayer tGrid(eng->getState().getGrid(), 2);
+        render::GridLayer tGrid(eng->getState().getGrid());
         tGrid.initSurface();    
-        render::ElementTabLayer tChars(eng->getState().getChars(), 3);
+        render::CharsLayer tChars(eng->getState().getChars());
         tChars.initSurface();
         
         
@@ -110,11 +110,11 @@ void testEngine(){
                         window.close();
         }
                     
-                    render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
+                    render::TerrainLayer tMap(eng->getState().getTerrain());
                     tMap.initSurface();
-                    render::ElementTabLayer tGrid(eng->getState().getGrid(), 2);
+                    render::GridLayer tGrid(eng->getState().getGrid());
                     tGrid.initSurface();    
-                    render::ElementTabLayer tChars(eng->getState().getChars(), 3);
+                    render::CharsLayer tChars(eng->getState().getChars());
                     tChars.initSurface();
                     window.clear();
                     window.draw(*(tMap.getSurface()));
@@ -163,11 +163,11 @@ void testEngine(){
         etat.getChars().set(2,9,m2);
         etat.getChars().set(10,10,m1);
         eng->getState().getChars().set(3,5,m);
-        render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
+        render::TerrainLayer tMap(eng->getState().getTerrain());
         tMap.initSurface();
-        render::ElementTabLayer tGrid(eng->getState().getGrid(), 2);
+        render::GridLayer tGrid(eng->getState().getGrid());
         tGrid.initSurface();    
-        render::ElementTabLayer tChars(eng->getState().getChars(), 3);
+        render::CharsLayer tChars(eng->getState().getChars());
         tChars.initSurface();
         
         
@@ -229,11 +229,11 @@ void testEngine(){
             
         }
                     
-                    render::ElementTabLayer tMap(eng->getState().getTerrain(), 1);
+                    render::TerrainLayer tMap(eng->getState().getTerrain());
                     tMap.initSurface();
-                    render::ElementTabLayer tGrid(eng->getState().getGrid(), 2);
+                    render::GridLayer tGrid(eng->getState().getGrid());
                     tGrid.initSurface();    
-                    render::ElementTabLayer tChars(eng->getState().getChars(), 3);
+                    render::CharsLayer tChars(eng->getState().getChars());
                     tChars.initSurface();
                     window.clear();
                     window.draw(*(tMap.getSurface()));

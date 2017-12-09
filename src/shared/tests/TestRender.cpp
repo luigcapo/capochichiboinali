@@ -37,7 +37,7 @@ void testRender() {
     etat.getChars().set(0, 1, new state::Military(state::CATAPULT));
     etat.getChars().set(2, 3, mt);
     
-    render::ElementTabLayer tChars(etat.getChars(), 3);
+    render::CharsLayer tChars(etat.getChars());
     tChars.initSurface();
     
     // test sur la grille
@@ -47,7 +47,7 @@ void testRender() {
     etat.getGrid().set(1, 5, new state::Paysage(state::PLANTE1));
     etat.getGrid().set(2, 2, new state::Batiment(state::PYRAMID));
     
-    render::ElementTabLayer tGrid(etat.getGrid(), 2);
+    render::GridLayer tGrid(etat.getGrid());
     tGrid.initSurface();
     
     // test sur le terrain
@@ -72,7 +72,7 @@ void testRender() {
     etat.getTerrain().set(2, 4, new state::Terrain(state::PLAINE));
     etat.getTerrain().set(2, 5, new state::Terrain(state::PLAINE));
     
-    render::ElementTabLayer tMap(etat.getTerrain(), 1);
+    render::TerrainLayer tMap(etat.getTerrain());
     tMap.initSurface();      
 
     // on fait tourner la boucle principale
@@ -128,17 +128,17 @@ void testMap(){
     etat.getChars().set(2, 7, new state::Military(state::MilTypeId::CATAPULT));
     etat.getChars().set(6, 0, mt);
     
-    render::ElementTabLayer tChars(etat.getChars(), 3);
+    render::CharsLayer tChars(etat.getChars());
     tChars.initSurface();   
     
     
     etat.getTerrain().load("res/mapTestRendu_Terrain.csv", 1);
     etat.getGrid().load("res/mapTestRendu_Grid.csv", 2);   
     
-    render::ElementTabLayer tMap(etat.getTerrain(), 1);
+    render::TerrainLayer tMap(etat.getTerrain());
     tMap.initSurface();
     
-    render::ElementTabLayer tGrid(etat.getGrid(), 2);
+    render::GridLayer tGrid(etat.getGrid());
     tGrid.initSurface();
     
     

@@ -7,8 +7,10 @@
 #include "render/TileSet.h"
 #include "render/Layer.h"
 #include "render/StateLayer.h"
-#include "render/ElementTabLayer.h"
+#include "render/GridLayer.h"
 #include "render/CharsTileSet.h"
 #include "render/TerrainTileSet.h"
 #include "render/GridTileSet.h"
+#include "render/CharsLayer.h"
+#include "render/TerrainLayer.h"
 #endif

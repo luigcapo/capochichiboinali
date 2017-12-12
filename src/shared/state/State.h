@@ -7,15 +7,17 @@
 namespace state {
   class ElementTab;
   class Joueur;
+  class Observable;
 }
 
 #include "ElementTab.h"
+#include "Observable.h"
 #include "Joueur.h"
 
 namespace state {
 
   /// class State - 
-  class State {
+  class State : public state::Observable {
     // Associations
     // Attributes
   private:
@@ -26,8 +28,11 @@ namespace state {
     // Operations
   public:
     ElementTab& getGrid ();
+    const ElementTab& getGrid () const;
     ElementTab& getChars ();
+    const ElementTab& getChars () const;
     ElementTab& getTerrain ();
+    const ElementTab& getTerrain () const;
     void addJoueur (Joueur* j);
     // Setters and Getters
   };

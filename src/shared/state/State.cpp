@@ -12,12 +12,24 @@ namespace state{
         return chars;
     }
     
+    const ElementTab& State::getChars () const {
+        return chars;
+    }
+    
     ElementTab& State::getGrid() {
         return this->grid;
     }
     
+    const ElementTab& State::getGrid () const {
+        return grid;
+    }
+    
     ElementTab& State::getTerrain() {
         return this->terrain;
+    }
+    
+    const ElementTab& State::getTerrain () const {
+        return terrain;
     }
 
     void State::addJoueur(Joueur* j) {

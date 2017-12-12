@@ -14,6 +14,10 @@ namespace ai{
 
 
     RandomAI::RandomAI() { }
+    
+    void RandomAI::stateChanged(const state::Event& event) {
+        
+    }
 
     void RandomAI::run(engine::Engine& engine) {
         std::vector<Command*> list;

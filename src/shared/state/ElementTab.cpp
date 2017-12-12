@@ -49,11 +49,12 @@ namespace state{
 
     void ElementTab::set (std::size_t i, std::size_t j, Element* e) {
         list[i+j*width].reset(e);
-        
         if(e){
             e->setX(i);
             e->setY(j);
         }
+        const Event t(i,j);
+        notifyObservers(t);
     }
     
     std::size_t ElementTab::size () const{
@@ -62,11 +63,16 @@ namespace state{
     
     
     void ElementTab::resize (std::size_t width, std::size_t height) {
-        
         this->width = width;
         this->height = height;
         list.resize(width*height);
-    }   
+    }
+    
+    void ElementTab::destroy(std::size_t i, std::size_t j) {
+        list[i+j*width]=NULL;
+        const Event t(i,j);
+        notifyObservers(t);
+    }
     
     void ElementTab::load(const std::string& file, int id) {
         
@@ -85,11 +91,7 @@ namespace state{
         if( id == 1){
             for(int i = 0; i < dimX; i++)
                 for(int j = 0; j < dimY; j++){
-                
-                
-                
                     switch ( map[i+j*dimX] ) {
-                
                         case 0:
                             this->set(i, j, new Terrain(PLAINE));
                             break;
@@ -280,10 +282,5 @@ namespace state{
                 }
         }
     }   // load
-
-    void ElementTab::destroy(std::size_t i, std::size_t j) {
-        list[i+j*width]=NULL;
-    }
-   
         
 }

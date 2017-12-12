@@ -31,6 +31,7 @@ namespace ai {
     // Operations
   public:
     DeepAI (state::State& state);
+    void stateChanged (const state::Event& event);
     void run (engine::Engine& engine);
   protected:
     int minimin_rec (engine::Engine& engine, state::Direction& bestdir, int depth);

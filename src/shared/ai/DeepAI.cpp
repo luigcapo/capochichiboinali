@@ -33,7 +33,11 @@ namespace ai {
         
         return x;
     }
-    
+
+    void DeepAI::stateChanged(const state::Event& event) {
+        
+    }
+
     void DeepAI::run(engine::Engine& engine) {
         
     }

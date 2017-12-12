@@ -12,8 +12,12 @@ namespace state {
 };
 namespace engine {
   class Engine;
+};
+namespace state {
+  class Observer;
 }
 
+#include "state/Observer.h"
 #include "state/Element.h"
 #include "engine/Command.h"
 #include "engine/Engine.h"
@@ -21,10 +25,11 @@ namespace engine {
 namespace ai {
 
   /// class AI - 
-  class AI {
+  class AI : public state::Observer {
     // Operations
   public:
     void listCommands (std::vector<engine::Command*>& list, state::Element* e);
+    virtual void stateChanged (const state::Event& event) = 0;
     virtual void run  (engine::Engine& engine) = 0;
     // Setters and Getters
   };

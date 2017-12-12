@@ -69,6 +69,12 @@ namespace ai{
     const PathMap& HeuristicAI::getUnitJoueur2Map() const {
         return this->unitJoueur2Map;
     }
+    
+    void HeuristicAI::stateChanged(const state::Event& event) {
+        //int xx=event->x;
+        //int yy=event->y;
+        
+    }
 
     void HeuristicAI::run(engine::Engine& engine) { 
         /*

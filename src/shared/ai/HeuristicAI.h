@@ -39,6 +39,7 @@ namespace ai {
     const PathMap& getUnitJoueur2Map () const;
     const PathMap& getBatJoueur1Map () const;
     const PathMap& getBatJoueur2Map () const;
+    void stateChanged (const state::Event& event);
     void run (engine::Engine& engine);
     // Setters and Getters
   };

@@ -6,6 +6,7 @@
 #include "LoadCommand.h"
 #include "render/StateLayer.h"
 
+
 namespace engine{
 
     LoadCommand::LoadCommand(const std::string& mapCSV, const std::string& gridCSV) {
@@ -37,5 +38,21 @@ namespace engine{
         state.getTerrain().load(file_name_map, 1);
         state.getGrid().load(file_name_grid, 2);
     }
+    
+    void LoadCommand::serialized(Json::Value& out) const {  
+    
+        out["name_map"] = file_name_map;
+        out["name_grid"] = file_name_grid;
+    }
 
+    LoadCommand* LoadCommand::deserialized(Json::Value& out) {
+        file_name_map = out.get("name_map","").asString();
+        file_name_grid = out.get("name_grid","").asString();
+        return new LoadCommand("name_map","name_grid");
+    }
+    /*{
+        "name_grid" : "res/mapEngine.csv",
+        "name_map" : "res/mapEngine_Grid.csv",
+    }*/
+    
 }

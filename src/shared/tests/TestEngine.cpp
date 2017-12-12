@@ -17,11 +17,7 @@ using namespace engine;
 void testEngine(){
         
         /*
-         * 
-         * Epoque 1
-         * 
-         *
-         * 
+         Epoque 1
          */
         sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
         int hh = 1;
@@ -246,4 +242,12 @@ void testEngine(){
     }
 // fin testEngine
     
+void testJson(){
+    Json::Value test;
+    AttaqueCommand*att = new AttaqueCommand(1,5,6,3);
+    att->serialized(test);
+    Json::StyledWriter writer;
+    std::string output = writer.write(test);
+    std::cout<<output<<std::endl;
+}
 

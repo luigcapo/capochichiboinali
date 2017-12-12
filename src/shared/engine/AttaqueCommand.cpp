@@ -52,5 +52,21 @@ namespace engine{
                 }
     }
     }
+    void AttaqueCommand::serialized(Json::Value& out) const {
+        out["x"] = x;
+        out["y"]=y;
+        out["x1"]=x1;
+        out["y1"]=y1;
+        out["Command"]=getTypeId();
+    }
+
+    AttaqueCommand* AttaqueCommand::deserialized(Json::Value& out) {
+        x = out.get("x",0).asInt();
+        y = out.get("y",0).asInt();
+        x1 = out.get("x1",0).asInt();
+        y1 = out.get("y1",0).asInt();
+        return new AttaqueCommand(x,y,x1,y1);
+    }
+
 }
 

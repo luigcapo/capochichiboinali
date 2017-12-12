@@ -53,6 +53,9 @@ int main(int argc,char* argv[]) {
     else if (mode == "rollback"){
         testRollback();
     }
+    else if (mode == "replay"){
+        testJson();
+    }
     else{
         cout << "Mode invalide" << endl;
     }

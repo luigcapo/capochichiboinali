@@ -3,6 +3,7 @@
 #define ENGINE__ATTAQUECOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class Military;
@@ -10,6 +11,7 @@ namespace state {
 };
 namespace engine {
   class Action;
+  class AttaqueCommand;
   class Command;
 }
 
@@ -33,6 +35,8 @@ namespace engine {
     void attaque (state::Military* m, state::Military* m1);
     CommandTypeId getTypeId () const;
     void execute (state::State& state, std::stack<Action*>& s);
+    void serialized (Json::Value& out) const;
+    AttaqueCommand* deserialized (Json::Value& out);
     // Setters and Getters
   };
 

@@ -4,12 +4,14 @@
 
 #include <string>
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
 };
 namespace engine {
   class Action;
+  class LoadCommand;
   class Command;
 }
 
@@ -29,6 +31,8 @@ namespace engine {
     LoadCommand (const std::string& mapCSV, const std::string& gridCSV);
     CommandTypeId getTypeId () const;
     void execute (state::State& state, std::stack<Action*>& s);
+    void serialized (Json::Value& out) const;
+    LoadCommand* deserialized (Json::Value& out);
     // Setters and Getters
     const std::string& getFile_name_map() const;
     void setFile_name_map(const std::string& file_name_map);

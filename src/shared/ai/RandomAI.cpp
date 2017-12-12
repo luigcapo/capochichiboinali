@@ -19,8 +19,8 @@ namespace ai{
         std::vector<Command*> list;
         auto c=clock();
         int randomSeed=c;
-        for(size_t i=1;i<engine.getState().getChars().getWidth()-1;i++){
-            for(size_t j=1;j<engine.getState().getChars().getHeight()-1;j++){
+        for(size_t i=1;i<engine.getState().getChars().getWidth();i++){
+            for(size_t j=1;j<engine.getState().getChars().getHeight();j++){
                 if(engine.getState().getChars().get(i,j)){
                     listCommands(list, engine.getState().getChars().get(i,j));
                     engine.addCommand(list[randomSeed % list.size()]);

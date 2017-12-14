@@ -3,6 +3,7 @@
 #define ENGINE__ENGINE__H
 
 #include <json/json.h>
+#include <mutex>
 #include <vector>
 #include <stack>
 
@@ -26,6 +27,7 @@ namespace engine {
     // Attributes
   public:
     Json::Value record;
+    std::mutex engine_mutex;
   private:
     state::State& currentState;
     std::vector<Command*> currentCommands;

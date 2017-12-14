@@ -37,7 +37,7 @@ namespace engine {
     CommandTypeId getTypeId () const;
     void execute (state::State& state, std::stack<Action*>& s);
     void serialized (Json::Value& out) const;
-    AttaqueCommand* deserialized (Json::Value& out);
+    AttaqueCommand* deserialized (Json::Value& in);
     // Setters and Getters
   };
 

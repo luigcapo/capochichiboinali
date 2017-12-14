@@ -32,7 +32,7 @@ namespace engine {
     CommandTypeId getTypeId () const;
     void execute (state::State& state, std::stack<Action*>& s);
     void serialized (Json::Value& out) const;
-    LoadCommand* deserialized (Json::Value& out);
+    LoadCommand* deserialized (Json::Value& in);
     // Setters and Getters
     const std::string& getFile_name_map() const;
     void setFile_name_map(const std::string& file_name_map);

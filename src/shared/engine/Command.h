@@ -10,6 +10,7 @@ namespace state {
 };
 namespace engine {
   class Action;
+  class Command;
 }
 
 #include "CommandTypeId.h"
@@ -25,7 +26,8 @@ namespace engine {
     virtual ~Command ();
     virtual CommandTypeId getTypeId () const = 0;
     virtual void execute (state::State& state, std::stack<Action*>& s) = 0;
-    virtual void serialized (Json::Value& in) const = 0;
+    virtual void serialized (Json::Value& out) const = 0;
+    Command* deserialized (Json::Value& in);
     // Setters and Getters
   };
 

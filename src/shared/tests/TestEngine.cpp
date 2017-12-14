@@ -255,10 +255,10 @@ void testEngine(){
 // fin testEngine
     
 void testJson(){
-    /*Json::Value test;
+    Json::Value test;
     Json::Value test2;
     Json::Value test3;
-    AttaqueCommand*att = new AttaqueCommand(1,5,6,3);
+    AttaqueCommand*att = new AttaqueCommand(8,5,6,3);
     att->serialized(test);
     Json::StyledWriter writer;
     test2.append(test);
@@ -270,9 +270,13 @@ void testJson(){
         fichier << output << endl;
         fichier.close();
     }
-    AttaqueCommand*a =att->deserialized(test3[1][1]);
-    std::cout<<a->x<<std::endl;*/
-    Json::Value full;
+    Json::Value root;
+    std::ifstream file("./enregistrement");
+    file >> root;
+    Json::StyledWriter w;
+    AttaqueCommand*a =att->deserialized(root[0][0]);
+    std::cout<<a->x<<std::endl;
+    /*Json::Value full;
     sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
         std::cout<<"Touches"<<std::endl;
         std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
@@ -338,7 +342,8 @@ void testJson(){
         if(fichier){
             fichier << output << std::endl;
             fichier.close();
-        }
+        }*/
+        
             
 }
 

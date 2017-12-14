@@ -44,6 +44,8 @@ namespace engine {
         if (tryCreateChars(state)){
             state.getChars().set(x,y,unit);
             unit->setJ(state.getGrid().get(x,y)->getJ());
+            unit->setCombat(100);
+            unit->setPv(30);
         }
         else{}
             

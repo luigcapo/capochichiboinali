@@ -280,7 +280,7 @@ void testJson(){
     Json::Value full;
     sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
         std::cout<<"Touches"<<std::endl;
-        std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
+        std::cout<<"Mmaintenir <espace>:faire défiler  les époques"<<std::endl;
         State state;
         state.addJoueur(new Joueur(1));
         state.addJoueur(new Joueur(2));
@@ -310,6 +310,7 @@ void testJson(){
         render::CharsLayer tChars(eng->getState().getChars());
         tChars.initSurface();
         while (window.isOpen()){
+            
             sf::Event event;
             
             while (window.pollEvent(event)){
@@ -406,9 +407,7 @@ void testReplay(){
                     }
                     i++;
                 }
-            //
-            
-               
+            //  
         }
         
 }

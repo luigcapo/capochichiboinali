@@ -59,7 +59,7 @@ int main(int argc,char* argv[]) {
     else if (mode == "record"){
         testJson();
     }
-    else if (mode == "replay"){
+    else if (mode == "play"){
         testReplay();
     }
     else if (mode == "thread"){

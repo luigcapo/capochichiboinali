@@ -40,14 +40,14 @@ namespace engine{
     }
     
     void LoadCommand::serialized(Json::Value& out) const {  
-    
+        out["Command"]= getTypeId();
         out["name_map"] = file_name_map;
         out["name_grid"] = file_name_grid;
     }
 
     LoadCommand* LoadCommand::deserialized(Json::Value& in) {
-        file_name_map = in.get("name_map","").asString();
-        file_name_grid = in.get("name_grid","").asString();
+        std::string file_name_map = in.get("name_map","").asString();
+        std::string file_name_grid = in.get("name_grid","").asString();
         return new LoadCommand("name_map","name_grid");
     }
     /*{

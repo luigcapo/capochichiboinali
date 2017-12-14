@@ -255,7 +255,7 @@ void testEngine(){
 // fin testEngine
     
 void testJson(){
-    Json::Value test;
+    /*Json::Value test;
     Json::Value test2;
     Json::Value test3;
     AttaqueCommand*att = new AttaqueCommand(8,5,6,3);
@@ -264,19 +264,20 @@ void testJson(){
     test2.append(test);
     test3.append(test2);
     std::string output = writer.write(test3);
-    std::cout<<output<<std::endl;
-    std::fstream fichier("./enregistrement",ios::in|ios::app);
+    //std::cout<<output<<std::endl;
+    std::fstream fichier("./replay.txt",ios::in|ios::app);
     if(fichier){
         fichier << output << endl;
         fichier.close();
     }
     Json::Value root;
-    std::ifstream file("./enregistrement");
+    std::ifstream file("./replay.txt");
     file >> root;
     Json::StyledWriter w;
+    cout<<root[0].size()<<endl;
     AttaqueCommand*a =att->deserialized(root[0][0]);
-    std::cout<<a->x<<std::endl;
-    /*Json::Value full;
+    std::cout<<a->x<<std::endl;*/
+    Json::Value full;
     sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
         std::cout<<"Touches"<<std::endl;
         std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
@@ -298,7 +299,7 @@ void testJson(){
         engine::Engine*eng = new Engine(state);
         RandomAI randoom;
         eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
-        eng->updateReplay();
+        eng->update();
         state.getChars().set(2,9,m2);
         state.getChars().set(5.3,8.1,m1);
         eng->getState().getChars().set(3,5,m);
@@ -338,12 +339,75 @@ void testJson(){
         std::string output;
         Json::StyledWriter writer;
         output=writer.write(eng->record);
-        std::fstream fichier("./enregistrement",ios::in|ios::app);
+        std::fstream fichier("./replay.txt",ios::in|ios::app);
         if(fichier){
             fichier << output << std::endl;
             fichier.close();
-        }*/
+        }
         
             
 }
 
+void testReplay(){
+    sf::RenderWindow window(sf::VideoMode(1920, 1056),"Replay");
+    State state;
+        state.addJoueur(new Joueur(1));
+        state.addJoueur(new Joueur(2));
+        state.getChars().resize(100,100);
+        Military *m=new Military(MOUSQUETAIRE);
+        Military *m1=new Military(EPEISTE);
+        Colon *c = new Colon();
+        Military *m2= new Military(MOUSQUETAIRE);
+        Engine*eng = new Engine(state);
+        m->setJ(1);
+        m1->setJ(1);
+        m->setCombat(60);
+        m1->setCombat(60);
+        m2->setCombat(60);
+        m2->setJ(2);
+        c->setJ(1);
+        state.getChars().set(2,9,m2);
+        state.getChars().set(5.3,8.1,m1);
+        state.getChars().set(3,5,m);
+        eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
+        eng->update();
+        Json::Value root;
+        std::ifstream file("./replay.txt");
+        file >> root;
+        unsigned int i=0;
+        unsigned int j;
+        while (window.isOpen()){
+            sf::Event event;
+            
+            while (window.pollEvent(event)){
+                if (event.type == sf::Event::Closed)
+                        window.close();
+                while (i < root.size()){
+                    for (j=0;j<root[i].size();j++){
+                    
+                        Command* c;
+                        c = c->deserialized(root[i][j]);
+                        eng->addCommand(c);
+                        eng->update();
+                        render::TerrainLayer tMap(state.getTerrain());
+                        tMap.initSurface();
+                        render::GridLayer tGrid(state.getGrid());
+                        tGrid.initSurface();    
+                        render::CharsLayer tChars(state.getChars());
+                        tChars.initSurface();
+                        window.clear();
+                        window.draw(*(tMap.getSurface()));
+                        window.draw(*(tGrid.getSurface()));
+                        window.draw(*(tChars.getSurface()));
+                        window.display();
+                        
+                    
+                    }
+                    i++;
+                }
+            }
+            
+               
+        }
+        
+}

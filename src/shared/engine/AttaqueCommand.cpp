@@ -61,10 +61,10 @@ namespace engine{
     }
 
     AttaqueCommand* AttaqueCommand::deserialized(Json::Value& in) {
-        x = in.get("x",0).asInt();
-        y = in.get("y",0).asInt();
-        x1 = in.get("x1",0).asInt();
-        y1 = in.get("y1",0).asInt();
+        int x = in.get("x",0).asInt();
+        int y = in.get("y",0).asInt();
+        int x1 = in.get("x1",0).asInt();
+        int y1 = in.get("y1",0).asInt();
         return new AttaqueCommand(x,y,x1,y1);
     }
 

@@ -1,11 +1,6 @@
 #include <iostream>
 
 // Les lignes suivantes ne servent qu'à vérifier que la compilation avec SFML fonctionne
-#include <SFML/Graphics.hpp>
-
-void testSFML() {
-    sf::Texture texture;
-}
 
 // Fin test SFML
 
@@ -34,37 +29,10 @@ int main(int argc,char* argv[]) {
     if (mode == "hello"){
         cout << "Hello World !" << endl; //endl pour passer à la ligne
     }
-    else if (mode == "state"){
-        testState();
-    }
-    else if (mode == "render"){
-        //testRender();    // (Test manuel sans load)
-        testMap();  // Test avec load(CSV)
-    }
-    else if (mode == "engine"){
-        testEngine();
-    }
-    else if (mode == "random_ai"){
-        testRandomAI();
-    }
-    else if (mode == "heuristic_ai"){
-        cout << "Mode indisponible" << endl;
-    }
-    else if (mode == "rollback"){
-        testRollback();
-    }
-    else if (mode == "deep_ai"){
-        cout << "Mode indisponible" << endl;
-    }
-    else if (mode == "replay"){
-        testJson();
-    }
     else if (mode == "record"){
-        testReplay();
+        //testState();
     }
-    else if (mode == "thread"){
-        testThread();
-    }
+
     else{
         cout << "Mode invalide" << endl;
     }

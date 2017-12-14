@@ -39,7 +39,7 @@ namespace engine {
     CommandTypeId getTypeId () const;
     void execute (state::State& state, std::stack<Action*>& s);
     void serialized (Json::Value& out) const;
-    MoveCommand* deserialized (Json::Value& in);
+    static MoveCommand* deserialized (Json::Value& in);
     // Setters and Getters
     int getCharacter() const;
     void setCharacter(int character);

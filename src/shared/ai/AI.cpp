@@ -10,6 +10,8 @@
 #include "engine/FondationCommand.h"
 #include "engine/MoveCommand.h"
 #include "engine/AttaqueCommand.h"
+#include "state/Batiment.h"
+#include "engine/CreateCombatCommand.h"
 using namespace state;
 using namespace engine;
 
@@ -47,6 +49,15 @@ namespace ai{
                         list.push_back(new AttaqueCommand(i,j,i+1,j-1));
                         list.push_back(new AttaqueCommand(i,j,i,j-1));
                         list.push_back(new AttaqueCommand(i,j,i-1,j-1));
+                    }
+                    else if(e->getTypeId()==4){
+                        Batiment*b = (Batiment*) e;
+                        if(b->getBatimentTypeId()== 6){
+                            list.push_back(new CreateCombatCommand(MilTypeId::CATAPULT,i,j));
+                            list.push_back(new CreateCombatCommand(MilTypeId::EPEISTE,i,j));
+                            list.push_back(new CreateCombatCommand(MilTypeId::MITRAILLEUR,i,j));
+                            list.push_back(new CreateCombatCommand(MilTypeId::MOUSQUETAIRE,i,j));
+                        } 
                     }
                     else{}
     }

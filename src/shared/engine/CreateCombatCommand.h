@@ -36,7 +36,7 @@ namespace engine {
     ~CreateCombatCommand ();
     CommandTypeId getTypeId () const;
     void serialized (Json::Value& out) const;
-    CreateCombatCommand* deserialized (Json::Value& in);
+    static CreateCombatCommand* deserialized (Json::Value& in);
     // Setters and Getters
   };
 

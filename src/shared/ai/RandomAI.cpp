@@ -23,14 +23,19 @@ namespace ai{
         std::vector<Command*> list;
         auto c=clock();
         int randomSeed=c;
-        for(size_t i=1;i<engine.getState().getChars().getWidth();i++){
-            for(size_t j=1;j<engine.getState().getChars().getHeight();j++){
+        for(size_t i=0;i<engine.getState().getTerrain().getWidth();i++){
+            for(size_t j=0;j<engine.getState().getTerrain().getHeight();j++){
                 if(engine.getState().getChars().get(i,j)){
                     listCommands(list, engine.getState().getChars().get(i,j));
                     engine.addCommand(list[randomSeed % list.size()]);
-                    engine.update();
-                    list.clear();
+                    
                 }
+                if(engine.getState().getGrid().get(i,j)){
+                    listCommands(list, engine.getState().getGrid().get(i,j));
+                    engine.addCommand(list[randomSeed % list.size()]);
+                }
+                engine.update();
+                list.clear();
             }
         }   
     }
@@ -38,8 +43,8 @@ namespace ai{
         std::vector<Command*> list;
         auto c=clock();
         int randomSeed=c;
-        for(size_t i=1;i<engine.getState().getChars().getWidth();i++){
-            for(size_t j=1;j<engine.getState().getChars().getHeight();j++){
+        for(size_t i=0;i<engine.getState().getChars().getWidth();i++){
+            for(size_t j=0;j<engine.getState().getChars().getHeight();j++){
                 if(engine.getState().getChars().get(i,j)){
                     listCommands(list, engine.getState().getChars().get(i,j));
                     engine.addCommand(list[randomSeed % list.size()]);

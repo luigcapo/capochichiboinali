@@ -2,6 +2,7 @@
 #ifndef ENGINE__ENGINE__H
 #define ENGINE__ENGINE__H
 
+#include <json/json.h>
 #include <vector>
 #include <stack>
 
@@ -23,6 +24,8 @@ namespace engine {
   class Engine : public engine::Observable {
     // Associations
     // Attributes
+  public:
+    Json::Value record;
   private:
     state::State& currentState;
     std::vector<Command*> currentCommands;
@@ -36,6 +39,7 @@ namespace engine {
     std::stack<Action*> update ();
     void executeCom (Command* c);
     void undo (std::stack<Action*>& actions);
+    std::stack<Action*> updateReplay ();
     // Setters and Getters
   };
 

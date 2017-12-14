@@ -3,6 +3,7 @@
 #define ENGINE__COMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class State;
@@ -24,6 +25,7 @@ namespace engine {
     virtual ~Command ();
     virtual CommandTypeId getTypeId () const = 0;
     virtual void execute (state::State& state, std::stack<Action*>& s) = 0;
+    virtual void serialized (Json::Value& out) const = 0;
     // Setters and Getters
   };
 

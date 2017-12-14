@@ -9,7 +9,8 @@ namespace engine {
     LOAD     = 1,
     MOVE     = 2,
     ATTAQUE     = 3,
-    FONDA     = 4
+    FONDA     = 4,
+    CREATE     = 5
   };
 
 };

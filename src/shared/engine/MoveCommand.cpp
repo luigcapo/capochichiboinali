@@ -68,6 +68,11 @@ namespace engine {
     CommandTypeId MoveCommand::getTypeId() const {
         return CommandTypeId::MOVE;
     }
+
+    void MoveCommand::serialized(Json::Value& out) const {
+
+    }
+
 }
 
 

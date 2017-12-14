@@ -32,6 +32,11 @@ namespace engine {
                 
             }
     }
+    void FondationCommand::serialized(Json::Value& out) const {
+
+    }
+
+
 
     
 }

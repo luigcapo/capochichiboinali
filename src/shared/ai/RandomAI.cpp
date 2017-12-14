@@ -28,7 +28,7 @@ namespace ai{
                 if(engine.getState().getChars().get(i,j)){
                     listCommands(list, engine.getState().getChars().get(i,j));
                     engine.addCommand(list[randomSeed % list.size()]);
-                    engine.update();
+                    engine.updateReplay();
                     list.clear();
                 }
             }

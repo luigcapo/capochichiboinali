@@ -13,6 +13,7 @@ namespace state {
   class Military;
 }
 
+#include "state/MilTypeId.h"
 #include "Action.h"
 #include "state/Military.h"
 
@@ -41,8 +42,8 @@ namespace engine {
     void setX1(int x1);
     int getY1() const;
     void setY1(int y1);
-    const state::MilTypeId& getTmp() const;
-    void setTmp(const state::MilTypeId& tmp);
+    state::MilTypeId getTmp() const;
+    void setTmp(state::MilTypeId tmp);
   };
 
 };

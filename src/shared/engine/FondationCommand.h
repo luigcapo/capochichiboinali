@@ -3,6 +3,7 @@
 #define ENGINE__FONDATIONCOMMAND__H
 
 #include <stack>
+#include <json/json.h>
 
 namespace state {
   class Colon;
@@ -26,6 +27,7 @@ namespace engine {
     void fonda (state::Colon* c);
     CommandTypeId getTypeId () const;
     void execute (state::State& state, std::stack<Action*>& s);
+    void serialized (Json::Value& out) const;
     // Setters and Getters
   };
 

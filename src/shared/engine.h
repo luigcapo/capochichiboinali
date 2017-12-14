@@ -15,4 +15,5 @@
 #include "engine/AttaqueAction.h"
 #include "engine/MoveAction.h"
 #include "engine/KillAction.h"
+#include "engine/CreateCombatCommand.h"
 #endif

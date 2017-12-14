@@ -5,8 +5,10 @@
  */
 
 #include <iostream>
-
+#include <fstream>
 #include "Engine.h"
+
+using namespace std;
 
 namespace engine {
     Engine::Engine(state::State& state):currentState(state) {
@@ -52,4 +54,27 @@ namespace engine {
         //c->execute(currentState);
     }
 
+    std::stack<Action*> Engine::updateReplay() {
+        std::stack<Action*> actions;
+        Json::Value record1;
+        
+        for(auto command : currentCommands){
+            Json::Value record2;
+            
+            command->serialized(record2);
+            command->execute(currentState,actions);
+            record1.append(record2);
+        }
+        currentCommands.clear();
+        record.append(record1);
+        std::string output;
+        Json::StyledWriter writer;
+        output=writer.write(record);
+        std::fstream fichier("./enregistrement",ios::in|ios::app);
+        if(fichier){
+            fichier << output << std::endl;
+            fichier.close();
+        }
+        return actions;
+    }
 }

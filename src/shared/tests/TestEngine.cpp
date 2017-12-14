@@ -5,14 +5,17 @@
  */
 
 #include "TestEngine.h"
+#include "ai.h"
 #include "state.h"
 #include <SFML/Graphics.hpp>
 #include "render.h"
 #include <memory>
 #include <string>
+#include <fstream>
 
 using namespace state;
 using namespace engine;
+using namespace ai;
      
 void testEngine(){
         
@@ -31,8 +34,8 @@ void testEngine(){
         Military *m1=new Military(EPEISTE);
         Colon *c = new Colon();
         Military *m2= new Military(MOUSQUETAIRE);
-        //Batiment *b=new Batiment(WATER_MILL);
-        //Batiment *bb=new Batiment(WATER_MILL);
+        Batiment *bat=new Batiment(GRANARY);
+        bat->setJ(1);
         m->setJ(1);
         m1->setJ(1);
         m1->setCombat(60);
@@ -40,12 +43,13 @@ void testEngine(){
         c->setJ(1);
         //bb->setJ(1);
         
-        //etat.getChars().set(7,7,b);
+        //
         //etat.getChars().set(5,4,c);
         //std::cout << "crée le moteur à partir de l'état" << std::endl;
         Engine*eng = new Engine(etat);
         eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
         eng->update();
+        etat.getGrid().set(18,2,bat);
         etat.getChars().set(2,9,m2);
         etat.getChars().set(10,10,m1);
         eng->getState().getChars().set(3,5,m);
@@ -77,8 +81,14 @@ void testEngine(){
                         else{ std::cout << "Problème sur la commande" << std::endl; }
                     
                     }
-                    
                     else if(hh==2){
+                        std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
+                        std::cout << "ajoute de nouvelle commande d'attaque" << std::endl;
+                        eng->addCommand(new CreateCombatCommand(MilTypeId::MOUSQUETAIRE,18,2));
+                        //eng->addCommand(new MoveCommand(18,2,5,1));
+                        eng->update();
+                    }
+                    else if(hh==3){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
                         
                         std::cout << "ajoute de nouvelle commande d'attaque" << std::endl;
@@ -88,7 +98,7 @@ void testEngine(){
                         if (m2->getPv()<100){ std::cout << "OK" << std::endl; }
                         else{ std::cout << "Problème sur la commande" << std::endl; }
                     }
-                    else if(hh==3){
+                    else if(hh==4){
                         std::cout << " *** Epoque"<<hh<<"***"<< std::endl;
                         std::cout << "ajoute de nouvelle commande d'attaque" << std::endl;
                         eng->addCommand(new AttaqueCommand(10,10,2,9));
@@ -97,6 +107,8 @@ void testEngine(){
                         if (m2->getPv()<40){ std::cout << "OK" << std::endl; }
                         else{ std::cout << "Problème sur la commande" << std::endl; }
                     }
+                    
+                    
                     
                     hh++;
                     
@@ -244,10 +256,78 @@ void testEngine(){
     
 void testJson(){
     Json::Value test;
+    Json::Value test2;
+    Json::Value test3;
     AttaqueCommand*att = new AttaqueCommand(1,5,6,3);
     att->serialized(test);
     Json::StyledWriter writer;
-    std::string output = writer.write(test);
+    test2.append(test);
+    test3.append(test2);
+    std::string output = writer.write(test3);
     std::cout<<output<<std::endl;
+    std::fstream fichier("./enregistrement",ios::in|ios::app);
+    if(fichier){
+        fichier << output << endl;
+        fichier.close();
+    }
+    AttaqueCommand*a =att->deserialized(test3[1][1]);
+    std::cout<<a->x<<std::endl;
+    
+    /*sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
+        std::cout<<"Touches"<<std::endl;
+        std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
+        State state;
+        state.addJoueur(new Joueur(1));
+        state.addJoueur(new Joueur(2));
+        state.getChars().resize(100,100);
+        Military *m=new Military(MOUSQUETAIRE);
+        Military *m1=new Military(EPEISTE);
+        Colon *c = new Colon();
+        Military *m2= new Military(MOUSQUETAIRE);
+        m->setJ(1);
+        m1->setJ(1);
+        m->setCombat(60);
+        m1->setCombat(60);
+        m2->setCombat(60);
+        m2->setJ(2);
+        c->setJ(1);
+        engine::Engine*eng = new Engine(state);
+        RandomAI randoom;
+        eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
+        eng->updateReplay();
+        state.getChars().set(2,9,m2);
+        state.getChars().set(5.3,8.1,m1);
+        eng->getState().getChars().set(3,5,m);
+        render::TerrainLayer tMap(eng->getState().getTerrain());
+        tMap.initSurface();
+        render::GridLayer tGrid(eng->getState().getGrid());
+        tGrid.initSurface();    
+        render::CharsLayer tChars(eng->getState().getChars());
+        tChars.initSurface();
+        while (window.isOpen()){
+            sf::Event event;
+            
+            while (window.pollEvent(event)){
+                if (event.type == sf::Event::KeyPressed){
+                
+                    if (event.key.code == sf::Keyboard::Space){
+                        randoom.run(*eng);
+                    }
+                }
+                if (event.type == sf::Event::Closed)
+                        window.close();
+            }
+            render::TerrainLayer tMap(eng->getState().getTerrain());
+            tMap.initSurface();
+            render::GridLayer tGrid(eng->getState().getGrid());
+            tGrid.initSurface();    
+            render::CharsLayer tChars(eng->getState().getChars());
+            tChars.initSurface();
+            window.clear();
+            window.draw(*(tMap.getSurface()));
+            window.draw(*(tGrid.getSurface()));
+            window.draw(*(tChars.getSurface()));
+            window.display();    
+            }*/
 }
 

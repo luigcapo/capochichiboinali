@@ -38,7 +38,7 @@ namespace engine {
     bool trymove (state::State& state) const;
     CommandTypeId getTypeId () const;
     void execute (state::State& state, std::stack<Action*>& s);
-    void const serialized (Json::Value& out);
+    void serialized (Json::Value& out) const;
     MoveCommand* deserialized (Json::Value& out);
     // Setters and Getters
     int getCharacter() const;

@@ -273,7 +273,7 @@ void testJson(){
     AttaqueCommand*a =att->deserialized(test3[1][1]);
     std::cout<<a->x<<std::endl;
     
-    /*sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
+    sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
         std::cout<<"Touches"<<std::endl;
         std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
         State state;
@@ -328,6 +328,6 @@ void testJson(){
             window.draw(*(tGrid.getSurface()));
             window.draw(*(tChars.getSurface()));
             window.display();    
-            }*/
+        }
 }
 

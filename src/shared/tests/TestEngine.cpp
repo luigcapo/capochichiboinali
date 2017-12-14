@@ -382,6 +382,7 @@ void testReplay(){
             while (window.pollEvent(event)){
                 if (event.type == sf::Event::Closed)
                         window.close();
+            }
                 while (i < root.size()){
                     for (j=0;j<root[i].size();j++){
                     
@@ -405,7 +406,7 @@ void testReplay(){
                     }
                     i++;
                 }
-            }
+            //
             
                
         }

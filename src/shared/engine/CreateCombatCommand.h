@@ -11,6 +11,7 @@ namespace state {
 };
 namespace engine {
   class Action;
+  class CreateCombatCommand;
   class Command;
 }
 
@@ -35,6 +36,7 @@ namespace engine {
     ~CreateCombatCommand ();
     CommandTypeId getTypeId () const;
     void serialized (Json::Value& out) const;
+    CreateCombatCommand* deserialized (Json::Value& in);
     // Setters and Getters
   };
 

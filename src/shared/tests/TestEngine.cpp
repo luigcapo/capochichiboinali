@@ -255,7 +255,7 @@ void testEngine(){
 // fin testEngine
     
 void testJson(){
-    Json::Value test;
+    /*Json::Value test;
     Json::Value test2;
     Json::Value test3;
     AttaqueCommand*att = new AttaqueCommand(1,5,6,3);
@@ -271,8 +271,8 @@ void testJson(){
         fichier.close();
     }
     AttaqueCommand*a =att->deserialized(test3[1][1]);
-    std::cout<<a->x<<std::endl;
-    
+    std::cout<<a->x<<std::endl;*/
+    Json::Value full;
     sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Engine");
         std::cout<<"Touches"<<std::endl;
         std::cout<<"  <espace>:passer à l'époque suivante"<<std::endl;
@@ -311,12 +311,14 @@ void testJson(){
                 if (event.type == sf::Event::KeyPressed){
                 
                     if (event.key.code == sf::Keyboard::Space){
-                        randoom.run(*eng);
+                        randoom.runReplay(*eng);
                     }
                 }
                 if (event.type == sf::Event::Closed)
                         window.close();
             }
+            
+            
             render::TerrainLayer tMap(eng->getState().getTerrain());
             tMap.initSurface();
             render::GridLayer tGrid(eng->getState().getGrid());
@@ -329,5 +331,14 @@ void testJson(){
             window.draw(*(tChars.getSurface()));
             window.display();    
         }
+        std::string output;
+        Json::StyledWriter writer;
+        output=writer.write(eng->record);
+        std::fstream fichier("./enregistrement",ios::in|ios::app);
+        if(fichier){
+            fichier << output << std::endl;
+            fichier.close();
+        }
+            
 }
 

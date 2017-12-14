@@ -25,6 +25,7 @@ namespace ai {
     RandomAI ();
     void stateChanged (const state::Event& event);
     void run  (engine::Engine& engine);
+    void runReplay (engine::Engine& engine);
     // Setters and Getters
   };
 

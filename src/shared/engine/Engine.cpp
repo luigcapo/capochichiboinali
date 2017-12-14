@@ -60,21 +60,14 @@ namespace engine {
         
         for(auto command : currentCommands){
             Json::Value record2;
-            
             command->serialized(record2);
             command->execute(currentState,actions);
             record1.append(record2);
+            
         }
+        
         currentCommands.clear();
         record.append(record1);
-        std::string output;
-        Json::StyledWriter writer;
-        output=writer.write(record);
-        std::fstream fichier("./enregistrement",ios::in|ios::app);
-        if(fichier){
-            fichier << output << std::endl;
-            fichier.close();
-        }
         return actions;
     }
 }

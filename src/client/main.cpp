@@ -48,13 +48,19 @@ int main(int argc,char* argv[]) {
         testRandomAI();
     }
     else if (mode == "heuristic_ai"){
-        
+        cout << "Mode indisponible" << endl;
     }
     else if (mode == "rollback"){
         testRollback();
     }
+    else if (mode == "deep_ai"){
+        cout << "Mode indisponible" << endl;
+    }
     else if (mode == "replay"){
         testJson();
+    }
+    else if (mode == "thread"){
+        testThread();
     }
     else{
         cout << "Mode invalide" << endl;

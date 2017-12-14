@@ -23,6 +23,7 @@ using namespace engine;
 
 namespace ai{
     void testRandomAI();
+    void testThread();
 }
 
 

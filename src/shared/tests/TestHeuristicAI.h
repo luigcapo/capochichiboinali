@@ -13,9 +13,6 @@
 
 #ifndef TESTHEURISTICAI_H
 #define TESTHEURISTICAI_H
-#include "state.h"
-#include "ai.h"
-#include "engine.h"
 
 void testHeuristicAI();
 

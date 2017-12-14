@@ -16,7 +16,7 @@ namespace state{
         cout << "   rollback: teste le retour en arrière" << endl;
         cout << "   deep_ai: teste l'IA avancée" << endl;
         cout << "   replay: affiche un enregistrement" << endl;
-        //cout << "   thread: teste l'exécution du moteur dans un thread" << endl;
+        cout << "   thread: teste l'exécution du moteur dans un thread" << endl;
         //cout << "   network [<url serveur>] [<port>]: teste le jeu en mode réseau" << endl;
     }
     

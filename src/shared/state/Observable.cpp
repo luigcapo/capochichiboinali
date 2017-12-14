@@ -6,13 +6,14 @@
 
 #include "Observable.h"
 #include <algorithm>
+#include <iterator>
 
 namespace state{
     Observable::~Observable() {
-        /*for(std::vector<Observer*>::iterator it=observers.begin(); it!=observers.end(); ++it) {
+        for(std::vector<Observer*>::iterator it=observers.begin(); it!=observers.end(); ++it) {
             //delete (*it);
-            (*it)->unregisterObserver(this);
-        }*/
+            this->unregisterObserver((*it));
+        }
     }
 
     void Observable::registerObserver(Observer* o) const {

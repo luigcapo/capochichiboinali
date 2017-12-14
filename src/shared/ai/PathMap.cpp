@@ -11,6 +11,8 @@
 
 namespace ai{
 
+    const int infinity = std::numeric_limits<int>::max();
+    
     static const std::vector<state::Direction> directions{
             state::Direction::EAST, state::Direction::NORTH,
             state::Direction::WEST, state::Direction::SOUTH_WEST,
@@ -28,7 +30,7 @@ namespace ai{
             return weights[p.getX() + p.getY()*width];
         }
         else {
-            return std::numeric_limits<int>::infinity();
+            return infinity;
         }
     }
     
@@ -49,7 +51,7 @@ namespace ai{
         
         this->weights.clear();
         // On redimmensionne la liste et on initialise ses éléments avec l'infini
-        this->weights.resize(this->width*this->height, std::numeric_limits<int>::infinity());
+        this->weights.resize(this->width*this->height, infinity);
     }
     
     Point PathMap::getWeightMin(int x, int y) const {
@@ -70,7 +72,7 @@ namespace ai{
         for(state::Direction d: directions){
             auto pp = p.transform(d);
             if(weights[pp.getX()+pp.getY()*width] > weights[max.getX()+max.getY()*width] ){
-                if(weights[pp.getX()+pp.getY()*width] != std::numeric_limits<int>::infinity()){
+                if(weights[pp.getX()+pp.getY()*width] != infinity){
                     max = pp;
                 }
             }

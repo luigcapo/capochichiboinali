@@ -28,14 +28,14 @@ namespace ai{
                 if(engine.getState().getChars().get(i,j)){
                     listCommands(list, engine.getState().getChars().get(i,j));
                     engine.addCommand(list[randomSeed % list.size()]);
-                    
+                    engine.update();
+                    list.clear();
                 }
-                if(engine.getState().getGrid().get(i,j)){
+                /*if(engine.getState().getGrid().get(i,j)){
                     listCommands(list, engine.getState().getGrid().get(i,j));
                     engine.addCommand(list[randomSeed % list.size()]);
-                }
-                engine.update();
-                list.clear();
+                }*/
+                
             }
         }   
     }

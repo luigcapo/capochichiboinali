@@ -56,10 +56,10 @@ int main(int argc,char* argv[]) {
     else if (mode == "deep_ai"){
         cout << "Mode indisponible" << endl;
     }
-    else if (mode == "replay"){
+    else if (mode == "record"){
         testJson();
     }
-    else if (mode == "record"){
+    else if (mode == "replay"){
         testReplay();
     }
     else if (mode == "thread"){

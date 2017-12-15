@@ -340,7 +340,7 @@ void testJson(){
         std::string output;
         Json::StyledWriter writer;
         output=writer.write(eng->record);
-        std::fstream fichier("./replay.txt",ios::in|ios::app);
+        std::fstream fichier("res/replay.txt",ios::in|ios::app);
         if(fichier){
             fichier << output << std::endl;
             fichier.close();
@@ -373,7 +373,7 @@ void testReplay(){
         eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
         eng->update();
         Json::Value root;
-        std::ifstream file("./replay.txt");
+        std::ifstream file("res/replay.txt");
         file >> root;
         unsigned int i=0;
         unsigned int j;

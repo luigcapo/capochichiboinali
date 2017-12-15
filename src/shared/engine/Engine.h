@@ -13,10 +13,16 @@ namespace state {
 namespace engine {
   class Command;
   class Action;
+};
+namespace ai {
+  class AI;
+};
+namespace engine {
   class Observable;
 }
 
 #include "Observable.h"
+#include "ai/AI.h"
 #include "Command.h"
 
 namespace engine {
@@ -27,12 +33,15 @@ namespace engine {
     // Attributes
   public:
     Json::Value record;
-    std::mutex engine_mutex;
   private:
     state::State& currentState;
+    std::mutex engine_mutex;
+  protected:
     std::vector<Command*> currentCommands;
+    bool run_randomAI     = true;
     // Operations
   public:
+    Engine ();
     Engine (state::State& state);
     ~Engine ();
     state::State& getState () const;
@@ -42,7 +51,12 @@ namespace engine {
     void executeCom (Command* c);
     void undo (std::stack<Action*>& actions);
     std::stack<Action*> updateReplay ();
+    void runThread (ai::AI* random);
     // Setters and Getters
+    const std::vector<Command*>& getCurrentCommands() const;
+    void setCurrentCommands(const std::vector<Command*>& currentCommands);
+    bool getRun_randomAI() const;
+    void setRun_randomAI(bool run_randomAI);
   };
 
 };

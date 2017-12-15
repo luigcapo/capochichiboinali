@@ -7,10 +7,15 @@
 #include <iostream>
 #include <fstream>
 #include "Engine.h"
+#include "state/State.h"
+#include <thread>
+#include "unistd.h"
+#include <iostream>
 
 using namespace std;
 
-namespace engine {
+namespace engine { 
+
     Engine::Engine(state::State& state):currentState(state) {
 
     }
@@ -23,6 +28,25 @@ namespace engine {
         }
     }
 
+    void Engine::runThread (ai::AI* random) {
+        std::lock_guard<std::mutex> l(engine_mutex);
+        while(1){
+            if(run_randomAI == true){
+                random->run(*this);
+                run_randomAI=false;
+            }
+        }
+    }
+
+    bool Engine::getRun_randomAI() const {
+        std::lock_guard<std::mutex> l(std::mutex);
+        return this->run_randomAI;
+    }
+
+    void Engine::setRun_randomAI(bool run_randomAI) {
+        std::lock_guard<std::mutex> l(std::mutex);
+        this->run_randomAI = run_randomAI;
+    }
 
     Engine::~Engine() {
         for (auto command:currentCommands){delete command;}

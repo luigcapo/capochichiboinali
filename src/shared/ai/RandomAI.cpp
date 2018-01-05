@@ -21,12 +21,13 @@ namespace ai{
 
     void RandomAI::run(engine::Engine& engine) {
         std::vector<Command*> list;
-        auto c=clock();
-        auto cc=clock();
-        int randomSeed=c;
-        int randoomSeed=cc;
+        
         for(size_t i=0;i<engine.getState().getTerrain().getWidth();i++){
             for(size_t j=0;j<engine.getState().getTerrain().getHeight();j++){
+                auto c=clock();
+                auto cc=clock();
+                int randomSeed=c;
+                int randoomSeed=cc;
                 if(engine.getState().getChars().get(i,j)){
                     listCommands(list, engine.getState().getChars().get(i,j));
                     engine.addCommand(list[randomSeed % list.size()]);

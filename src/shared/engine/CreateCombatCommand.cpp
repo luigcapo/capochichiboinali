@@ -23,7 +23,6 @@ namespace engine {
         delete unit;
     }
     bool CreateCombatCommand::tryCreateChars(state::State& state) const{
-        std::cout<<state.getGrid().get(x,y)->getTypeId()<<std::endl;
         if(state.getGrid().get(x,y)){
             if(state.getGrid().get(x,y)->getTypeId()== 4){
                 Batiment* b=(Batiment*) state.getGrid().get(x,y);
@@ -41,7 +40,11 @@ namespace engine {
     }
 
     void CreateCombatCommand::execute(state::State& state, std::stack<Action*>& s) {
+        int num;
         if (tryCreateChars(state)){
+            num=state.getNumber();
+            num++;
+            state.setNumber(num);
             state.getChars().set(x,y,unit);
             unit->setJ(state.getGrid().get(x,y)->getJ());
             unit->setCombat(100);

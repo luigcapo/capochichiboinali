@@ -25,15 +25,18 @@ namespace state {
     ElementTab grid;
     ElementTab chars;
     std::vector<Joueur*> listJoueur;
+    int number;
     // Operations
   public:
     ElementTab& getGrid ();
     const ElementTab& getGrid () const;
+    int getNumber () const;
     ElementTab& getChars ();
     const ElementTab& getChars () const;
     ElementTab& getTerrain ();
     const ElementTab& getTerrain () const;
     void addJoueur (Joueur* j);
+    void setNumber (int n);
     // Setters and Getters
   };
 

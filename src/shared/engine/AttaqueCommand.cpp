@@ -27,6 +27,7 @@ namespace engine{
     
 
     void AttaqueCommand::execute(state::State& state,std::stack<Action*>& s) {
+        int num;
         if(state.getChars().get(x,y)&& state.getChars().get(x1,y1)){
                 if(state.getChars().get(x,y)->getTypeId()!=2){}
                 else{
@@ -42,6 +43,9 @@ namespace engine{
                                      s.push(att);
                                      //attaque(m,m1);
                                      if(m1->getPv()<=0){
+                                         num=state.getNumber();
+                                         num=num-1;
+                                         state.setNumber(num);
                                          KillAction*kill=new KillAction(x,y,x1,y1);
                                          kill->apply(state);
                                          s.push(kill);

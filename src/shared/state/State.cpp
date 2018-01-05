@@ -36,4 +36,14 @@ namespace state{
         listJoueur.push_back(j);
     }
 
+    int State::getNumber() const{
+        return number;
+    }
+
+    void State::setNumber(int n) {
+        number = n;
+    }
+
+
+
 }

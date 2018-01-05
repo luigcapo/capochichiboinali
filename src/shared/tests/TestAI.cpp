@@ -35,6 +35,8 @@ namespace ai{
         Military *m1=new Military(EPEISTE);
         Colon *c = new Colon();
         Military *m2= new Military(MOUSQUETAIRE);
+        Batiment *b=new Batiment(state::BatimentTypeId::GRANARY);
+        Batiment *bb=new Batiment(state::BatimentTypeId::GRANARY);
         m->setJ(1);
         m1->setJ(1);
         m->setCombat(60);
@@ -42,12 +44,16 @@ namespace ai{
         m2->setCombat(60);
         m2->setJ(2);
         c->setJ(1);
+        b->setJ(1);
+        bb->setJ(2);
         engine::Engine*eng = new Engine(state);
         RandomAI randoom;
         eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
         eng->update();
         state.getChars().set(2,9,m2);
         state.getChars().set(5.3,8.1,m1);
+        state.getGrid().set(0,9,b);
+        state.getGrid().set(9,0,bb);
         eng->getState().getChars().set(3,5,m);
         render::TerrainLayer tMap(eng->getState().getTerrain());
         tMap.initSurface();
@@ -63,6 +69,7 @@ namespace ai{
                 
                     if (event.key.code == sf::Keyboard::Space){
                         randoom.run(*eng);
+                        cout<<"number:" << state.getNumber()<<endl;
                     }
                 }
                 if (event.type == sf::Event::Closed)

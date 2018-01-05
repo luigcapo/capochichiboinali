@@ -21,6 +21,9 @@ namespace engine {
 
   /// class Command - 
   class Command {
+    // Attributes
+  protected:
+    static int number;
     // Operations
   public:
     virtual ~Command ();

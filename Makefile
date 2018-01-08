@@ -23,6 +23,7 @@ configure:
 
 build: bin/client 
 
+
 bin/client:
 	@make -s -j4 -C build client
 

@@ -33,28 +33,29 @@ namespace engine{
                 else{
 
                     Military* m=(Military*) state.getChars().get(x,y);
+                    //std::cout<<"on a"<< state.getChars().get(x1,y1)<<std::endl;
                             if(state.getChars().get(x1,y1)->getTypeId()!=2){}
                             else{
-                                 Military*m1=(Military*) state.getChars().get(x1,y1);
-                                 //if (m->getX()+1==m1->getX()||m->getY()+1==m1->getY()||m->getX()-1==m1->getX()||m->getY()-1==m1->getY()){
-                                 if(m->getJ()!=m1->getJ()){
-                                     AttaqueAction*att=new AttaqueAction(m,m1);
-                                     att->apply(state);
-                                     s.push(att);
-                                     //attaque(m,m1);
-                                     if(m1->getPv()<=0){
-                                         num=state.getNumber();
-                                         num=num-1;
-                                         state.setNumber(num);
-                                         KillAction*kill=new KillAction(x,y,x1,y1);
-                                         kill->apply(state);
-                                         s.push(kill);
-                                     } //CRÉER UNEb COMMANDE KILL DANS LE ElementTab
-                                 }
-                                 else{}
-                           }
+                                Military*m1=(Military*) state.getChars().get(x1,y1);
+                                //if (m->getX()+1==m1->getX()||m->getY()+1==m1->getY()||m->getX()-1==m1->getX()||m->getY()-1==m1->getY()){
+                                if(m->getJ()!=m1->getJ()){
+                                    AttaqueAction*att=new AttaqueAction(m,m1);
+                                    att->apply(state);
+                                    s.push(att);
+                                    //attaque(m,m1);0
+                                    if(m1->getPv()<=0){
+                                        num=state.getNumber();
+                                        num=num-1;
+                                        state.setNumber(num);
+                                        KillAction*kill=new KillAction(x,y,x1,y1);
+                                        kill->apply(state);
+                                        s.push(kill);
+                                    }
+                                }
+                                else{}
+                            }
                 }
-    }
+        }
     }
     void AttaqueCommand::serialized(Json::Value& out) const {
         out["x"] = x;
@@ -64,7 +65,7 @@ namespace engine{
         out["Command"]=getTypeId();
     }
 
-    AttaqueCommand* AttaqueCommand::deserialized(Json::Value& in) {
+    AttaqueCommand* AttaqueCommand::deserialized(Json::Value& in){
         int x = in.get("x",0).asInt();
         int y = in.get("y",0).asInt();
         int x1 = in.get("x1",0).asInt();

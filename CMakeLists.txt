@@ -33,7 +33,7 @@ exec_program(${DIA2CODE} ARGS -ns client -d ../src/client -t cpp ../src/module.d
 
 # Sources
 file(GLOB_RECURSE client_sources src/client/*.cpp)
-#file(GLOB_RECURSE server_sources src/server/*.cpp)
+file(GLOB_RECURSE server_sources src/server/*.cpp)
 file(GLOB_RECURSE shared_sources src/shared/*.cpp)
 
 
@@ -44,7 +44,7 @@ file(GLOB_RECURSE jsoncpp_sources extern/jsoncpp-1.8.0/*.cpp)
 
 # Executables
 add_executable(client ${client_sources} ${shared_sources} ${jsoncpp_sources})
-#add_executable(server ${server_sources} ${shared_sources} ${jsoncpp_sources})
+add_executable(server ${server_sources})
 
 # SFML
 if(WIN32)

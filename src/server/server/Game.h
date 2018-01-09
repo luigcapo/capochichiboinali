@@ -22,8 +22,9 @@ namespace server {
   public:
     Game ();
     Player& player (int i);
+    std::vector<Player> getPlayer () const;
     // Setters and Getters
-    std::vector<Player>& getPlayers() const;
+    const std::vector<Player>& getPlayers() const;
     void setPlayers(const std::vector<Player>& players);
   };
 

@@ -8,6 +8,6 @@
 #include "server/Player.h"
 #include "server/VersionService.h"
 #include "server/Game.h"
-#include "server/SeviceException.h"
+#include "server/ServiceException.h"
 #include "server/PlayerService.h"
 #endif

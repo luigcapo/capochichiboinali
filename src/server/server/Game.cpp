@@ -18,7 +18,7 @@ namespace server {
         return players[i];
     }
 
-    const std::vector<Player>& Game::getPlayers() const {
+    std::vector<Player>& Game::getPlayers() const {
         return players;
     }
 

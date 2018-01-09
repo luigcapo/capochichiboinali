@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
+#include <iostream>
+
 #include "ServicesManager.h"
+#include "ServiceException.h"
 
 using namespace std;
 
@@ -52,14 +55,14 @@ namespace server {
         }
         // Traite les différentes méthodes
         if (method == "GET") {
-            cerr << "Requête GET " << pattern << " avec id=" << id << endl;
+            std::cerr << "Requête GET " << pattern << " avec id=" << id << std::endl;
             Json::Value jsonOut;
             HttpStatus status = service->get(jsonOut,id);
             out = jsonOut.toStyledString();
             return status;
         }
         else if (method == "POST") {
-            cerr << "Requête POST " << pattern << " avec contenu: " << in << endl;
+            std::cerr << "Requête POST " << pattern << " avec contenu: " << in << std::endl;
             Json::Reader jsonReader;
             Json::Value jsonIn;
             if (!jsonReader.parse(in,jsonIn))
@@ -67,7 +70,7 @@ namespace server {
             return service->post(jsonIn,id);
         }
         else if (method == "PUT") {
-            cerr << "Requête PUT " << pattern << " avec contenu: " << in << endl;
+            std::cerr << "Requête PUT " << pattern << " avec contenu: " << in << std::endl;
             Json::Reader jsonReader;
             Json::Value jsonIn;
             if (!jsonReader.parse(in,jsonIn))
@@ -78,7 +81,7 @@ namespace server {
             return status;
         }
         else if (method == "DELETE") {
-            cerr << "Requête DELETE" << endl;
+            std::cerr << "Requête DELETE" << std::endl;
             return service->remove(id);
         }
         throw ServiceException(HttpStatus::BAD_REQUEST,"Méthode "+method+" invalide");

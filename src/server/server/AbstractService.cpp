@@ -5,6 +5,7 @@
  */
 
 #include "AbstractService.h"
+#include "ServiceException.h"
 
 namespace server {
 

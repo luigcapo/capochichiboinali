@@ -5,10 +5,11 @@
  */
 
 #include "VersionService.h"
+#include "ServiceException.h"
 
 namespace server {
 
-    VersionService::VersionService() {
+    VersionService::VersionService():AbstractService("/Version") {
         
     }
 

@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+#include <stdexcept>
+
 #include "Game.h"
 
 namespace server {
@@ -13,14 +15,20 @@ namespace server {
     }
 
     Player& Game::player(int i) {
-        
+        return players[i];
     }
 
     const std::vector<Player>& Game::getPlayers() const {
-        
+        return players;
     }
 
     void Game::setPlayers(const std::vector<Player>& players) {
+        int j;
+        if(this->players.size()!=players.size())
+            throw std::logic_error("Taille incomptatible");
+        for (j=0;j<this->players.size();j++){
+            this->players[j]=players[j];
+        }
         
     }
 

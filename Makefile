@@ -2,7 +2,7 @@
 
 HEADERS:=$(shell find src -type f -name '*.h')
 
-all: | clean extern configure build
+all: | clean extern configure build bin/server
 
 clean:
 	@rm -rf bin build

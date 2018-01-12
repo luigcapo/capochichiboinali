@@ -12,6 +12,8 @@
 #include <memory>
 #include <string>
 #include <SFML/Window/../System/Time.hpp>
+#include <thread>
+#include "unistd.h"
 
 using namespace std;
 using namespace state;
@@ -22,47 +24,7 @@ using namespace ai;
 namespace client {
 
     Client::Client() {
-        // On charge la map
-        /*engine.addCommand(new engine::LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
-        engine.update();
         
-        // On ajoute 2 joueurs à l'état
-        engine.getState().addJoueur(new Joueur(1));
-        engine.getState().addJoueur(new Joueur(2));
-        
-        // On redimensionne la liste des personnnages pour correspondre à la taille de la map
-        engine.getState().getChars().resize(30,30);
-        
-        // Création des unités
-        Military *m11=new Military(MOUSQUETAIRE);
-        Military *m12=new Military(EPEISTE);
-        Military *m21= new Military(MITRAILLEUR);
-        Military *m22= new Military(MOUSQUETAIRE);
-        Colon *c1 = new Colon();
-        Colon *c2 = new Colon();
-        
-        // On fixe les propriétés des unités
-        c1->setJ(1);
-        c1->setDirection(state::Direction::EAST);
-        c2->setJ(2);
-        m11->setJ(1);
-        m11->setDirection(state::Direction::SOUTH);
-        m12->setJ(1);
-        m21->setJ(2);
-        m21->setDirection(state::Direction::NORTH_EAST);
-        m22->setJ(2);
-        m11->setCombat(50);
-        m12->setCombat(60);
-        m21->setCombat(60);
-        m22->setCombat(50);
-        
-        // Ajout des unités à l'état
-        engine.getState().getChars().set(2,8,c1);
-        engine.getState().getChars().set(15,9,m11);
-        engine.getState().getChars().set(19,7,m12);
-        engine.getState().getChars().set(15,1,c2);
-        engine.getState().getChars().set(10,3,m21);
-        engine.getState().getChars().set(3,5,m22);*/
     }
 
     void Client::engineUpated() {
@@ -74,50 +36,82 @@ namespace client {
     }
 
     void Client::run() {
-        sf::RenderWindow window(sf::VideoMode(1920, 1056),"Test Thread");
+        sf::RenderWindow window(sf::VideoMode(768, 768),"Client");
         
-        /*render::TerrainLayer tMap(engine.getState().getTerrain());
-        render::GridLayer tGrid(engine.getState().getGrid());
-        render::CharsLayer tChars(engine.getState().getChars());
+        /* On crée notre état */
+        State state;
+        state.getChars().resize(17,17);
+        
+        /* On ajoute 2 joueurs */
+        state.addJoueur(new Joueur(1));
+        state.addJoueur(new Joueur(2));
+        
+        Military *m=new Military(MOUSQUETAIRE);
+        Military *m1=new Military(EPEISTE);
+        Colon *c1 = new Colon();
+        Colon *c2 = new Colon();
+        Military *m2= new Military(MOUSQUETAIRE);
+        m->setJ(1);
+        m1->setJ(1);
+        m->setCombat(60);
+        m1->setCombat(60);
+        m2->setCombat(60);
+        m2->setJ(2);
+        c1->setJ(1);
+        c2->setJ(2);
+        state.getChars().set(2,9,m2);
+        state.getChars().set(3,8,m1);
+        state.getChars().set(3,5,m);
+        state.getChars().set(10,3,c1);
+        state.getChars().set(15,4,c2);
+        
+        /* On crée une IA aléatoire */
+        AI *random;
+        random = new RandomAI();
+        
+        /* On crée notre moteur de jeu */
+        engine::Engine *eng = new Engine(state);
+        eng->addCommand(new LoadCommand("res/mapEngine.csv", "res/mapEngine_Grid.csv"));
+        eng->update();  // On charge la map
+
+        /* On crée et on lance le thread secondaire pour le moteur de jeu */
+        thread th(&Engine::runThread, eng, random);
+        
+        /* Configuration du rendu */
+        render::TerrainLayer tMap(eng->getState().getTerrain());
         tMap.initSurface();
+        render::GridLayer tGrid(eng->getState().getGrid());
         tGrid.initSurface();
+        render::CharsLayer tChars(eng->getState().getChars());
         tChars.initSurface();
         
-        // Création thread pour le moteur du jeu
-        //thread th();
-        
-        sf::Clock clock;
-        //float time = 1.f;
+        std::cout << "Touches :" << std::endl;
+        std::cout << "    <espace> : passer à l'époque suivante" << std::endl;
         
         while (window.isOpen()){
             sf::Event event;
-            //sf::Time time_elapsed = clock.getElapsedTime();
-            float x = clock.getElapsedTime().asSeconds();
-            //cout << x << endl;
             while (window.pollEvent(event)){
-                if (x>1.f){
-                    clock.restart();
-                    random.run(engine);
-                    //tChars.initSurface();
-                    //time+=1.f;
-                    
-                }
-                if (event.type == sf::Event::Closed)
+                if (event.type == sf::Event::Closed){
                     window.close();
+                }
+                else if (event.key.code == sf::Keyboard::Space){
+                    eng->setRun_randomAI(true);
+                }
             }
-            render::TerrainLayer tMap(engine.getState().getTerrain());
-            tMap.initSurface();
-            render::GridLayer tGrid(engine.getState().getGrid());
-            tGrid.initSurface();
-            render::CharsLayer tChars(engine.getState().getChars());
-            tChars.initSurface();
-            window.clear();
-            window.draw(*(tMap.getSurface()));
-            window.draw(*(tGrid.getSurface()));
-            window.draw(*(tChars.getSurface()));
-            window.display();
-        }*/
+                render::TerrainLayer tMap(eng->getState().getTerrain());
+                tMap.initSurface();
+                render::GridLayer tGrid(eng->getState().getGrid());
+                tGrid.initSurface();
+                render::CharsLayer tChars(eng->getState().getChars());
+                tChars.initSurface();
+                window.clear();
+                window.draw(*(tMap.getSurface()));
+                window.draw(*(tGrid.getSurface()));
+                window.draw(*(tChars.getSurface()));
+                window.display();
+        }
         
+        th.join();
     }
 
 }

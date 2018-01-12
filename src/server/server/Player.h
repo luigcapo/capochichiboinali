@@ -12,6 +12,9 @@ namespace server {
   public:
     std::string name;
     bool free     = true;
+    // Operations
+  public:
+    Player (std::string name, bool free = true);
     // Setters and Getters
   };
 

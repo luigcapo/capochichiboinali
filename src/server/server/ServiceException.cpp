@@ -5,6 +5,7 @@
  */
 
 #include "ServiceException.h"
+#include <stdexcept>
 
 namespace server {
 

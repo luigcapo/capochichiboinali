@@ -2,12 +2,14 @@
 #ifndef SERVER__GAME__H
 #define SERVER__GAME__H
 
-#include <vector>
+#include <map>
+#include <memory>
 
 namespace server {
   class Player;
 }
 
+#include "GameStatus.h"
 #include "Player.h"
 
 namespace server {
@@ -15,17 +17,28 @@ namespace server {
   /// class Game - 
   class Game {
     // Associations
+    server::GameStatus gameStatus;
     // Attributes
   protected:
-    std::vector<Player> players;
+    int idseq;
+    std::map<int,std::unique_ptr<Player> > players;
+    GameStatus status     = WAITING;
     // Operations
   public:
     Game ();
-    Player& player (int i);
-    std::vector<Player> getPlayer () const;
+    const Player* getPlayer (int id) const;
+    int addPlayer (std::unique_ptr<Player> player);
+    void setPlayer (int id, std::unique_ptr<Player> player);
+    void removePlayer (int id);
     // Setters and Getters
-    const std::vector<Player>& getPlayers() const;
-    void setPlayers(const std::vector<Player>& players);
+    GameStatus getGameStatus() const;
+    void setGameStatus(GameStatus gameStatus);
+    int getIdseq() const;
+    void setIdseq(int idseq);
+    const std::map<int,std::unique_ptr<Player> >& getPlayers() const;
+    void setPlayers(const std::map<int,std::unique_ptr<Player> >& players);
+    GameStatus getStatus() const;
+    void setStatus(GameStatus status);
   };
 
 };

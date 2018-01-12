@@ -4,32 +4,40 @@
  * and open the template in the editor.
  */
 
-#include <stdexcept>
-
 #include "Game.h"
+#include <stdexcept>
 
 namespace server {
 
-    Game::Game() {
+    Game::Game() : idseq(1) {
         
     }
 
-    Player& Game::player(int i) {
-        return players[i];
+    const Player* Game::getPlayer(int id) const {
+        auto ite = players.find(id);
+        if (ite == players.cend())
+            return nullptr;
+        return ite->second.get();
     }
 
-    std::vector<Player> Game::getPlayer() const {
-        return players;
+    int Game::addPlayer(std::unique_ptr<Player> player) {
+        int id = idseq++;
+        players.insert(std::make_pair(id,std::move(player)));
+        return id;
     }
 
-    void Game::setPlayers(const std::vector<Player>& players) {
-        int j;
-        if(this->players.size()!=players.size())
-            throw std::logic_error("Taille incomptatible");
-        for (j=0;j<this->players.size();j++){
-            this->players[j]=players[j];
+    void Game::setPlayer(int id, std::unique_ptr<Player> player) {
+        players[id] = std::move(player);
+        if (id > idseq) {
+            idseq = id;
         }
-        
+    }
+
+    void Game::removePlayer(int id) {
+        auto ite = players.find(id);
+        if (ite == players.end())
+            return;
+        players.erase(ite);
     }
 
 }

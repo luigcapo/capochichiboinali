@@ -9,56 +9,51 @@
 #include "PlayerService.h"
 #include "ServiceException.h"
 
+template<class T,typename ... Args>
+std::unique_ptr<T> make_unique(Args ... args) {
+    return std::unique_ptr<T>(new T(args ...));
+}
+
 namespace server {
 
-    PlayerService::PlayerService(Game& game):AbstractService("/player"),game(game) {}
-
+    PlayerService::PlayerService(Game& game) : AbstractService("/player"),game(game) {}
+    
     HttpStatus PlayerService::get(Json::Value& out, int id) const {
-        const Player player = game.player(id);
-        if (!(&(game.player(id))))
+        const Player* player = game.getPlayer(id);
+        if (!player)
             throw ServiceException(HttpStatus::NOT_FOUND,"Invalid user id");
-        else if(id<0)
-            throw ServiceException(HttpStatus::NOT_FOUND,"Invalid user id");
-        out["name"]=player.name;
-        out["free"]=player.free;
+        out["name"] = player->name;
+        out["free"] = player->free;
         return HttpStatus::OK;
     }
 
     HttpStatus PlayerService::post(const Json::Value& in, int id) {
-        const Player player = game.player(id);
-        if(!&(game.player(id)))
+        const Player* player = game.getPlayer(id);
+        if (!player)
             throw ServiceException(HttpStatus::NOT_FOUND,"Invalid user id");
-        Player playermod;
-        if(in.isMember("name"))
-            playermod.name=in["name"].asString();
-        if(in.isMember("free"))
-            playermod.free=in["free"].asBool();
-        std::vector<Player> p=game.getPlayer();
-        p[id]= playermod;
-        game.setPlayers(p);
+        std::unique_ptr<Player> playermod (new Player(*player));
+        if (in.isMember("name")) {
+            playermod->name = in["name"].asString();
+        }
+        if (in.isMember("free")) {
+            playermod->free = in["free"].asInt();
+        }
+        game.setPlayer(id,std::move(playermod));
         return HttpStatus::NO_CONTENT;
     }
 
     HttpStatus PlayerService::put(Json::Value& out, const Json::Value& in) {
-        Player playerone;
-        std::string name=in["name"].asString();
-        bool free = in["free"].asBool();
-        playerone.free=free;
-        playerone.name=name;
-        //if plus de place out f ressource
-        auto id = game.getPlayer().end();
-        int ide =game.getPlayer().size();
-        if (ide>2)
-            throw ServiceException(HttpStatus::OUT_OF_RESOURCES,"No more place");
-        game.getPlayer().insert(id,playerone);
-        out["id"]=ide;
+        std::string name = in["name"].asString();
+        bool free = in["free"].asInt();
+        out["id"] = game.addPlayer(make_unique<Player>(name,free));
         return HttpStatus::CREATED;
     }
 
     HttpStatus PlayerService::remove(int id) {
-        if(!&(game.player(id)))
+        const Player* player = game.getPlayer(id);
+        if (!player)
             throw ServiceException(HttpStatus::NOT_FOUND,"Invalid user id");
-        game.getPlayer().erase(game.getPlayer().begin()+id);
+        game.removePlayer(id);
         return HttpStatus::NO_CONTENT;
     }
 

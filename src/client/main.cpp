@@ -15,6 +15,7 @@ void testSFML() {
 #include "tests/TestEngine.h"
 #include "tests/TestRender.h"
 #include "tests/TestAI.h"
+#include "tests/TestServer.h"
 
 
 using namespace std;
@@ -64,6 +65,17 @@ int main(int argc,char* argv[]) {
     }
     else if (mode == "thread"){
         testThread();
+    }
+    else if (mode == "network"){
+        cout << "Connexion au serveur..." << endl;
+        if(argc != 4){
+            cout << "Usage: ./bin/client network [port] [nom du joueur]" << endl;
+            return 2;
+        }
+        int port = atoi(argv[2]);
+        string name = argv[3];
+        
+        testServer(port,name);
     }
     else{
         cout << "Mode invalide" << endl;

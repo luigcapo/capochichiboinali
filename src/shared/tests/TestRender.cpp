@@ -121,12 +121,18 @@ void testMap(){
     
     state::Military* mt = new state::Military(state::MilTypeId::MITRAILLEUR);
     mt->setOrientation(state::Direction::NORTH_EAST);
+    mt->setJ(1);
     
-    etat.getChars().set(3, 1, msq);
+    state::Colon* c = new state::Colon();
+    c->setJ(1);
+    c->setOrientation(state::Direction::EAST);
+    
+    etat.getChars().set(5, 1, msq);
     etat.getChars().set(1, 1, ep);
     etat.getChars().set(4, 3, new state::Colon());
     etat.getChars().set(2, 7, new state::Military(state::MilTypeId::CATAPULT));
     etat.getChars().set(6, 0, mt);
+    etat.getChars().set(9, 6, c);
     
     render::CharsLayer tChars(etat.getChars());
     tChars.initSurface();   

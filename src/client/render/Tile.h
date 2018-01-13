@@ -9,7 +9,7 @@ namespace render {
   class Tile {
     // Attributes
   protected:
-    int x     = 672;
+    int x     = 0;
     int y     = 0;
     int width     = 96;
     int height     = 96;

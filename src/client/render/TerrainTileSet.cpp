@@ -10,12 +10,13 @@
 namespace render {
 
     TerrainTileSet::TerrainTileSet() {
-        
+        terrain.push_back(Tile(0, 0, 96, 96)); terrain.push_back(Tile(96, 0, 96, 96));
+        terrain.push_back(Tile(192, 0, 96, 96)); terrain.push_back(Tile(288, 0, 96, 96));
+        terrain.push_back(Tile(384, 0, 96, 96));
     }
 
-
     int TerrainTileSet::getCellHeight() const {
-        return 768;
+        return 480;
     }
     int TerrainTileSet::getCellWidth() const {
         return 96;
@@ -39,13 +40,13 @@ namespace render {
                 state::Terrain* t = (state::Terrain*)&e;
                 
                 if(t->getTerrainTypeId() == state::PLAINE)
-                    return *( new Tile(0, 0, 96, 96) );
+                    return terrain[0];
                 else if(t->getTerrainTypeId() == state::DESERT)
-                    return *( new Tile(96, 0, 96, 96) );
+                    return terrain[1];
                 else if(t->getTerrainTypeId() == state::NEIGE)
-                    return *( new Tile(192, 0, 96, 96) );
+                    return terrain[2];
                 else // MOUNTAIN
-                    return *( new Tile(384, 0, 96, 96) );
+                    return terrain[4];
             } 
         }
         return *(new Tile);

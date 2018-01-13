@@ -10,13 +10,10 @@
 namespace render{
 
     CharsTileSet::CharsTileSet() {
-        /*
-         * 
-         * military.push_back(Tile(0,100,10,10));military.push_back(Tile(30,100,10,10));millitary.push_back(Tile(60,100,10,10)); 
-         * colon.push_back(Tile(80,100,10,10));
-         * catapult.push_back(Tile(100,100,15,15));
-         * 
-         */
+        for (int i=0;i<10;i++){
+            for (int j=0;j<8;j++)
+                unit.push_back(Tile(j*96,i*96,96,96));
+        }
     }
 
     const std::string CharsTileSet::getImageFile() const {
@@ -28,141 +25,239 @@ namespace render{
     }
     
     int CharsTileSet::getCellHeight() const {
-        return 480;
+        return 960;
     }  
     
     const Tile& CharsTileSet::getTile(const state::Element& e) const {
         
         if( e.isStatic() )
-            return *( new Tile(0, 0, 0, 0) );
-        
+            return *(new Tile);
         else{
-            
-            // COLON
+            /* COLON */
             if( e.getTypeId() == state::TypeId::COLON ){
-                
                 state::Colon* c = (state::Colon*)&e;
-                //delete
+                state::Direction d = c->getOrientation();
+                int j = c->getJ();
+                j = j%2;
                 
-                if( c->getOrientation() == state::Direction::NONE)
-                    return *( new Tile(0, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::WEST)
-                    return *( new Tile(0, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::NORTH_WEST)
-                    return *( new Tile(96, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::NORTH)
-                    return *( new Tile(192, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::NORTH_EAST)
-                    return *( new Tile(288, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::EAST)
-                    return *( new Tile(384, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::SOUTH_EAST)
-                    return *( new Tile(480, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::SOUTH)
-                    return *( new Tile(576, 0, 96, 96) );
-                else if( c->getOrientation() == state::Direction::SOUTH_WEST)
-                    return *( new Tile(672, 0, 96, 96) );
+                switch(j){
+                    case 0:
+                        switch(d){
+                            case state::Direction::NORTH_WEST:
+                                return unit[1];
+                            case state::Direction::NORTH:
+                                return unit[2];
+                            case state::Direction::NORTH_EAST:
+                                return unit[3];
+                            case state::Direction::EAST:
+                                return unit[4];
+                            case state::Direction::SOUTH_EAST:
+                                return unit[5];
+                            case state::Direction::SOUTH:
+                                return unit[6];
+                            case state::Direction::SOUTH_WEST:
+                                return unit[7];
+                            default: /* WEST & NONE*/
+                                return unit[0];
+                        }
+                    case 1:
+                        switch(d){
+                            case state::Direction::NORTH_WEST:
+                                return unit[41];
+                            case state::Direction::NORTH:
+                                return unit[42];
+                            case state::Direction::NORTH_EAST:
+                                return unit[43];
+                            case state::Direction::EAST:
+                                return unit[44];
+                            case state::Direction::SOUTH_EAST:
+                                return unit[55];
+                            case state::Direction::SOUTH:
+                                return unit[46];
+                            case state::Direction::SOUTH_WEST:
+                                return unit[47];
+                            default: /* WEST & NONE*/
+                                return unit[40];
+                        }
+                } /* switch joueur */
             }
             
-            // MILITARY
+            /* MILITARY */
             else if( e.getTypeId() == state::TypeId::MILITARY ){
                 
                 state::Military* m = (state::Military*)&e; 
+                state::Direction d = m->getOrientation();
+                state::MilTypeId r = m->getMilTypeId();
                 
-                if( m->getMilTypeId() == state::MilTypeId::EPEISTE ){
-                    
-                    if( m->getOrientation() == state::Direction::NONE)
-                        return *( new Tile(0, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::WEST)
-                        return *( new Tile(0, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH_WEST)
-                        return *( new Tile(96, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH)
-                        return *( new Tile(192, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH_EAST)
-                        return *( new Tile(288, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::EAST)
-                        return *( new Tile(384, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH_EAST)
-                        return *( new Tile(480, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH)
-                        return *( new Tile(576, 96, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH_WEST)
-                        return *( new Tile(672, 96, 96, 96) );
-                }
-                    
-                else if( m->getMilTypeId() == state::MilTypeId::MITRAILLEUR ){
-                    
-                    if( m->getOrientation() == state::Direction::NONE)
-                        return *( new Tile(0, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::WEST)
-                        return *( new Tile(0, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH_WEST)
-                        return *( new Tile(96, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH)
-                        return *( new Tile(192, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH_EAST)
-                        return *( new Tile(288, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::EAST)
-                        return *( new Tile(384, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH_EAST)
-                        return *( new Tile(480, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH)
-                        return *( new Tile(576, 192, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH_WEST)
-                        return *( new Tile(672, 192, 96, 96) );
-                }
+                int j = m->getJ();
+                j = j%2;
                 
-                else if( m->getMilTypeId() == state::MilTypeId::CATAPULT ){
-                
-                if( m->getOrientation() == state::Direction::NONE)
-                    return *( new Tile(0, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::WEST)
-                    return *( new Tile(0, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::NORTH_WEST)
-                    return *( new Tile(96, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::NORTH)
-                    return *( new Tile(192, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::NORTH_EAST)
-                    return *( new Tile(288, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::EAST)
-                    return *( new Tile(384, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::SOUTH_EAST)
-                    return *( new Tile(480, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::SOUTH)
-                    return *( new Tile(576, 384, 96, 96) );
-                else if( m->getOrientation() == state::Direction::SOUTH_WEST)
-                    return *( new Tile(672, 384, 96, 96) );
-                }
-                
-                // MOUSQUETAIRE
-                else{
-                    if( m->getOrientation() == state::Direction::NONE)
-                        return *( new Tile(0, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::WEST)
-                        return *( new Tile(0, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH_WEST)
-                        return *( new Tile(96, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH)
-                        return *( new Tile(192, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::NORTH_EAST)
-                        return *( new Tile(288, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::EAST)
-                        return *( new Tile(384, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH_EAST)
-                        return *( new Tile(480, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH)
-                        return *( new Tile(576, 288, 96, 96) );
-                    else if( m->getOrientation() == state::Direction::SOUTH_WEST)
-                        return *( new Tile(672, 288, 96, 96) );
-                }
+                switch(j){
+                    case 0:
+                        switch(r){
+                            case state::MilTypeId::EPEISTE:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[9];
+                                    case state::Direction::NORTH:
+                                        return unit[10];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[11];
+                                    case state::Direction::EAST:
+                                        return unit[12];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[13];
+                                    case state::Direction::SOUTH:
+                                        return unit[14];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[15];
+                                    default: /* WEST & NONE*/
+                                        return unit[8];
+                                } /* switch Direction */
+                            case state::MilTypeId::MITRAILLEUR:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[17];
+                                    case state::Direction::NORTH:
+                                        return unit[18];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[19];
+                                    case state::Direction::EAST:
+                                        return unit[20];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[21];
+                                    case state::Direction::SOUTH:
+                                        return unit[22];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[23];
+                                    default: /* WEST & NONE*/
+                                        return unit[16];
+                                } /* switch Direction */
+                            case state::MilTypeId::MOUSQUETAIRE:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[25];
+                                    case state::Direction::NORTH:
+                                        return unit[26];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[27];
+                                    case state::Direction::EAST:
+                                        return unit[28];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[29];
+                                    case state::Direction::SOUTH:
+                                        return unit[30];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[31];
+                                    default: /* WEST & NONE*/
+                                        return unit[24];
+                                } /* switch Direction */
+                            case state::MilTypeId::CATAPULT:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[33];
+                                    case state::Direction::NORTH:
+                                        return unit[34];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[35];
+                                    case state::Direction::EAST:
+                                        return unit[36];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[37];
+                                    case state::Direction::SOUTH:
+                                        return unit[38];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[39];
+                                    default: /* WEST & NONE*/
+                                        return unit[32];
+                                } /* switch Direction */
+                            default:
+                                return *(new Tile);
+                        } /* switch MilTypeId */
+                    case 1:
+                        switch(r){
+                            case state::MilTypeId::EPEISTE:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[49];
+                                    case state::Direction::NORTH:
+                                        return unit[50];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[51];
+                                    case state::Direction::EAST:
+                                        return unit[52];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[53];
+                                    case state::Direction::SOUTH:
+                                        return unit[54];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[55];
+                                    default: /* WEST & NONE*/
+                                        return unit[48];
+                                } /* switch Direction */
+                            case state::MilTypeId::MITRAILLEUR:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[57];
+                                    case state::Direction::NORTH:
+                                        return unit[58];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[59];
+                                    case state::Direction::EAST:
+                                        return unit[60];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[61];
+                                    case state::Direction::SOUTH:
+                                        return unit[62];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[63];
+                                    default: /* WEST & NONE*/
+                                        return unit[56];
+                                } /* switch Direction */
+                            case state::MilTypeId::CATAPULT:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[65];
+                                    case state::Direction::NORTH:
+                                        return unit[66];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[67];
+                                    case state::Direction::EAST:
+                                        return unit[68];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[69];
+                                    case state::Direction::SOUTH:
+                                        return unit[70];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[71];
+                                    default: /* WEST & NONE*/
+                                        return unit[64];
+                                } /* switch Direction */
+                            case state::MilTypeId::MOUSQUETAIRE:
+                                switch(d){
+                                    case state::Direction::NORTH_WEST:
+                                        return unit[73];
+                                    case state::Direction::NORTH:
+                                        return unit[74];
+                                    case state::Direction::NORTH_EAST:
+                                        return unit[75];
+                                    case state::Direction::EAST:
+                                        return unit[76];
+                                    case state::Direction::SOUTH_EAST:
+                                        return unit[77];
+                                    case state::Direction::SOUTH:
+                                        return unit[78];
+                                    case state::Direction::SOUTH_WEST:
+                                        return unit[79];
+                                    default: /* WEST & NONE*/
+                                        return unit[72];
+                                } /* switch Direction */
+                            default:
+                                return *(new Tile);
+                        } /* switch MilTypeId */
+                } /* switch joueur */
             }
-            
         }
-        return *( new Tile(0, 0, 0, 0) );
+        return *(new Tile);
     }
-
-    
-    
 }
-

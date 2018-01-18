@@ -14,10 +14,9 @@ namespace server {
     }
 
     HttpStatus VersionService::get(Json::Value& out, int id) const {
-        out["name"]= "projet";
+        out["name"]= "projet IS";
         out["free"]= true;
         return HttpStatus::OK;
-                
     }
 
 }

@@ -27,14 +27,6 @@ namespace client {
         
     }
 
-    void Client::engineUpated() {
-        
-    }
-
-    void Client::engineUpdating() {
-        
-    }
-
     void Client::run() {
         sf::RenderWindow window(sf::VideoMode(768, 768),"Client");
         

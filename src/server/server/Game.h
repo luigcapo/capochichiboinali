@@ -9,36 +9,34 @@ namespace server {
   class Player;
 }
 
-#include "GameStatus.h"
 #include "Player.h"
+#include "GameStatus.h"
 
 namespace server {
 
   /// class Game - 
   class Game {
     // Associations
-    server::GameStatus gameStatus;
+    server::GameStatus status;
     // Attributes
   protected:
     int idseq;
     std::map<int,std::unique_ptr<Player> > players;
-    GameStatus status     = WAITING;
     // Operations
   public:
     Game ();
+    void run ();
     const Player* getPlayer (int id) const;
     int addPlayer (std::unique_ptr<Player> player);
     void setPlayer (int id, std::unique_ptr<Player> player);
     void removePlayer (int id);
     // Setters and Getters
-    GameStatus getGameStatus() const;
-    void setGameStatus(GameStatus gameStatus);
+    GameStatus getStatus() const;
+    void setStatus(GameStatus status);
     int getIdseq() const;
     void setIdseq(int idseq);
     const std::map<int,std::unique_ptr<Player> >& getPlayers() const;
     void setPlayers(const std::map<int,std::unique_ptr<Player> >& players);
-    GameStatus getStatus() const;
-    void setStatus(GameStatus status);
   };
 
 };

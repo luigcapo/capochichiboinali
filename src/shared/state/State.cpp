@@ -44,6 +44,12 @@ namespace state{
         number = n;
     }
 
+    int State::getEpoch() const {
+        return epoch;
+    }
 
-
+    void State::setEpoch(int epoch) {
+        this->epoch = epoch;
+    }
+    
 }

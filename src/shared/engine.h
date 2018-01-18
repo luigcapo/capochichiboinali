@@ -9,8 +9,6 @@
 #include "engine/MoveCommand.h"
 #include "engine/AttaqueCommand.h"
 #include "engine/FondationCommand.h"
-#include "engine/Observer.h"
-#include "engine/Observable.h"
 #include "engine/Engine.h"
 #include "engine/AttaqueAction.h"
 #include "engine/MoveAction.h"

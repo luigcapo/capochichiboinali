@@ -26,6 +26,8 @@ namespace state {
     ElementTab chars;
     std::vector<Joueur*> listJoueur;
     int number;
+  protected:
+    int epoch     = 0;
     // Operations
   public:
     ElementTab& getGrid ();
@@ -38,6 +40,8 @@ namespace state {
     void addJoueur (Joueur* j);
     void setNumber (int n);
     // Setters and Getters
+    int getEpoch() const;
+    void setEpoch(int epoch);
   };
 
 };

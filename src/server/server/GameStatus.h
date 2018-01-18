@@ -6,8 +6,8 @@
 namespace server {
 
   enum GameStatus {
-    RUNNIG     = 1,
-    WAITING     = 2
+    CREATING     = 1,
+    RUNNIG     = 2
   };
 
 };

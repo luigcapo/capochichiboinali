@@ -9,10 +9,10 @@
 
 namespace server {
 
-    Game::Game() : idseq(1) {
-        
-    }
+    Game::Game() : idseq(1)  {
 
+    }
+    
     const Player* Game::getPlayer(int id) const {
         auto ite = players.find(id);
         if (ite == players.cend())

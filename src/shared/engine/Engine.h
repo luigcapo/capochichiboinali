@@ -16,19 +16,15 @@ namespace engine {
 };
 namespace ai {
   class AI;
-};
-namespace engine {
-  class Observable;
 }
 
-#include "Observable.h"
 #include "ai/AI.h"
 #include "Command.h"
 
 namespace engine {
 
   /// class Engine - 
-  class Engine : public engine::Observable {
+  class Engine {
     // Associations
     // Attributes
   public:
@@ -45,13 +41,13 @@ namespace engine {
     Engine (state::State& state);
     ~Engine ();
     state::State& getState () const;
-    void addCommand (Command* cmd);
+    virtual void addCommand (Command* cmd);
     void resize (int c);
     std::stack<Action*> update ();
     void executeCom (Command* c);
     void undo (std::stack<Action*>& actions);
     std::stack<Action*> updateReplay ();
-    void runThread (ai::AI* random);
+    virtual void runThread (ai::AI* random);
     // Setters and Getters
     const std::vector<Command*>& getCurrentCommands() const;
     void setCurrentCommands(const std::vector<Command*>& currentCommands);

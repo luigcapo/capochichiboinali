@@ -6,25 +6,25 @@
 namespace ai {
   class RandomAI;
 };
-namespace engine {
-  class Observer;
-};
 namespace render {
   class TerrainLayer;
   class CharsLayer;
   class GridLayer;
+};
+namespace engine {
+  class Engine;
 }
 
 #include "ai/RandomAI.h"
-#include "engine/Observer.h"
 #include "render/TerrainLayer.h"
 #include "render/CharsLayer.h"
 #include "render/GridLayer.h"
+#include "engine/Engine.h"
 
 namespace client {
 
   /// class Client - 
-  class Client : public engine::Observer {
+  class Client {
     // Associations
     // Attributes
   private:
@@ -33,8 +33,6 @@ namespace client {
     // Operations
   public:
     Client ();
-    void engineUpated ();
-    void engineUpdating ();
     void run ();
     // Setters and Getters
   };

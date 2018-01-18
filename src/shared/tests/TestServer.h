@@ -14,7 +14,7 @@
 
 #include "json/json.h"
 
-void testServer(int port,std::string name);
+void testServer(int port);
 
 #endif /* TESTSERVER_H */
 

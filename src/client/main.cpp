@@ -68,14 +68,14 @@ int main(int argc,char* argv[]) {
     }
     else if (mode == "network"){
         cout << "Connexion au serveur..." << endl;
-        if(argc != 4){
-            cout << "Usage: ./bin/client network [port] [nom du joueur]" << endl;
+        if(argc != 3){
+            cout << "Usage: ./bin/client network [port]" << endl;
             return 2;
         }
         int port = atoi(argv[2]);
-        string name = argv[3];
+        //string name = argv[3];
         
-        testServer(port,name);
+        testServer(port);
     }
     else{
         cout << "Mode invalide" << endl;

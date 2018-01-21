@@ -5,6 +5,7 @@
  */
 
 #include "GameService.h"
+#include "ServiceException.h"
 
 namespace server {
 
@@ -13,7 +14,11 @@ namespace server {
     }
 
     HttpStatus GameService::get(Json::Value& out, int id) const {
-        
+        const Player* player = game.getPlayer(id);
+        if (!player)
+            throw ServiceException(HttpStatus::NOT_FOUND,"Invalid player id");
+        out["GameService"]=game.getStatus();
+        return HttpStatus::OK;
     }
 
 }

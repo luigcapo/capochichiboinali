@@ -44,6 +44,11 @@ void testServer(int port){
             delete request;
             return;
         }
+        else if(response.getStatus() == 503) {
+            std::cout << "Plus de place disponible pour cette partie"<< std::endl;
+            delete request;
+            return;
+        }
         else if(response.getStatus()==sf::Http::Response::InvalidResponse){
             std::cout << "reponse invalide" << std::endl;
             delete request;
@@ -65,7 +70,6 @@ void testServer(int port){
         request->setField("Content-Type", "application/x-www-form-urlencoded");
         response_get = connection.sendRequest(*request);
         if(response_get.getStatus()==sf::Http::Response::Ok){
-            std::cout << response_get.getStatus() << std::endl;
             std::cout<<response_get.getBody()<<std::endl;
             i++;
         }

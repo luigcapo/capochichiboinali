@@ -5,6 +5,8 @@
  */
 
 #include "NetworkClient.h"
+#include <SFML/Network/Http.hpp>
+
 
 namespace client{
 
@@ -14,10 +16,24 @@ namespace client{
 
     std::string NetworkClient::getGameStatus() {
         // envoyer requete GameService
+        sf::Http connection("http://localhost", port);
+        sf::Http::Request* request=new sf::Http::Request;;
+        sf::Http::Response response;
+        Json::Value data;
+        
+        request->setUri("/Game");
+        request->setMethod(sf::Http::Request::Get);
+        response= connection.sendRequest(*request);
+        if(response.getStatus() != sf::Http::Response::Ok)
+            return "Problème serveur";
+        else
+            data["GameStatus"]=response.getBody();
+        return data["GameStatus"].asString();
     }
 
     bool NetworkClient::getServerCommands(Json::Value& out) {
         // envoyer requete CommandsService
+        return false;
     }
 
     void NetworkClient::putServerCommand(engine::Command* command) {

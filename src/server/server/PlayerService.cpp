@@ -43,7 +43,8 @@ namespace server {
     }
 
     HttpStatus PlayerService::put(Json::Value& out, const Json::Value& in) {
-        if
+        if(game.getPlayers().size()>1)
+            throw ServiceException(HttpStatus::OUT_OF_RESOURCES,"Plus de places disponibles");
         std::string name = in["name"].asString();
         bool free = in["free"].asInt();
         out["id"] = game.addPlayer(make_unique<Player>(name,free));

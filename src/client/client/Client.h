@@ -6,6 +6,9 @@
 namespace ai {
   class RandomAI;
 };
+namespace state {
+  class State;
+};
 namespace render {
   class TerrainLayer;
   class CharsLayer;
@@ -16,6 +19,7 @@ namespace engine {
 }
 
 #include "ai/RandomAI.h"
+#include "state/State.h"
 #include "render/TerrainLayer.h"
 #include "render/CharsLayer.h"
 #include "render/GridLayer.h"

@@ -66,7 +66,7 @@ int main(int argc,char* argv[]) {
     else if (mode == "thread"){
         testThread();
     }
-    else if (mode == "network"){
+    else if (mode == "network41"){
         cout << "Connexion au serveur..." << endl;
         if(argc != 3){
             cout << "Usage: ./bin/client network [port]" << endl;
@@ -76,6 +76,16 @@ int main(int argc,char* argv[]) {
         //string name = argv[3];
         
         testServer(port);
+    }
+    else if (mode == "network"){
+        cout << "Connexion au serveur..." << endl;
+        if(argc != 3){
+            cout << "Usage: ./bin/client network [port]" << endl;
+            return 2;
+        }
+        int port = atoi(argv[2]);
+        
+        testClient(port);
     }
     else{
         cout << "Mode invalide" << endl;

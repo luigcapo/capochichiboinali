@@ -41,5 +41,9 @@ namespace ai {
     void DeepAI::run(engine::Engine& engine) {
         
     }
-    
+
+    void DeepAI::runClient(engine::EngineClient& engine) {
+
+    }
+
 }

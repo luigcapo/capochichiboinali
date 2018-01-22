@@ -6,12 +6,14 @@
 
 namespace engine {
   class Engine;
+  class EngineClient;
 };
 namespace ai {
   class AI;
 }
 
 #include "AI.h"
+#include "engine/EngineClient.h"
 
 namespace ai {
 
@@ -24,8 +26,9 @@ namespace ai {
   public:
     RandomAI ();
     void stateChanged (const state::Event& event);
-    void run  (engine::Engine& engine);
+    void run (engine::Engine& engine);
     void runReplay (engine::Engine& engine);
+    void runClient (engine::EngineClient& engine);
     // Setters and Getters
   };
 

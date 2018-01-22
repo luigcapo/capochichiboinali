@@ -11,7 +11,11 @@
 #include <iostream>
 
 namespace ai{
-    
+
+    void HeuristicAI::runClient(engine::EngineClient& engine) {
+
+    }
+
     HeuristicAI::HeuristicAI (state::State& state) {
         this->batJoueur1Map.init(state);
         this->batJoueur2Map.init(state);

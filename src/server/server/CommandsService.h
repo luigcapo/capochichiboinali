@@ -9,12 +9,13 @@ namespace engine {
   class Command;
 };
 namespace server {
+  class Commande;
   class AbstractService;
 }
 
+#include "Commande.h"
 #include "HttpStatus.h"
 #include "AbstractService.h"
-#include "engine/Command.h"
 
 namespace server {
 
@@ -24,6 +25,7 @@ namespace server {
     // Attributes
   private:
     std::vector<engine::Command*> commands;
+    std::vector<Commande> commandes;
     // Operations
   public:
     CommandsService ();

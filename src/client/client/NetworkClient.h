@@ -3,17 +3,15 @@
 #define CLIENT__NETWORKCLIENT__H
 
 #include <string>
-#include <memory>
-#include <json/json.h>
 
-namespace client {
+namespace engine {
   class EngineClient;
+};
+namespace state {
+  class State;
 };
 namespace ai {
   class RandomAI;
-};
-namespace engine {
-  class Command;
 };
 namespace render {
   class GridLayer;
@@ -21,33 +19,28 @@ namespace render {
   class TerrainLayer;
 }
 
+#include "engine/EngineClient.h"
+#include "state/State.h"
 #include "ai/RandomAI.h"
 #include "render/GridLayer.h"
 #include "render/CharsLayer.h"
 #include "render/TerrainLayer.h"
-#include "engine/Command.h"
-#include "EngineClient.h"
 
 namespace client {
 
   /// class NetworkClient - 
   class NetworkClient {
-    // Associations
     // Attributes
   private:
     std::string url;
     int port;
     int character;
-    EngineClient& engine;
-    std::unique_ptr<ai::RandomAI> player_ai;
     // Operations
   public:
-    NetworkClient (EngineClient& engine, const std::string& url, int port, int character);
+    NetworkClient (const std::string& url, int port, int character);
     void run ();
   protected:
     std::string getGameStatus ();
-    bool getServerCommands (Json::Value& out);
-    void putServerCommand (engine::Command* command);
     // Setters and Getters
   };
 

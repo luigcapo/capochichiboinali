@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 
-#include <iostream>
 #include <fstream>
 #include "Engine.h"
 #include "state/State.h"
@@ -63,7 +62,6 @@ namespace engine {
     state::State& Engine::getState() const {
         return currentState;
     }
-
     
     std::stack<Action*> Engine::update() {
         std::stack<Action*> actions;
@@ -94,4 +92,5 @@ namespace engine {
         record.append(record1);
         return actions;
     }
+    
 }

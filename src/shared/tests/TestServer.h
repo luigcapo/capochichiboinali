@@ -11,10 +11,12 @@
 #include <iostream>
 #include <unistd.h>
 #include <SFML/Network/Http.hpp>
+#include "client/NetworkClient.h"
 
 #include "json/json.h"
 
 void testServer(int port);
+void testClient(int port);
 
 #endif /* TESTSERVER_H */
 

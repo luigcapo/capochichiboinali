@@ -12,6 +12,7 @@ namespace state {
 };
 namespace engine {
   class Engine;
+  class EngineClient;
 };
 namespace ai {
   class AI;
@@ -41,6 +42,7 @@ namespace ai {
     const PathMap& getBatJoueur2Map () const;
     void stateChanged (const state::Event& event);
     void run (engine::Engine& engine);
+    void runClient (engine::EngineClient& engine);
     // Setters and Getters
   };
 

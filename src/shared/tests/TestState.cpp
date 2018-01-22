@@ -18,7 +18,8 @@ namespace state{
         cout << "   record: réaliser un enregistrement" << endl;
         cout << "   play: affiche un enregistrement" << endl;
         cout << "   thread: teste l'exécution du moteur dans un thread" << endl;
-        //cout << "   network [<url serveur>] [<port>]: teste le jeu en mode réseau" << endl;
+        cout << "   network41 [<port>]: teste le jeu en mode réseau (version 4.1)" << endl;
+        cout << "   network [<port>]: teste le jeu en mode réseau" << endl;
     }
     
     void testState(){

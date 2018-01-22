@@ -8,6 +8,7 @@ namespace state {
 };
 namespace engine {
   class Engine;
+  class EngineClient;
 };
 namespace ai {
   class AI;
@@ -33,6 +34,7 @@ namespace ai {
     DeepAI (state::State& state);
     void stateChanged (const state::Event& event);
     void run (engine::Engine& engine);
+    void runClient (engine::EngineClient& engine);
   protected:
     int minimin_rec (engine::Engine& engine, state::Direction& bestdir, int depth);
     // Setters and Getters

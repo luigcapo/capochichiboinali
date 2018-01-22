@@ -9,8 +9,8 @@ namespace server {
   class Player;
 }
 
-#include "Player.h"
 #include "GameStatus.h"
+#include "Player.h"
 
 namespace server {
 
@@ -22,6 +22,7 @@ namespace server {
   protected:
     int idseq;
     std::map<int,std::unique_ptr<Player> > players;
+    GameStatus gameStatus     = CREATING;
     // Operations
   public:
     Game ();
@@ -37,6 +38,8 @@ namespace server {
     void setIdseq(int idseq);
     const std::map<int,std::unique_ptr<Player> >& getPlayers() const;
     void setPlayers(const std::map<int,std::unique_ptr<Player> >& players);
+    GameStatus getGameStatus() const;
+    void setGameStatus(GameStatus gameStatus);
   };
 
 };

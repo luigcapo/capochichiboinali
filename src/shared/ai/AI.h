@@ -12,6 +12,7 @@ namespace state {
 };
 namespace engine {
   class Engine;
+  class EngineClient;
 };
 namespace state {
   class Observer;
@@ -31,6 +32,7 @@ namespace ai {
     void listCommands (std::vector<engine::Command*>& list, state::Element* e);
     virtual void stateChanged (const state::Event& event) = 0;
     virtual void run  (engine::Engine& engine) = 0;
+    virtual void runClient (engine::EngineClient& engine) = 0;
     // Setters and Getters
   };
 

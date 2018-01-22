@@ -23,6 +23,8 @@ namespace server {
     int Game::addPlayer(std::unique_ptr<Player> player) {
         int id = idseq++;
         players.insert(std::make_pair(id,std::move(player)));
+        if(players.size() >1)
+            this->gameStatus = GameStatus::RUNNIG;
         return id;
     }
 
@@ -48,5 +50,12 @@ namespace server {
         return players;
     }
 
+    void Game::setStatus(GameStatus status) {
+        this->status = status;
+    }
+
+    void Game::run() {
+        
+    }
 
 }

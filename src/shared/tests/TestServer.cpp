@@ -8,6 +8,7 @@
 
 using namespace std;
 using namespace server;
+using namespace client;
 
 void testServer(int port){
     int i =1;
@@ -78,4 +79,12 @@ void testServer(int port){
         }
     }
     
+}
+
+
+
+
+void testClient(int port){
+    NetworkClient client("http://localhost",port,1);
+    client.run();
 }

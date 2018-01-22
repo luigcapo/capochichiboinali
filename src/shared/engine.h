@@ -14,4 +14,5 @@
 #include "engine/MoveAction.h"
 #include "engine/KillAction.h"
 #include "engine/CreateCombatCommand.h"
+#include "engine/EngineClient.h"
 #endif

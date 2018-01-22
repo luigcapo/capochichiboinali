@@ -12,5 +12,6 @@
 #include "server/ServiceException.h"
 #include "server/PlayerService.h"
 #include "server/GameService.h"
+#include "server/Commande.h"
 #include "server/CommandsService.h"
 #endif
